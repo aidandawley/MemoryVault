@@ -1,0 +1,130 @@
+.mv-carousel {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    outline: none;
+  }
+  
+  .mv-carousel__stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mv-carousel__card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 760px;
+    height: 420px;
+  
+    border-radius: 18px;
+    overflow: hidden;
+  
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+    background: rgba(12, 12, 14, 1);
+  
+    transition: transform 320ms ease, opacity 320ms ease;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .mv-carousel__card.is-active {
+    cursor: default;
+  }
+  
+  .mv-carousel__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mv-carousel__video,
+  .mv-carousel__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .mv-carousel__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.25) 35%,
+      rgba(0, 0, 0, 0.0) 70%
+    );
+    pointer-events: none;
+  }
+  
+  .mv-carousel__meta {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    color: white;
+  }
+  
+  .mv-carousel__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  }
+  
+  .mv-carousel__sub {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.85;
+    font-size: 13px;
+  }
+  
+  .mv-carousel__dot {
+    opacity: 0.7;
+  }
+  
+  .mv-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+  
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+  
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+  
+    display: grid;
+    place-items: center;
+  
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+  
+  .mv-carousel__nav--left {
+    left: 18px;
+  }
+  
+  .mv-carousel__nav--right {
+    right: 18px;
+  }
+  
+  @media (max-width: 980px) {
+    .mv-carousel {
+      height: 440px;
+    }
+  
+    .mv-carousel__card {
+      width: 86vw;
+      height: 320px;
+    }
+  }
+  
