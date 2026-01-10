@@ -1,9 +1,7 @@
 import Carousel, { type CarouselItem } from "../components/memorypage/Carousel";
 
 export default function MemoryPage() {
-<<<<<<< HEAD
-  return <></>;
-=======
+
   const featured: CarouselItem[] = [
     {
       id: "0",
@@ -37,5 +35,4 @@ export default function MemoryPage() {
       {/* Rest of your memory page content below */}
     </div>
   );
->>>>>>> 8fc6e959a954b810bbd06ab78a7f73d6281563f5
 }
