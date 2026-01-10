@@ -1,0 +1,39 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# FastAPI / Uvicorn artifacts
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy / type checker
+.mypy_cache/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
