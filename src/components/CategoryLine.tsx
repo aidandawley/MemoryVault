@@ -101,6 +101,7 @@ export default function CategoryLine({
 
       onItemDeleted?.(openItem.id);
       setOpenItem(null);
+      window.location.reload();
     } catch (e: any) {
       alert(e?.message ?? "Failed to delete item");
     } finally {
