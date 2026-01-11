@@ -45,9 +45,6 @@ app.add_middleware(
 def health():
     return {"ok": True}
 
-app.include_router(vaults.router, prefix="/api", tags=["vaults"])
-app.include_router(cards.router, prefix="/api", tags=["cards"])
-app.include_router(share.router, prefix="/api", tags=["share"])
-app.include_router(health_router, prefix="/api")
 app.include_router(api_router, prefix="/api")
-app.mount("/media", StaticFiles(directory="backend/media"), name="media")
+
+

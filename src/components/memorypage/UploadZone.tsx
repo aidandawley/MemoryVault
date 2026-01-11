@@ -19,7 +19,7 @@ export default function UploadDropzone({ onUploaded }: Props) {
       form.append("file", file);
 
       // Change URL if your backend prefix differs
-      const res = await fetch("http://127.0.0.1:8000/media/upload", {
+      const res = await fetch("http://127.0.0.1:8000/api/media/upload-video-hashtags", {
         method: "POST",
         body: form,
       });
