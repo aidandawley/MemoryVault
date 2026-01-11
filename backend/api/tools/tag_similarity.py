@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Literal
 import threading
 
 import numpy as np
@@ -37,20 +37,12 @@ def _get_embedder():
         return _embedder
 
 
-def _l2_normalize(v: np.ndarray) -> np.ndarray:
-    # v: (d,) or (n,d)
-    norm = np.linalg.norm(v, axis=-1, keepdims=True) + 1e-12
-    return v / norm
-
-
 def embed_texts(texts: List[str]) -> np.ndarray:
     """
     Returns L2-normalized embeddings as float32, shape: (n, d)
     """
     model = _get_embedder()
     emb = model.encode(texts, convert_to_numpy=True, normalize_embeddings=True)
-    # sentence-transformers normalize_embeddings=True already L2 normalizes,
-    # but we keep output stable as float32.
     return emb.astype(np.float32)
 
 
@@ -84,7 +76,6 @@ class CategoryIndex:
     """
 
     def __init__(self, categories: List[str]):
-        # Store canonical categories exactly as you want to display them
         self.categories: List[str] = categories[:]
         self._embeddings: Optional[np.ndarray] = None  # (n,d)
 
@@ -103,7 +94,6 @@ class CategoryIndex:
             self.rebuild()
 
     def add_category(self, category: str) -> None:
-        # Adds a new canonical category and updates embeddings incrementally
         category = category.strip()
         if not category:
             return
@@ -112,18 +102,13 @@ class CategoryIndex:
 
         self.categories.append(category)
 
-        # Incremental embedding append (no full rebuild)
         new_vec = embed_texts([category])  # (1,d)
         if self._embeddings is None:
             self._embeddings = new_vec
         else:
             self._embeddings = np.vstack([self._embeddings, new_vec])
 
-    def match_tag(
-        self,
-        tag: str,
-        top_k: int = 3,
-    ) -> MatchResult:
+    def match_tag(self, tag: str, top_k: int = 3) -> MatchResult:
         """
         Returns similarity scores to existing categories.
         No thresholding or decisions in here. Pure signal.
@@ -131,53 +116,38 @@ class CategoryIndex:
         normalized = normalize_and_alias(tag)
 
         if not self.categories:
-            return MatchResult(
-                input_tag=tag,
-                normalized_tag=normalized,
-                best=None,
-                second=None,
-                topk=[],
-            )
+            return MatchResult(tag, normalized, None, None, [])
 
         self.ensure_built()
         assert self._embeddings is not None
 
-        q = embed_texts([normalized])[0]  # (d,)
-        sims = cosine_sim_matrix(q, self._embeddings)  # (n,)
+        q = embed_texts([normalized])[0]              # (d,)
+        sims = cosine_sim_matrix(q, self._embeddings) # (n,)
 
-        # Top-k indices
         k = min(top_k, len(self.categories))
         idxs = np.argpartition(-sims, kth=k - 1)[:k]
         idxs = idxs[np.argsort(-sims[idxs])]
 
         topk = [(self.categories[i], float(sims[i])) for i in idxs]
-
         best = topk[0] if len(topk) >= 1 else None
         second = topk[1] if len(topk) >= 2 else None
 
-        return MatchResult(
-            input_tag=tag,
-            normalized_tag=normalized,
-            best=best,
-            second=second,
-            topk=topk,
-        )
-    
+        return MatchResult(tag, normalized, best, second, topk)
 
-    # --- Decision layer (deterministic) -----------------------------------------
-from dataclasses import dataclass
-from typing import Literal
 
+# ---------------------------
+# Decision layer (deterministic)
+# ---------------------------
 
 @dataclass
 class ResolveResult:
     input_tag: str
     normalized_tag: str
     action: Literal["match", "new", "ambiguous"]
-    chosen: Optional[str]                 # chosen category if match, or new category if new
-    confidence: float                     # best score
-    margin: float                         # best - second (or best if no second)
-    topk: List[Tuple[str, float]]         # passthrough for debugging
+    chosen: Optional[str]
+    confidence: float
+    margin: float
+    topk: List[Tuple[str, float]]
 
 
 def decide_resolution(
@@ -186,78 +156,50 @@ def decide_resolution(
     *,
     match_threshold: float = 0.70,
     ambiguous_threshold: float = 0.55,
+    new_threshold: float = 0.50,
     margin_threshold: float = 0.08,
 ) -> ResolveResult:
     """
-    Deterministic decision policy based on:
-      - confidence = top1 cosine similarity
-      - margin = top1 - top2 (tie/gray-area detection)
+    Deterministic decision policy.
 
-    Rules:
-      - if normalized tag already exists => MATCH
-      - if confidence >= match_threshold and margin >= margin_threshold => MATCH
-      - if confidence >= ambiguous_threshold and margin < margin_threshold => AMBIGUOUS
-      - else => NEW
+    - match: clear winner (high score + enough margin), or exact category hit
+    - ambiguous: mid score, or close/tied candidates
+    - new: low score (not similar enough)
     """
 
-    # If we literally already have it as a category, always match.
-    if mr.normalized_tag in set(existing_categories):
-        return ResolveResult(
-            input_tag=mr.input_tag,
-            normalized_tag=mr.normalized_tag,
-            action="match",
-            chosen=mr.normalized_tag,
-            confidence=1.0,
-            margin=1.0,
-            topk=mr.topk,
-        )
+    normalized = (mr.normalized_tag or "").strip()
+    if not normalized:
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "ambiguous", None, 0.0, 0.0, mr.topk)
+
+    existing_set = set(existing_categories)
+
+    # Exact hit => match immediately (cheap + deterministic)
+    if normalized in existing_set:
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "match", normalized, 1.0, 1.0, mr.topk)
 
     if mr.best is None:
-        return ResolveResult(
-            input_tag=mr.input_tag,
-            normalized_tag=mr.normalized_tag,
-            action="new",
-            chosen=mr.normalized_tag,
-            confidence=0.0,
-            margin=0.0,
-            topk=[],
-        )
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "new", normalized, 0.0, 0.0, [])
 
     best_cat, best_score = mr.best
     second_score = mr.second[1] if mr.second is not None else None
     margin = float(best_score - second_score) if second_score is not None else float(best_score)
 
-    # Clear match
+    # Very low similarity => new category
+    if best_score < new_threshold:
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "new", normalized, float(best_score), margin, mr.topk)
+
+    # High confidence + clear winner => match
     if best_score >= match_threshold and margin >= margin_threshold:
-        return ResolveResult(
-            input_tag=mr.input_tag,
-            normalized_tag=mr.normalized_tag,
-            action="match",
-            chosen=best_cat,
-            confidence=float(best_score),
-            margin=margin,
-            topk=mr.topk,
-        )
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "match", best_cat, float(best_score), margin, mr.topk)
 
-    # Gray area: close candidates
-    if best_score >= ambiguous_threshold and margin < margin_threshold:
-        return ResolveResult(
-            input_tag=mr.input_tag,
-            normalized_tag=mr.normalized_tag,
-            action="ambiguous",
-            chosen=None,
-            confidence=float(best_score),
-            margin=margin,
-            topk=mr.topk,
-        )
+    # Mid confidence or "tie" => ambiguous (leave for LLM/manual)
+    if best_score >= ambiguous_threshold:
+        # if it's a close call, keep ambiguous
+        if margin < margin_threshold:
+            return ResolveResult(mr.input_tag, mr.normalized_tag, "ambiguous", None, float(best_score), margin, mr.topk)
 
-    # Not similar enough => create new category
-    return ResolveResult(
-        input_tag=mr.input_tag,
-        normalized_tag=mr.normalized_tag,
-        action="new",
-        chosen=mr.normalized_tag,
-        confidence=float(best_score),
-        margin=margin,
-        topk=mr.topk,
-    )
+        # clear-ish winner but below match_threshold => still ambiguous (safer)
+        return ResolveResult(mr.input_tag, mr.normalized_tag, "ambiguous", None, float(best_score), margin, mr.topk)
+
+    # In-between zone (>= new_threshold but < ambiguous_threshold)
+    return ResolveResult(mr.input_tag, mr.normalized_tag, "ambiguous", None, float(best_score), margin, mr.topk)
