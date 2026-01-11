@@ -3,16 +3,24 @@ import React from "react";
 import AddVaultMediaButton from "./AddVaultMediaButton";
 import "../../styles/VaultAddMediaSection.css";
 
+export type MediaAnalysisResult =
+  | { kind: "image"; tags: string[] }
+  | { kind: "video"; video_id?: string; hashtags: string[] };
+
 type Props = {
   vaultId: string;
   apiBaseUrl?: string;
   onCreated?: (card: any) => void;
+
+  // ✅ NEW: allow VaultDetailPage to inject the analyzer
+  analyzeMediaFile?: (file: File) => Promise<MediaAnalysisResult>;
 };
 
 export default function VaultAddMediaSection({
   vaultId,
   apiBaseUrl,
   onCreated,
+  analyzeMediaFile,
 }: Props) {
   return (
     <section className="vams-wrap" aria-label="Add media to vault">
@@ -30,6 +38,7 @@ export default function VaultAddMediaSection({
             vaultId={vaultId}
             apiBaseUrl={apiBaseUrl}
             onCreated={onCreated}
+            analyzeMediaFile={analyzeMediaFile}
           />
         </div>
       </div>
