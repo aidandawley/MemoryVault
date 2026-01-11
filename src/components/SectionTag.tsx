@@ -1,4 +1,8 @@
-//
-export default function SectionTag(tag: string) {
-  return <p className="section-tag">{tag}</p>;
+import "../styles/SectionTag.css";
+type Props = {
+  tag: string;
+};
+
+export default function SectionTag({ tag }: Props) {
+  return <div className="section-tag">{tag}</div>;
 }
