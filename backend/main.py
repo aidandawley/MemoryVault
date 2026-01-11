@@ -1,19 +1,29 @@
+# backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from backend.api.routers import vaults, cards, share
-from backend.api.router import api_router
 from contextlib import asynccontextmanager
-from fastapi.staticfiles import StaticFiles
+from backend.api.router import api_router
 from backend.db.connect_db import connect_db
 from backend.db.disconnect_db import disconnect_db
 from backend.db.init_db import init_db
 from backend.db.seed_demo_data import seed_demo_data
-
+from backend.api.routers import vaults, cards, share
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Health
 from backend.api.routers.health import router as health_router
 # Health
+
+# 🔴 LOAD ENV FIRST — BEFORE ANY OTHER IMPORTS
+ROOT_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT_DIR / ".env")
+
+# sanity check (remove later)
+print("ENV LOADED:", bool(os.getenv("TWELVELABS_API_KEY")), bool(os.getenv("GEMINI_API_KEY")))
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -39,7 +49,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.get("/api/health")
 def health():

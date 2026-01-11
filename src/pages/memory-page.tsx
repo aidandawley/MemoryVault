@@ -1,4 +1,5 @@
 import Carousel, { type CarouselItem } from "../components/memorypage/Carousel";
+import UploadDropzone from "../components/memorypage/UploadZone";
 
 export default function MemoryPage() {
 
@@ -29,10 +30,20 @@ export default function MemoryPage() {
     },
   ];
 
+  type UploadResponse = {
+    media_type: string;
+    caption?: string | null;
+    tags?: string[];
+  };
+
   return (
     <div>
+     <UploadDropzone
+       onUploaded={(data: UploadResponse) => {
+       console.log("Backend result:", data);
+    }}
+/>
       <Carousel items={featured} initialIndex={0} radius={2} />
-      {/* Rest of your memory page content below */}
     </div>
   );
 }
