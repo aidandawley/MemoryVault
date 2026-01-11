@@ -155,6 +155,16 @@ def list_cards(vault_id: str, db: Session = Depends(get_db)):
     return [card_service.to_public_dict(c) for c in cards]
 
 
+@router.get("/vaults/{vault_id}/top-tags", response_model=list[str])
+def get_top_tags(vault_id: str, limit: int = 7, db: Session = Depends(get_db)):
+    """Returns the top-N most frequent tags in a vault."""
+    vault = vault_service.get_vault(db, vault_id)
+    if not vault:
+        raise HTTPException(status_code=404, detail="Vault not found")
+    top_tags = _top_categories_for_vault(db, vault_id, limit=limit)
+    return top_tags
+
+
 @router.post("/vaults/{vault_id}/cards", response_model=CardPublic)
 async def create_card(
     vault_id: str,

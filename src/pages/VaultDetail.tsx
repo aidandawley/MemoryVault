@@ -32,6 +32,7 @@ export default function VaultDetailPage() {
   const { vaultId } = useParams();
   const [vault, setVault] = useState<VaultPublic | null>(null);
   const [items, setItems] = useState<CarouselItem[]>([]);
+  const [topTags, setTopTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [addedCards, setAddedCards] = useState<CardPublic[]>([]);
@@ -110,6 +111,14 @@ export default function VaultDetailPage() {
           signal: ac.signal,
         });
 
+        // Fetch top tags from the backend
+        const topTagsRes = await fetch(
+          `${API_URL}/api/vaults/${vaultId}/top-tags?limit=7`,
+          {
+            signal: ac.signal,
+          }
+        );
+
         if (cardsRes.ok) {
           const cards = (await cardsRes.json()) as CardPublic[];
 
@@ -145,6 +154,13 @@ export default function VaultDetailPage() {
           setItems(carouselItems);
         } else {
           setItems([]);
+        }
+
+        if (topTagsRes.ok) {
+          const tags = (await topTagsRes.json()) as string[];
+          setTopTags(tags);
+        } else {
+          setTopTags([]);
         }
       } catch (e: any) {
         if (e?.name !== "AbortError") {
@@ -211,10 +227,16 @@ export default function VaultDetailPage() {
   }, [vaultCards]);
 
   const sortedTags = useMemo(() => {
-    return Array.from(cardsByTag.entries())
+    // Filter tags to only show the top 7 from the backend
+    const allTags = Array.from(cardsByTag.entries())
       .sort((a, b) => b[1].length - a[1].length)
       .map(([tag]) => tag);
-  }, [cardsByTag]);
+
+    // Only return tags that are in the top 7 from backend
+    return allTags.filter((tag) =>
+      topTags.some((t) => t.toLowerCase() === tag.toLowerCase())
+    );
+  }, [cardsByTag, topTags]);
 
   // ✅ Fix: explicitly return CategoryLineItem[] and force union type for item.type
   const toLineItems = (tag: string): CategoryLineItem[] => {
