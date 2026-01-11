@@ -1,8 +1,9 @@
 from pydantic import BaseModel, Field
-from typing import List, Literal
+from typing import List, Literal, Optional
 
 class CardBase(BaseModel):
     media_id: str = Field(..., description="Unique identifier for the media file")
+    thumbnail_id: Optional[str] = Field(default=None, description="Optional thumbnail media id")
     media_type: Literal["image", "video"]
     caption: str
     tags: List[str] = Field(default_factory=list)

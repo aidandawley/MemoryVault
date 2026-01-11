@@ -1,15 +1,12 @@
 import uuid
 from datetime import datetime
-
 from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from db.base import Base  # or wherever your Base lives
-
+from backend.db.base import Base
 
 def _uuid() -> str:
     return str(uuid.uuid4())
-
 
 class Card(Base):
     __tablename__ = "cards"
@@ -19,13 +16,12 @@ class Card(Base):
     vault_id: Mapped[str] = mapped_column(String(36), ForeignKey("vaults.id", ondelete="CASCADE"), index=True)
 
     media_id: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
-    media_type: Mapped[str] = mapped_column(String(10), nullable=False)  # "image" or "video"
+    thumbnail_id: Mapped[str | None] = mapped_column(String(255), nullable=True)
 
+    media_type: Mapped[str] = mapped_column(String(10), nullable=False)  # "image" | "video"
     caption: Mapped[str] = mapped_column(Text, nullable=False)
 
-    # Simple tags storage for hackathon: comma-separated string
-    tags: Mapped[str] = mapped_column(Text, nullable=False, default="")
-
+    tags: Mapped[str] = mapped_column(Text, nullable=False, default="")  # comma-separated for hackathon
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)

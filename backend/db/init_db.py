@@ -1,9 +1,10 @@
-from db.session import engine
-from db.base import Base
+from backend.db.base import Base
+from backend.db.session import engine
 
-# IMPORTANT: import models so SQLAlchemy "registers" them with Base.metadata
-from models.vault import Vault  # noqa: F401
-from models.card import Card    # noqa: F401
+# Import models so they register with SQLAlchemy metadata
+from backend.models.vault import Vault  # noqa: F401
+from backend.models.card import Card    # noqa: F401
+from backend.models.vault_access import VaultAccess  # noqa: F401
 
 def init_db() -> None:
     Base.metadata.create_all(bind=engine)

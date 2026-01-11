@@ -2,7 +2,7 @@
 
 export type CardPublic = {
   cardId: string;
-  video_id: string;
+  media_id: string;
   caption: string;
   tags: string[];
   isActive: boolean;
