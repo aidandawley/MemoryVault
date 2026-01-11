@@ -9,6 +9,7 @@ from backend.db.deps import get_db
 from backend.schemas.card import CardPublic
 from backend.services import card_service, vault_service
 from backend.api.tools.determine_media import get_media_type
+from backend.models.card import Card
 
 router = APIRouter(tags=["cards"])
 
@@ -84,3 +85,20 @@ async def create_card(
     )
 
     return card_service.to_public_dict(card)
+
+@router.delete("/cards/{card_id}")
+def delete_card(card_id: str, db: Session = Depends(get_db)):
+    card = db.query(Card).filter(Card.id == card_id).first()
+    if not card:
+        raise HTTPException(status_code=404, detail="Card not found")
+    
+    # Delete the media file if it exists
+    try:
+        media_path = MEDIA_DIR / card.media_id
+        if media_path.exists():
+            media_path.unlink()
+    except Exception:
+        pass  # Continue even if file deletion fails
+    
+    card_service.delete_card(db, card_id)
+    return {"ok": True}

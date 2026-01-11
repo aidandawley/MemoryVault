@@ -19,13 +19,21 @@ export type CategoryLineItem = {
 type Props = {
   title?: string;
   items: CategoryLineItem[];
+  onItemDeleted?: (itemId: string) => void;
+  apiBaseUrl?: string;
 };
 
-export default function CategoryLine({ title, items }: Props) {
+export default function CategoryLine({
+  title,
+  items,
+  onItemDeleted,
+  apiBaseUrl = "http://127.0.0.1:8000",
+}: Props) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [openItem, setOpenItem] = useState<CategoryLineItem | null>(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const updateEdges = () => {
     const el = scrollerRef.current;
@@ -70,6 +78,35 @@ export default function CategoryLine({ title, items }: Props) {
     if (!openItem) return "";
     return openItem.card?.caption ?? openItem.title ?? "Untitled";
   }, [openItem]);
+
+  const handleDeleteItem = async () => {
+    if (!openItem?.card) return;
+
+    const cardId =
+      (openItem.card as any).cardId ?? (openItem.card as any).card_id;
+    if (!cardId) return;
+
+    if (!confirm("Are you sure you want to delete this item?")) return;
+
+    setDeleting(true);
+    try {
+      const res = await fetch(`${apiBaseUrl}/api/cards/${cardId}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!res.ok) {
+        throw new Error(`Delete failed (${res.status})`);
+      }
+
+      onItemDeleted?.(openItem.id);
+      setOpenItem(null);
+    } catch (e: any) {
+      alert(e?.message ?? "Failed to delete item");
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   return (
     <>
@@ -172,6 +209,16 @@ export default function CategoryLine({ title, items }: Props) {
               aria-label="Close"
             >
               ✕
+            </button>
+
+            <button
+              className="mv-cardModal__delete"
+              onClick={handleDeleteItem}
+              disabled={deleting}
+              aria-label="Delete"
+              title="Delete this item"
+            >
+              🗑️
             </button>
 
             <div className="mv-cardModalCard">

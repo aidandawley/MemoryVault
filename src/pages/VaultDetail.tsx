@@ -55,10 +55,11 @@ export default function VaultDetailPage() {
 
         if (cardsRes.ok) {
           const cards = (await cardsRes.json()) as CardPublic[];
-          
+
           const carouselItems: CarouselItem[] = cards.map((card) => {
             const mediaId = (card as any).media_id ?? (card as any).mediaId;
-            const mediaType = (card as any).media_type ?? (card as any).mediaType;
+            const mediaType =
+              (card as any).media_type ?? (card as any).mediaType;
             const cardId = (card as any).cardId ?? (card as any).card_id;
             const caption = (card as any).caption ?? "Untitled";
 
@@ -68,8 +69,14 @@ export default function VaultDetailPage() {
               creator: "",
               type: mediaType === "video" ? "video" : "photo",
               thumbnailUrl: `${API_URL}/media/${mediaId}`,
-              photoUrl: mediaType === "video" ? undefined : `${API_URL}/media/${mediaId}`,
-              videoUrl: mediaType === "video" ? `${API_URL}/media/${mediaId}` : undefined,
+              photoUrl:
+                mediaType === "video"
+                  ? undefined
+                  : `${API_URL}/media/${mediaId}`,
+              videoUrl:
+                mediaType === "video"
+                  ? `${API_URL}/media/${mediaId}`
+                  : undefined,
               card: card,
             };
           });
@@ -175,7 +182,9 @@ export default function VaultDetailPage() {
         return {
           id: `${tag}-${cardId}`,
           title: (c as any).caption ?? "Untitled",
-          type: mediaType === "video" ? "video" : "photo",
+          type: (mediaType === "video" ? "video" : "photo") as
+            | "video"
+            | "photo",
           thumbnailUrl: matchingItem?.thumbnailUrl ?? photoUrl,
           photoUrl: mediaType === "video" ? undefined : photoUrl,
           videoUrl: mediaType === "video" ? videoUrl : undefined,
@@ -214,7 +223,16 @@ export default function VaultDetailPage() {
               <div className="vault-detail-tagRows">
                 {sortedTags.map((tag) => (
                   <div key={tag} className="vault-detail-tagRow">
-                    <CategoryLine title={`#${tag}`} items={toLineItems(tag)} />
+                    <CategoryLine
+                      title={`#${tag}`}
+                      items={toLineItems(tag)}
+                      apiBaseUrl={API_URL}
+                      onItemDeleted={(itemId) => {
+                        setItems((prev) =>
+                          prev.filter((item) => item.id !== itemId)
+                        );
+                      }}
+                    />
                   </div>
                 ))}
               </div>
