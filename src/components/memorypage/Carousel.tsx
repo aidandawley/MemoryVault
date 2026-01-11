@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../../styles/Carousel.css";
 
-import { Card } from "./Card";
-import type { CardPublic } from "../../types/card"; // adjust path
+import type { CardPublic } from "../../types/card";
 
 export type CarouselItem = {
   id: string;
@@ -48,7 +47,7 @@ export default function Carousel({
   );
   const activeVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  const [openCard, setOpenCard] = useState<CardPublic | null>(null);
+  const [openItem, setOpenItem] = useState<CarouselItem | null>(null);
 
   const setActiveIndex = (next: number) => {
     if (!length) return;
@@ -109,8 +108,6 @@ export default function Carousel({
 
   if (!items.length) return null;
 
-  const activeItem = items[active];
-
   return (
     <>
       <section
@@ -121,9 +118,9 @@ export default function Carousel({
           if (e.key === "ArrowRight") goRight();
           if (e.key === "Enter") {
             const item = items[active];
-            if (item?.card) setOpenCard(item.card);
+            if (item) setOpenItem(item);
           }
-          if (e.key === "Escape") setOpenCard(null);
+          if (e.key === "Escape") setOpenItem(null);
         }}
         aria-label="Featured media"
       >
@@ -159,7 +156,7 @@ export default function Carousel({
                     setActiveIndex(index);
                     return;
                   }
-                  if (item.card) setOpenCard(item.card);
+                  setOpenItem(item);
                 }}
                 role="button"
                 aria-label={
@@ -204,10 +201,10 @@ export default function Carousel({
                     <div className="mv-carousel__title">{item.title}</div>
                     <div className="mv-carousel__sub">
                       {item.creator ? <span>{item.creator}</span> : null}
-                      {isActive && item.card ? (
+                      {isActive ? (
                         <span className="mv-carousel__dot">•</span>
                       ) : null}
-                      {isActive && item.card ? (
+                      {isActive ? (
                         <span className="mv-carousel__hint">Click to open</span>
                       ) : null}
                     </div>
@@ -219,23 +216,80 @@ export default function Carousel({
         </div>
       </section>
 
-      {openCard && (
+      {openItem && (
         <div className="mv-cardModal" role="dialog" aria-modal="true">
           <button
             className="mv-cardModal__backdrop"
-            onClick={() => setOpenCard(null)}
+            onClick={() => setOpenItem(null)}
             aria-label="Close"
           />
           <div className="mv-cardModal__content">
             <button
               className="mv-cardModal__close"
-              onClick={() => setOpenCard(null)}
+              onClick={() => setOpenItem(null)}
               aria-label="Close"
             >
               ✕
             </button>
 
-            <Card card={openCard} />
+            <div className="mv-cardModalCard">
+              <div className="mv-cardModalCard__top">
+                <div className="mv-cardModalCard__title">
+                  {openItem.card?.caption ?? openItem.title ?? "Untitled"}
+                </div>
+
+                {openItem.card && (
+                  <div
+                    className={`mv-cardModalCard__status ${
+                      openItem.card.isActive ? "active" : ""
+                    }`}
+                  >
+                    {openItem.card.isActive ? "Active" : "Inactive"}
+                  </div>
+                )}
+              </div>
+
+              <div className="mv-cardModalCard__media">
+                {openItem.type === "video" ? (
+                  <video
+                    className="mv-cardModalCard__mediaEl"
+                    src={openItem.videoUrl ?? openItem.thumbnailUrl}
+                    poster={openItem.thumbnailUrl}
+                    controls
+                    preload="metadata"
+                  />
+                ) : (
+                  <img
+                    className="mv-cardModalCard__mediaEl"
+                    src={openItem.photoUrl ?? openItem.thumbnailUrl}
+                    alt={openItem.card?.caption ?? openItem.title}
+                    loading="lazy"
+                  />
+                )}
+
+                {openItem.card?.tags?.length ? (
+                  <div className="mv-cardModalCard__tagOverlay">
+                    {openItem.card.tags.slice(0, 8).map((t) => (
+                      <span key={t} className="mv-cardModalCard__tagChip">
+                        #{t}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="mv-cardModalCard__bottom">
+                <div className="mv-cardModalCard__caption">
+                  {openItem.card?.caption ?? openItem.title ?? ""}
+                </div>
+
+                {openItem.creator ? (
+                  <div className="mv-cardModalCard__creator">
+                    {openItem.creator}
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </div>
         </div>
       )}

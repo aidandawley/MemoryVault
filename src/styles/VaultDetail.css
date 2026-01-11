@@ -188,3 +188,21 @@
     align-items: stretch;
   }
 }
+
+.vault-detail-tags {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 22px 18px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.08),
+    0 2px 4px rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+.vault-detail-tagRows {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}

@@ -1,6 +1,6 @@
 // src/pages/VaultDetailPage.tsx
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import Carousel, { type CarouselItem } from "../components/memorypage/Carousel";
 import type { VaultPublic } from "../components/vault/VaultTypes";
@@ -8,6 +8,7 @@ import VaultDetailSidebar from "../components/vault/VaultDetailSidebar";
 import VaultAddMediaSection from "../components/vault/VaultAddMediaSection";
 import { Card } from "../components/memorypage/Card";
 import type { CardPublic } from "../types/card";
+import CategoryLine from "../components/CategoryLine";
 import "../styles/VaultDetail.css";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
@@ -62,7 +63,7 @@ export default function VaultDetailPage() {
               caption: data.title ?? "Untitled Vault",
               tags: ["memory", "photo"],
               isActive: true,
-            },
+            } as any,
           },
           {
             id: `${vaultId}-demo-photo-2`,
@@ -78,7 +79,7 @@ export default function VaultDetailPage() {
               caption: "Second memory",
               tags: ["memory", "photo"],
               isActive: true,
-            },
+            } as any,
           },
           {
             id: `${vaultId}-demo-photo-3`,
@@ -94,7 +95,7 @@ export default function VaultDetailPage() {
               caption: "Bob's B-Day",
               tags: ["birthday", "bob"],
               isActive: true,
-            },
+            } as any,
           },
         ];
 
@@ -111,6 +112,100 @@ export default function VaultDetailPage() {
     load();
     return () => ac.abort();
   }, [vaultId]);
+
+  const vaultCards = useMemo(() => {
+    const fromCarousel = items
+      .map((i) => i.card)
+      .filter(Boolean) as CardPublic[];
+
+    const seen = new Set<string>();
+    const out: CardPublic[] = [];
+
+    for (const c of [...addedCards, ...fromCarousel]) {
+      const id = (c as any).cardId ?? (c as any).card_id;
+      if (!id) continue;
+      if (seen.has(id)) continue;
+      seen.add(id);
+      out.push(c);
+    }
+
+    return out;
+  }, [items, addedCards]);
+
+  const cardsByTag = useMemo(() => {
+    const map = new Map<string, CardPublic[]>();
+
+    for (const card of vaultCards) {
+      const tags = Array.isArray((card as any).tags) ? (card as any).tags : [];
+      for (const t of tags) {
+        const tag = String(t).trim().toLowerCase();
+        if (!tag) continue;
+
+        if (!map.has(tag)) map.set(tag, []);
+        map.get(tag)!.push(card);
+      }
+    }
+
+    for (const [tag, list] of map) {
+      const seen = new Set<string>();
+      map.set(
+        tag,
+        list.filter((c) => {
+          const id = (c as any).cardId ?? (c as any).card_id;
+          if (!id) return false;
+          if (seen.has(id)) return false;
+          seen.add(id);
+          return true;
+        })
+      );
+    }
+
+    return map;
+  }, [vaultCards]);
+
+  const sortedTags = useMemo(() => {
+    return Array.from(cardsByTag.entries())
+      .sort((a, b) => b[1].length - a[1].length)
+      .map(([tag]) => tag);
+  }, [cardsByTag]);
+
+  const toLineItems = (tag: string) => {
+    const list = cardsByTag.get(tag) ?? [];
+
+    return list
+      .map((c) => {
+        const cardId = (c as any).cardId ?? (c as any).card_id;
+        const mediaId = (c as any).media_id ?? (c as any).mediaId;
+        const mediaType = (c as any).media_type ?? (c as any).mediaType;
+
+        // Try to find the matching CarouselItem (demo items have local URLs like /dog1.jpg)
+        const matchingItem = items.find(
+          (it) =>
+            it.card &&
+            ((it.card as any).cardId ?? (it.card as any).card_id) === cardId
+        );
+
+        // Prefer the carousel URLs if present; otherwise fall back to backend /media/:id
+        const fallbackSrc = `${API_URL}/media/${mediaId}`;
+
+        const photoUrl =
+          matchingItem?.photoUrl ?? matchingItem?.thumbnailUrl ?? fallbackSrc;
+
+        const videoUrl =
+          matchingItem?.videoUrl ?? matchingItem?.thumbnailUrl ?? fallbackSrc;
+
+        return {
+          id: `${tag}-${cardId}`,
+          title: (c as any).caption ?? "Untitled",
+          type: mediaType === "video" ? "video" : "photo",
+          thumbnailUrl: matchingItem?.thumbnailUrl ?? photoUrl,
+          photoUrl: mediaType === "video" ? undefined : photoUrl,
+          videoUrl: mediaType === "video" ? videoUrl : undefined,
+          card: c,
+        };
+      })
+      .filter(Boolean);
+  };
 
   if (loading) return <div className="vault-detail-loading">Loading...</div>;
   if (err) return <div className="vault-detail-error">{err}</div>;
@@ -134,16 +229,28 @@ export default function VaultDetailPage() {
             </div>
           )}
 
+          {sortedTags.length > 0 && (
+            <section className="vault-detail-tags">
+              <h2 className="vault-detail-added__title">Browse by tag</h2>
+
+              <div className="vault-detail-tagRows">
+                {sortedTags.map((tag) => (
+                  <div key={tag} className="vault-detail-tagRow">
+                    <CategoryLine title={`#${tag}`} items={toLineItems(tag)} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           <VaultAddMediaSection
             vaultId={vaultId}
             apiBaseUrl={API_URL}
             onCreated={(card) => {
-              // Add created card to a separate section beneath the carousel
               setAddedCards((prev) => [card as CardPublic, ...prev]);
             }}
           />
 
-          {/* Section for added media (created via composer) */}
           {addedCards.length > 0 && (
             <section className="vault-detail-added">
               <h2 className="vault-detail-added__title">Recently added</h2>
