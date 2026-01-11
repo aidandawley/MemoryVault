@@ -1,21 +1,24 @@
+# backend/main.py
+from pathlib import Path
 from dotenv import load_dotenv
-load_dotenv()
+
+# 🔴 LOAD ENV FIRST — BEFORE ANY OTHER IMPORTS
+ROOT_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT_DIR / ".env")
+
+# sanity check (remove later)
+import os
+print("ENV LOADED:", bool(os.getenv("TWELVELABS_API_KEY")), bool(os.getenv("GEMINI_API_KEY")))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from backend.api.routers import vaults, cards, share
-from backend.api.router import api_router
 from contextlib import asynccontextmanager
-from fastapi.staticfiles import StaticFiles
+
+from backend.api.router import api_router
 from backend.db.connect_db import connect_db
 from backend.db.disconnect_db import disconnect_db
 from backend.db.init_db import init_db
 from backend.db.seed_demo_data import seed_demo_data
-
-
-# Health
-from backend.api.routers.health import router as health_router
-# Health
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -27,26 +30,16 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://localhost:5173",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:3000",
+        "http://localhost:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-@app.get("/api/health")
-def health():
-    return {"ok": True}
-
 app.include_router(api_router, prefix="/api")
-
-

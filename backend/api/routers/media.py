@@ -3,7 +3,7 @@ import tempfile
 from fastapi import APIRouter, UploadFile, File, HTTPException
 
 from ..tools.twelvelabs_hashtag import get_hashtags_for_video_file
-
+from ..tools.gemini_image_tags import get_tags_for_image_file
 
 
 
@@ -33,7 +33,6 @@ async def upload_video_hashtags(file: UploadFile = File(...)):
 
 @router.post("/upload-photo-tags")
 async def upload_photo_tags(file: UploadFile = File(...)):
-    # For demo: only accept images (jpg/png etc.)
     if not (file.content_type or "").startswith("image/"):
         raise HTTPException(status_code=400, detail="Please upload an image file.")
 
@@ -43,12 +42,11 @@ async def upload_photo_tags(file: UploadFile = File(...)):
         tmp.write(await file.read())
 
     try:
-        # Placeholder for now (Gemini comes next step)
-        # Later: tags = get_tags_for_image_file(tmp_path)
+        tags = get_tags_for_image_file(tmp_path)
         return {
-            "photo_path": tmp_path,   # just to prove we received + saved it
-            "tags": []
+            "tags": tags
         }
+
     finally:
         try:
             os.remove(tmp_path)
