@@ -17,7 +17,6 @@ export type MediaAnalysisResult =
   | { kind: "image"; tags: string[] }
   | { kind: "video"; video_id: string; hashtags: string[] };
 
-// ✅ Fix for TS: CategoryLine expects item.type to be "video" | "photo"
 type CategoryLineItem = {
   id: string;
   title: string;
@@ -28,6 +27,31 @@ type CategoryLineItem = {
   card: CardPublic;
 };
 
+const VIDEO_THUMB_PLACEHOLDER = "/video-thumb-placeholder.png";
+
+function getCardId(c: any): string | undefined {
+  return c?.cardId ?? c?.card_id;
+}
+
+function getMediaType(c: any): "video" | "image" | undefined {
+  const mt = c?.media_type ?? c?.mediaType;
+  if (mt === "video") return "video";
+  if (mt === "image") return "image";
+  return undefined;
+}
+
+function getMediaId(c: any): string | undefined {
+  return c?.media_id ?? c?.mediaId;
+}
+
+function getThumbnailId(c: any): string | undefined {
+  return c?.thumbnail_id ?? c?.thumbnailId;
+}
+
+function buildMediaUrl(id?: string) {
+  return id ? `${API_URL}/media/${id}` : "";
+}
+
 export default function VaultDetailPage() {
   const { vaultId } = useParams();
   const [vault, setVault] = useState<VaultPublic | null>(null);
@@ -37,7 +61,6 @@ export default function VaultDetailPage() {
   const [err, setErr] = useState<string | null>(null);
   const [addedCards, setAddedCards] = useState<CardPublic[]>([]);
 
-  // ✅ Single function: decides which backend endpoint to call based on file type
   const analyzeMediaFile = async (file: File): Promise<MediaAnalysisResult> => {
     const isVideo = file.type.startsWith("video/");
     const isImage = file.type.startsWith("image/");
@@ -51,12 +74,9 @@ export default function VaultDetailPage() {
       : `${API_URL}/api/media/upload-photo-tags`;
 
     const form = new FormData();
-    form.append("file", file); // must match FastAPI param name
+    form.append("file", file);
 
-    const res = await fetch(endpoint, {
-      method: "POST",
-      body: form,
-    });
+    const res = await fetch(endpoint, { method: "POST", body: form });
 
     if (!res.ok) {
       const text = await res.text().catch(() => "");
@@ -106,50 +126,48 @@ export default function VaultDetailPage() {
         const data = (await res.json()) as VaultPublic;
         setVault(data);
 
-        // Fetch actual cards from the database
         const cardsRes = await fetch(`${API_URL}/api/vaults/${vaultId}/cards`, {
           signal: ac.signal,
         });
 
-        // Fetch top tags from the backend
         const topTagsRes = await fetch(
           `${API_URL}/api/vaults/${vaultId}/top-tags?limit=7`,
-          {
-            signal: ac.signal,
-          }
+          { signal: ac.signal }
         );
 
         if (cardsRes.ok) {
           const cards = (await cardsRes.json()) as CardPublic[];
 
-          const carouselItems: CarouselItem[] = cards.map((card) => {
-            const mediaId = (card as any).media_id ?? (card as any).mediaId;
-            const thumbId =
-              (card as any).thumbnail_id ??
-              (card as any).thumbnailId ??
-              mediaId;
-            const mediaType =
-              (card as any).media_type ?? (card as any).mediaType;
-            const cardId = (card as any).cardId ?? (card as any).card_id;
-            const caption = (card as any).caption ?? "Untitled";
+          const carouselItems: CarouselItem[] = cards
+            .map((card) => {
+              const cardId = getCardId(card);
+              const mediaType = getMediaType(card);
+              const mediaId = getMediaId(card);
+              const thumbId = getThumbnailId(card);
+              const caption = (card as any)?.caption ?? "Untitled";
 
-            return {
-              id: cardId,
-              title: caption,
-              creator: "",
-              type: mediaType === "video" ? "video" : "photo",
-              thumbnailUrl: `${API_URL}/media/${thumbId}`,
-              photoUrl:
-                mediaType === "video"
-                  ? undefined
-                  : `${API_URL}/media/${mediaId}`,
-              videoUrl:
-                mediaType === "video"
-                  ? `${API_URL}/media/${mediaId}`
-                  : undefined,
-              card: card,
-            };
-          });
+              if (!cardId || !mediaId || !mediaType) return null;
+
+              const isVideo = mediaType === "video";
+
+              const thumbnailUrl = thumbId
+                ? buildMediaUrl(thumbId)
+                : isVideo
+                ? VIDEO_THUMB_PLACEHOLDER
+                : buildMediaUrl(mediaId);
+
+              return {
+                id: cardId,
+                title: caption,
+                creator: "",
+                type: isVideo ? "video" : "photo",
+                thumbnailUrl,
+                photoUrl: isVideo ? undefined : buildMediaUrl(mediaId),
+                videoUrl: isVideo ? buildMediaUrl(mediaId) : undefined,
+                card,
+              } satisfies CarouselItem;
+            })
+            .filter(Boolean) as CarouselItem[];
 
           setItems(carouselItems);
         } else {
@@ -184,7 +202,7 @@ export default function VaultDetailPage() {
     const out: CardPublic[] = [];
 
     for (const c of [...addedCards, ...fromCarousel]) {
-      const id = (c as any).cardId ?? (c as any).card_id;
+      const id = getCardId(c as any);
       if (!id) continue;
       if (seen.has(id)) continue;
       seen.add(id);
@@ -208,13 +226,12 @@ export default function VaultDetailPage() {
       }
     }
 
-    // Deduplicate cards per tag
     for (const [tag, list] of map) {
       const seen = new Set<string>();
       map.set(
         tag,
         list.filter((c) => {
-          const id = (c as any).cardId ?? (c as any).card_id;
+          const id = getCardId(c as any);
           if (!id) return false;
           if (seen.has(id)) return false;
           seen.add(id);
@@ -227,46 +244,61 @@ export default function VaultDetailPage() {
   }, [vaultCards]);
 
   const sortedTags = useMemo(() => {
-    // Filter tags to only show the top 7 from the backend
     const allTags = Array.from(cardsByTag.entries())
       .sort((a, b) => b[1].length - a[1].length)
       .map(([tag]) => tag);
 
-    // Only return tags that are in the top 7 from backend
-    return allTags.filter((tag) =>
-      topTags.some((t) => t.toLowerCase() === tag.toLowerCase())
-    );
+    // If there are fewer than 7 tags total, show them all.
+    if (allTags.length <= 7) return allTags;
+
+    // If backend didn't return anything, fall back to showing all tags.
+    if (!topTags || topTags.length === 0) return allTags;
+
+    const topSet = new Set(topTags.map((t) => String(t).trim().toLowerCase()));
+
+    // Otherwise, show only the backend top tags (but keep the frontend ordering by count)
+    const filtered = allTags.filter((tag) => topSet.has(tag.toLowerCase()));
+
+    // Safety fallback: if filtering removes everything, show all.
+    return filtered.length > 0 ? filtered : allTags;
   }, [cardsByTag, topTags]);
 
-  // ✅ Fix: explicitly return CategoryLineItem[] and force union type for item.type
   const toLineItems = (tag: string): CategoryLineItem[] => {
     const list = cardsByTag.get(tag) ?? [];
 
     return list
       .map((c) => {
-        const cardId = (c as any).cardId ?? (c as any).card_id;
-        const mediaId = (c as any).media_id ?? (c as any).mediaId;
-        const thumbId =
-          (c as any).thumbnail_id ?? (c as any).thumbnailId ?? mediaId;
-        const mediaType = (c as any).media_type ?? (c as any).mediaType;
+        const cardId = getCardId(c as any);
+        const mediaId = getMediaId(c as any);
+        const mediaType = getMediaType(c as any);
+        const thumbId = getThumbnailId(c as any);
 
-        const matchingItem = items.find(
-          (it) =>
-            it.card &&
-            ((it.card as any).cardId ?? (it.card as any).card_id) === cardId
-        );
+        if (!cardId || !mediaId || !mediaType) return null;
 
-        const fallbackThumb = `${API_URL}/media/${thumbId}`;
-        const fallbackSrc = `${API_URL}/media/${mediaId}`;
+        const matchingItem = items.find((it) => {
+          const itId = getCardId((it.card as any) ?? {});
+          return itId === cardId;
+        });
+
+        const isVideo = mediaType === "video";
+
+        const fallbackThumb = thumbId
+          ? buildMediaUrl(thumbId)
+          : isVideo
+          ? VIDEO_THUMB_PLACEHOLDER
+          : buildMediaUrl(mediaId);
+
+        const fallbackSrc = buildMediaUrl(mediaId);
 
         const photoUrl =
-          matchingItem?.photoUrl ?? matchingItem?.thumbnailUrl ?? fallbackSrc;
+          matchingItem?.photoUrl ??
+          (!isVideo ? fallbackSrc : undefined) ??
+          undefined;
 
         const videoUrl =
-          matchingItem?.videoUrl ?? matchingItem?.thumbnailUrl ?? fallbackSrc;
+          matchingItem?.videoUrl ?? (isVideo ? fallbackSrc : undefined);
 
-        const type: "video" | "photo" =
-          mediaType === "video" ? "video" : "photo";
+        const type: "video" | "photo" = isVideo ? "video" : "photo";
 
         return {
           id: `${tag}-${cardId}`,
@@ -276,9 +308,9 @@ export default function VaultDetailPage() {
           photoUrl: type === "video" ? undefined : photoUrl,
           videoUrl: type === "video" ? videoUrl : undefined,
           card: c,
-        };
+        } satisfies CategoryLineItem;
       })
-      .filter(Boolean);
+      .filter(Boolean) as CategoryLineItem[];
   };
 
   if (loading) return <div className="vault-detail-loading">Loading...</div>;
@@ -341,7 +373,7 @@ export default function VaultDetailPage() {
               <div className="vault-detail-added__grid">
                 {addedCards.map((c) => (
                   <div
-                    key={(c as any).cardId ?? (c as any).card_id}
+                    key={getCardId(c as any)}
                     className="vault-detail-added__item"
                   >
                     <Card card={c} />

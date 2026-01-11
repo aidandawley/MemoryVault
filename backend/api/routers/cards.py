@@ -290,3 +290,27 @@ async def create_card(
     )
 
     return card_service.to_public_dict(card)
+
+
+@router.delete("/cards/{card_id}")
+def delete_card(card_id: str, db: Session = Depends(get_db)):
+    """Delete a card and its associated media files."""
+    card = card_service.get_card(db, card_id)
+    if not card:
+        raise HTTPException(status_code=404, detail="Card not found")
+
+    # Delete media files from disk
+    if card.media_id:
+        media_path = MEDIA_DIR / card.media_id
+        if media_path.exists():
+            media_path.unlink()
+
+    if card.thumbnail_id and card.thumbnail_id != card.media_id:
+        thumb_path = MEDIA_DIR / card.thumbnail_id
+        if thumb_path.exists():
+            thumb_path.unlink()
+
+    # Delete from database
+    card_service.delete_card(db, card_id)
+
+    return {"success": True, "message": "Card deleted successfully"}

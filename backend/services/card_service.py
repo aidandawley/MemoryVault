@@ -36,6 +36,9 @@ def create_card(
 def list_cards(db: Session, vault_id: str) -> list[Card]:
     return db.query(Card).filter(Card.vault_id == vault_id).order_by(Card.created_at.desc()).all()
 
+def get_card(db: Session, card_id: str) -> Card | None:
+    return db.query(Card).filter(Card.id == card_id).first()
+
 def delete_card(db: Session, card_id: str) -> None:
     card = db.query(Card).filter(Card.id == card_id).first()
     if card:
