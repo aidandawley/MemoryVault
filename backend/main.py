@@ -1,22 +1,28 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.db.init_db import init_db
 from backend.api.routers import vaults, cards, share
-
+from backend.api import router
 from contextlib import asynccontextmanager
 from fastapi.staticfiles import StaticFiles
+from backend.db.connect_db import connect_db
+from backend.db.disconnect_db import disconnect_db
+from backend.db.init_db import init_db
+from backend.db.seed_demo_data import seed_demo_data
+
+
+# Health
+from backend.api.routers.health import router as health_router
+# Health
 
 @asynccontextmanager
-def lifespan(app: FastAPI):
-
-    # initializing DB
+async def lifespan(app: FastAPI):
     init_db()
-
+    connect_db()
+    seed_demo_data()
     yield
+    disconnect_db()
 
-    # shutdown code
-    # (none for now)
 app = FastAPI(lifespan=lifespan)
 
 origins = [
@@ -42,4 +48,6 @@ def health():
 app.include_router(vaults.router, prefix="/api", tags=["vaults"])
 app.include_router(cards.router, prefix="/api", tags=["cards"])
 app.include_router(share.router, prefix="/api", tags=["share"])
+app.include_router(health_router, prefix="/api")
+app.include_router(router, prefix="/api")
 app.mount("/media", StaticFiles(directory="backend/media"), name="media")

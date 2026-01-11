@@ -4,7 +4,7 @@ import "./App.css";
 import LandingPage from "./pages/landing-page";
 import MemoryPage from "./pages/memory-page";
 import { Card } from "./components/memorypage/Card";
-
+import VaultCollectionPage from "./pages/vaults-collection";
 const mockCard = {
   cardId: "1",
   media_id: "sample.mp4",
@@ -20,6 +20,10 @@ function App() {
       <div className="app-root">
         <Routes>
           <Route path="/" element={<MemoryPage />} />
+          <Route
+            path="/vaults"
+            element={<VaultCollectionPage userName="Omar" />}
+          />
           <Route path="/landing" element={<LandingPage />} />
         </Routes>
       </div>

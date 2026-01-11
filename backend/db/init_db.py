@@ -7,4 +7,6 @@ from backend.models.card import Card    # noqa: F401
 from backend.models.vault_access import VaultAccess  # noqa: F401
 
 def init_db() -> None:
-    Base.metadata.create_all(bind=engine)
+    return
+
+

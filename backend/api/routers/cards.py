@@ -9,7 +9,7 @@ from backend.db.deps import get_db
 from backend.schemas.card import CardPublic
 from backend.services import card_service, vault_service
 
-router = APIRouter()
+router = APIRouter(tags=["cards"])
 
 MEDIA_DIR = Path("backend/media")
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}

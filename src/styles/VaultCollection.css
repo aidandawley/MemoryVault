@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.vaultPage {
+  min-height: 100vh;
+  background: #0b0f17;
+  color: #e9eefc;
+}
+
+.vaultTopBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: rgba(11, 15, 23, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vaultTopLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vaultTitle {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.vaultSubtitle {
+  font-size: 12px;
+  color: rgba(233, 238, 252, 0.7);
+}
+
+.vaultTopRight {
+  display: flex;
+  align-items: center;
+}
+
+.vaultSearchWrap {
+  width: min(520px, 56vw);
+}
+
+.vaultSearch {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e9eefc;
+  outline: none;
+}
+
+.vaultSearch::placeholder {
+  color: rgba(233, 238, 252, 0.55);
+}
+
+.vaultSearch:focus {
+  border-color: rgba(233, 238, 252, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vaultContent {
+  padding: 18px 22px 42px;
+}
+
+.vaultGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.vaultCard {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 12px;
+  cursor: pointer;
+  color: inherit;
+  transition: transform 120ms ease, background 120ms ease,
+    border-color 120ms ease;
+}
+
+.vaultCard:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.vaultCard:active {
+  transform: translateY(0px);
+}
+
+.vaultCardCover {
+  height: 118px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vaultCoverMark {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.vaultCardMeta {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vaultCardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vaultCardDesc {
+  font-size: 12px;
+  color: rgba(233, 238, 252, 0.72);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vaultEmpty {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.vaultEmptyTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.vaultEmptyText {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(233, 238, 252, 0.7);
+}
+
+.vaultBanner {
+  margin-bottom: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vaultBannerError {
+  border-color: rgba(255, 89, 89, 0.28);
+  background: rgba(255, 89, 89, 0.08);
+}
+
+.vaultBannerTitle {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.vaultBannerText {
+  font-size: 12px;
+  color: rgba(233, 238, 252, 0.78);
+}
+
+.vaultButton {
+  align-self: flex-start;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e9eefc;
+  cursor: pointer;
+}
+
+.vaultButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vaultCardSkeleton {
+  pointer-events: none;
+}
+
+.vaultCardSkeleton .vaultCardCover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vaultSkLine {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vaultSkLine1 {
+  width: 70%;
+}
+
+.vaultSkLine2 {
+  width: 88%;
+}
+
+.vaultColor-0 {
+  background: #2b6ef3;
+}
+.vaultColor-1 {
+  background: #7c3aed;
+}
+.vaultColor-2 {
+  background: #10b981;
+}
+.vaultColor-3 {
+  background: #f97316;
+}
+.vaultColor-4 {
+  background: #ef4444;
+}
+.vaultColor-5 {
+  background: #14b8a6;
+}
+.vaultColor-6 {
+  background: #eab308;
+}
+.vaultColor-7 {
+  background: #60a5fa;
+}
