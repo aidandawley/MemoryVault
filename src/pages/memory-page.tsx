@@ -1,4 +1,5 @@
 import Carousel, { type CarouselItem } from "../components/memorypage/Carousel";
+import UploadDropzone from "../components/memorypage/UploadDropzone";
 
 export default function MemoryPage() {
 
