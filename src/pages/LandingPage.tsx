@@ -1,5 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import fourthJuly from "../assets/4thjuly.jpg";
+import beach from "../assets/beach.jpg";
+import hiking from "../assets/hiking.jpg";
+import party from "../assets/party.jpg";
+import rain from "../assets/rain.jpg";
 import "../styles/LandingPage.css";
 
 export default function LandingPage() {
@@ -79,12 +84,16 @@ export default function LandingPage() {
                 </div>
 
                 <div className="lp-grid">
-                  <div className="lp-thumb" />
-                  <div className="lp-thumb" />
-                  <div className="lp-thumb" />
-                  <div className="lp-thumb" />
-                  <div className="lp-thumb" />
-                  <div className="lp-thumb" />
+                  <img
+                    className="lp-thumb"
+                    src={fourthJuly}
+                    alt="4th of July"
+                  />
+                  <img className="lp-thumb" src={beach} alt="Beach" />
+                  <img className="lp-thumb" src={hiking} alt="Hiking" />
+                  <img className="lp-thumb" src={party} alt="Party" />
+                  <img className="lp-thumb" src={rain} alt="Rain" />
+                  <img className="lp-thumb" src={beach} alt="Beach" />
                 </div>
               </div>
 
