@@ -5,19 +5,26 @@ import "../../styles/AddVaultMediaButton.css";
 
 type CardPublic = any;
 
+export type MediaAnalysisResult =
+  | { kind: "image"; tags: string[] }
+  | { kind: "video"; video_id?: string; hashtags: string[] };
+
 type Props = {
   vaultId: string;
   apiBaseUrl?: string;
   className?: string;
   onCreated?: (card: CardPublic) => void;
+
+  // ✅ NEW: injected analyzer (photo->Gemini, video->TwelveLabs)
+  analyzeMediaFile?: (file: File) => Promise<MediaAnalysisResult>;
 };
 
 const DEFAULT_API =
   (import.meta as any).env?.VITE_API_URL ?? "http://127.0.0.1:8000";
 
 function getMediaType(file: File): "image" | "video" | null {
-  if (file.type.startsWith("image/")) return "image";
-  if (file.type.startsWith("video/")) return "video";
+  if ((file.type || "").startsWith("image/")) return "image";
+  if ((file.type || "").startsWith("video/")) return "video";
   return null;
 }
 
@@ -34,6 +41,7 @@ export default function AddVaultMediaButton({
   apiBaseUrl = DEFAULT_API,
   className,
   onCreated,
+  analyzeMediaFile,
 }: Props) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -42,7 +50,7 @@ export default function AddVaultMediaButton({
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState(""); // we’ll treat this as tags or extra info
+  const [description, setDescription] = useState(""); // optional
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -102,12 +110,40 @@ export default function AddVaultMediaButton({
     setError(null);
 
     try {
+      // ✅ Step 1: analyze photo/video (if provided)
+      let autoTags: string[] = [];
+      let analysisKind: "image" | "video" | null = null;
+
+      if (analyzeMediaFile) {
+        const analysis = await analyzeMediaFile(file);
+
+        if (analysis.kind === "image") {
+          analysisKind = "image";
+          autoTags = Array.isArray(analysis.tags) ? analysis.tags : [];
+        } else {
+          analysisKind = "video";
+          autoTags = Array.isArray(analysis.hashtags) ? analysis.hashtags : [];
+        }
+      }
+
+      // ✅ Step 2: merge user-entered description tags + AI tags
+      // (backend expects "tags" as comma-separated string per your comment)
+      const userTags = description
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean);
+
+      const merged = Array.from(new Set([...autoTags, ...userTags]));
+
       const form = new FormData();
       form.append("file", file);
       form.append("media_type", mediaType);
       form.append("caption", title.trim());
-      form.append("tags", description.trim()); // backend expects comma-separated tags; you can use this as description for now
+      form.append("tags", merged.join(","));
       form.append("isActive", "true");
+
+      // Optional: if you store this, nice for debugging
+      if (analysisKind) form.append("analysis_kind", analysisKind);
 
       const res = await fetch(`${apiBaseUrl}/api/vaults/${vaultId}/cards`, {
         method: "POST",
@@ -231,7 +267,7 @@ export default function AddVaultMediaButton({
                       className="avmb-textarea"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      placeholder="Optional (for now this is saved as tags; comma-separated works best)"
+                      placeholder="Optional (comma-separated tags work best)"
                       rows={6}
                       disabled={uploading}
                     />

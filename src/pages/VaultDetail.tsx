@@ -13,6 +13,21 @@ import "../styles/VaultDetail.css";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
 
+export type MediaAnalysisResult =
+  | { kind: "image"; tags: string[] }
+  | { kind: "video"; video_id: string; hashtags: string[] };
+
+// ✅ Fix for TS: CategoryLine expects item.type to be "video" | "photo"
+type CategoryLineItem = {
+  id: string;
+  title: string;
+  type: "video" | "photo";
+  thumbnailUrl: string;
+  photoUrl?: string;
+  videoUrl?: string;
+  card: CardPublic;
+};
+
 export default function VaultDetailPage() {
   const { vaultId } = useParams();
   const [vault, setVault] = useState<VaultPublic | null>(null);
@@ -20,6 +35,48 @@ export default function VaultDetailPage() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [addedCards, setAddedCards] = useState<CardPublic[]>([]);
+
+  // ✅ Single function: decides which backend endpoint to call based on file type
+  const analyzeMediaFile = async (file: File): Promise<MediaAnalysisResult> => {
+    const isVideo = file.type.startsWith("video/");
+    const isImage = file.type.startsWith("image/");
+
+    if (!isVideo && !isImage) {
+      throw new Error(`Unsupported file type: ${file.type || "unknown"}`);
+    }
+
+    const endpoint = isVideo
+      ? `${API_URL}/api/media/upload-video-hashtags`
+      : `${API_URL}/api/media/upload-photo-tags`;
+
+    const form = new FormData();
+    form.append("file", file); // must match FastAPI param name
+
+    const res = await fetch(endpoint, {
+      method: "POST",
+      body: form,
+    });
+
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new Error(text || `Media analysis failed (${res.status})`);
+    }
+
+    const data = await res.json();
+
+    if (isVideo) {
+      return {
+        kind: "video",
+        video_id: data?.video_id,
+        hashtags: Array.isArray(data?.hashtags) ? data.hashtags : [],
+      };
+    }
+
+    return {
+      kind: "image",
+      tags: Array.isArray(data?.tags) ? data.tags : [],
+    };
+  };
 
   useEffect(() => {
     if (!vaultId) return;
@@ -55,10 +112,11 @@ export default function VaultDetailPage() {
 
         if (cardsRes.ok) {
           const cards = (await cardsRes.json()) as CardPublic[];
-          
+
           const carouselItems: CarouselItem[] = cards.map((card) => {
             const mediaId = (card as any).media_id ?? (card as any).mediaId;
-            const mediaType = (card as any).media_type ?? (card as any).mediaType;
+            const mediaType =
+              (card as any).media_type ?? (card as any).mediaType;
             const cardId = (card as any).cardId ?? (card as any).card_id;
             const caption = (card as any).caption ?? "Untitled";
 
@@ -68,8 +126,10 @@ export default function VaultDetailPage() {
               creator: "",
               type: mediaType === "video" ? "video" : "photo",
               thumbnailUrl: `${API_URL}/media/${mediaId}`,
-              photoUrl: mediaType === "video" ? undefined : `${API_URL}/media/${mediaId}`,
-              videoUrl: mediaType === "video" ? `${API_URL}/media/${mediaId}` : undefined,
+              photoUrl:
+                mediaType === "video" ? undefined : `${API_URL}/media/${mediaId}`,
+              videoUrl:
+                mediaType === "video" ? `${API_URL}/media/${mediaId}` : undefined,
               card: card,
             };
           });
@@ -124,6 +184,7 @@ export default function VaultDetailPage() {
       }
     }
 
+    // Deduplicate cards per tag
     for (const [tag, list] of map) {
       const seen = new Set<string>();
       map.set(
@@ -147,23 +208,23 @@ export default function VaultDetailPage() {
       .map(([tag]) => tag);
   }, [cardsByTag]);
 
-  const toLineItems = (tag: string) => {
+  // ✅ Fix: explicitly return CategoryLineItem[] and force union type for item.type
+  const toLineItems = (tag: string): CategoryLineItem[] => {
     const list = cardsByTag.get(tag) ?? [];
 
     return list
       .map((c) => {
         const cardId = (c as any).cardId ?? (c as any).card_id;
         const mediaId = (c as any).media_id ?? (c as any).mediaId;
-        const mediaType = (c as any).media_type ?? (c as any).mediaType;
+        const mediaType =
+          (c as any).media_type ?? (c as any).mediaType;
 
-        // Try to find the matching CarouselItem
         const matchingItem = items.find(
           (it) =>
             it.card &&
             ((it.card as any).cardId ?? (it.card as any).card_id) === cardId
         );
 
-        // Use the carousel URLs which should have API_URL/media/... prefix
         const fallbackSrc = `${API_URL}/media/${mediaId}`;
 
         const photoUrl =
@@ -172,13 +233,16 @@ export default function VaultDetailPage() {
         const videoUrl =
           matchingItem?.videoUrl ?? matchingItem?.thumbnailUrl ?? fallbackSrc;
 
+        const type: "video" | "photo" =
+          mediaType === "video" ? "video" : "photo";
+
         return {
           id: `${tag}-${cardId}`,
           title: (c as any).caption ?? "Untitled",
-          type: mediaType === "video" ? "video" : "photo",
+          type,
           thumbnailUrl: matchingItem?.thumbnailUrl ?? photoUrl,
-          photoUrl: mediaType === "video" ? undefined : photoUrl,
-          videoUrl: mediaType === "video" ? videoUrl : undefined,
+          photoUrl: type === "video" ? undefined : photoUrl,
+          videoUrl: type === "video" ? videoUrl : undefined,
           card: c,
         };
       })
@@ -224,6 +288,7 @@ export default function VaultDetailPage() {
           <VaultAddMediaSection
             vaultId={vaultId}
             apiBaseUrl={API_URL}
+            analyzeMediaFile={analyzeMediaFile}
             onCreated={(card) => {
               setAddedCards((prev) => [card as CardPublic, ...prev]);
             }}
