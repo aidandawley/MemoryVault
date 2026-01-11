@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api.routers import vaults, cards, share
-from backend.api import router
+from backend.api.router import api_router
 from contextlib import asynccontextmanager
 from fastapi.staticfiles import StaticFiles
 from backend.db.connect_db import connect_db
@@ -49,5 +49,5 @@ app.include_router(vaults.router, prefix="/api", tags=["vaults"])
 app.include_router(cards.router, prefix="/api", tags=["cards"])
 app.include_router(share.router, prefix="/api", tags=["share"])
 app.include_router(health_router, prefix="/api")
-app.include_router(router, prefix="/api")
+app.include_router(api_router, prefix="/api")
 app.mount("/media", StaticFiles(directory="backend/media"), name="media")
