@@ -115,6 +115,10 @@ export default function VaultDetailPage() {
 
           const carouselItems: CarouselItem[] = cards.map((card) => {
             const mediaId = (card as any).media_id ?? (card as any).mediaId;
+            const thumbId =
+              (card as any).thumbnail_id ??
+              (card as any).thumbnailId ??
+              mediaId;
             const mediaType =
               (card as any).media_type ?? (card as any).mediaType;
             const cardId = (card as any).cardId ?? (card as any).card_id;
@@ -125,7 +129,7 @@ export default function VaultDetailPage() {
               title: caption,
               creator: "",
               type: mediaType === "video" ? "video" : "photo",
-              thumbnailUrl: `${API_URL}/media/${mediaId}`,
+              thumbnailUrl: `${API_URL}/media/${thumbId}`,
               photoUrl:
                 mediaType === "video"
                   ? undefined
@@ -220,6 +224,8 @@ export default function VaultDetailPage() {
       .map((c) => {
         const cardId = (c as any).cardId ?? (c as any).card_id;
         const mediaId = (c as any).media_id ?? (c as any).mediaId;
+        const thumbId =
+          (c as any).thumbnail_id ?? (c as any).thumbnailId ?? mediaId;
         const mediaType = (c as any).media_type ?? (c as any).mediaType;
 
         const matchingItem = items.find(
@@ -228,6 +234,7 @@ export default function VaultDetailPage() {
             ((it.card as any).cardId ?? (it.card as any).card_id) === cardId
         );
 
+        const fallbackThumb = `${API_URL}/media/${thumbId}`;
         const fallbackSrc = `${API_URL}/media/${mediaId}`;
 
         const photoUrl =
@@ -243,7 +250,7 @@ export default function VaultDetailPage() {
           id: `${tag}-${cardId}`,
           title: (c as any).caption ?? "Untitled",
           type,
-          thumbnailUrl: matchingItem?.thumbnailUrl ?? photoUrl,
+          thumbnailUrl: matchingItem?.thumbnailUrl ?? fallbackThumb,
           photoUrl: type === "video" ? undefined : photoUrl,
           videoUrl: type === "video" ? videoUrl : undefined,
           card: c,
