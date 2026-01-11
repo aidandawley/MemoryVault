@@ -1,0 +1,249 @@
+.vds-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  min-width: 280px;
+  background: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vds-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vds-homeBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.vds-homeBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.vds-brandBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.vds-brand {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+
+.vds-subtitle {
+  font-size: 12px;
+  opacity: 0.65;
+  margin-top: 2px;
+}
+
+.vds-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+.vds-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vds-sectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+.vds-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vds-personRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px;
+  border-radius: 14px;
+}
+
+.vds-personRow:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.vds-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.vds-personMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vds-personName {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vds-personHint {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+.vds-empty {
+  font-size: 13px;
+  opacity: 0.65;
+  padding: 8px 0;
+}
+
+@media (max-width: 900px) {
+  .vds-sidebar {
+    display: none;
+  }
+}
+
+/* Delete confirmation modal */
+.vds-deleteModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.vds-deleteBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 20, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 9999999;
+}
+
+/* Dialog container */
+.vds-deleteContent {
+  position: fixed;
+  z-index: 10000000;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  width: min(420px, 92vw);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+  font-family: Arial, Helvetica, sans-serif;
+
+  transform: translateY(6px);
+  opacity: 0;
+  animation: vds-modal-in 140ms ease forwards;
+}
+
+@keyframes vds-modal-in {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vds-deleteTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0b1220;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+
+.vds-deleteMessage {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.vds-deleteActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.vds-deleteCancel,
+.vds-deleteConfirm {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease,
+    border-color 120ms ease, opacity 120ms ease;
+  user-select: none;
+}
+
+.vds-deleteCancel {
+  background: #ffffff;
+  color: #4f46e5;
+  border: 1px solid rgba(99, 102, 241, 0.22);
+}
+
+.vds-deleteCancel:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.32);
+}
+
+.vds-deleteConfirm {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  border: 1px solid rgba(220, 38, 38, 0.6);
+  box-shadow: 0 12px 26px rgba(220, 38, 38, 0.18);
+}
+
+.vds-deleteConfirm:hover:not(:disabled) {
+  filter: brightness(0.98);
+}
+
+.vds-deleteCancel:active:not(:disabled),
+.vds-deleteConfirm:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.vds-deleteCancel:disabled,
+.vds-deleteConfirm:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Optional: show a subtle busy state on the confirm button */
+.vds-deleteConfirm:disabled {
+  box-shadow: none;
+}

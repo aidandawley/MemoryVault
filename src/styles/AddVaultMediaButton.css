@@ -1,0 +1,259 @@
+/* src/styles/AddVaultMediaButton.css */
+.avmb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  color: #0b1220;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+.avmb-btnIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.14),
+    rgba(168, 85, 247, 0.14)
+  );
+  color: #4f46e5;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.avmb-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.avmb-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(8, 10, 20, 0.48);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.avmb-panel {
+  position: relative;
+  z-index: 100001;
+  width: min(980px, 94vw);
+  max-height: 86vh;
+  overflow: auto;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 22px 90px rgba(0, 0, 0, 0.28);
+}
+
+.avmb-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(168, 85, 247, 0.08)
+  );
+}
+
+.avmb-title {
+  font-weight: 800;
+  color: #0b1220;
+  letter-spacing: 0.2px;
+}
+
+.avmb-x {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.avmb-body {
+  padding: 16px;
+}
+
+.avmb-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+}
+
+@media (max-width: 860px) {
+  .avmb-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.avmb-upload {
+  border-radius: 18px;
+  border: 1px dashed rgba(99, 102, 241, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.05),
+    rgba(168, 85, 247, 0.05)
+  );
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+}
+
+.avmb-file {
+  display: none;
+}
+
+.avmb-pick {
+  border: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  background: #0b1220;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(11, 18, 32, 0.2);
+}
+
+.avmb-preview {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+}
+
+.avmb-media {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  background: #0b1220;
+}
+
+.avmb-change {
+  justify-self: start;
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  background: #ffffff;
+  color: #4f46e5;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.avmb-right {
+  display: grid;
+  gap: 12px;
+}
+
+.avmb-field {
+  display: grid;
+  gap: 8px;
+}
+
+.avmb-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #334155;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.avmb-input,
+.avmb-textarea {
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  outline: none;
+  padding: 12px 12px;
+  font-size: 14px;
+  color: #0b1220;
+  background: #ffffff;
+}
+
+.avmb-input:focus,
+.avmb-textarea:focus {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.avmb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.avmb-cancel {
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: #ffffff;
+  color: #0b1220;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.avmb-primary {
+  border: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.95),
+    rgba(168, 85, 247, 0.95)
+  );
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 14px 28px rgba(99, 102, 241, 0.2);
+}
+
+.avmb-primary:disabled,
+.avmb-cancel:disabled,
+.avmb-x:disabled,
+.avmb-pick:disabled,
+.avmb-change:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.avmb-error {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  color: #7f1d1d;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.avmb-hint {
+  font-size: 13px;
+  color: #475569;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.06),
+    rgba(168, 85, 247, 0.06)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.14);
+}

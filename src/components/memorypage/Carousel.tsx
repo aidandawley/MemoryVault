@@ -1,19 +1,21 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../../styles/Carousel.css";
 
+import { Card } from "./Card";
+import type { CardPublic } from "../../types/card"; // adjust path
+
 export type CarouselItem = {
   id: string;
   title: string;
   creator?: string;
 
   type: "photo" | "video";
-
-  // always present for previews
   thumbnailUrl: string;
 
-  // full content (for active preview and later card popup)
-  photoUrl?: string; // required if type === "photo"
-  videoUrl?: string; // required if type === "video"
+  photoUrl?: string;
+  videoUrl?: string;
+
+  card?: CardPublic;
 };
 
 type Props = {
@@ -41,8 +43,12 @@ export default function Carousel({
   onActiveChange,
 }: Props) {
   const length = items.length;
-  const [active, setActive] = useState(() => (length ? mod(initialIndex, length) : 0));
+  const [active, setActive] = useState(() =>
+    length ? mod(initialIndex, length) : 0
+  );
   const activeVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  const [openCard, setOpenCard] = useState<CardPublic | null>(null);
 
   const setActiveIndex = (next: number) => {
     if (!length) return;
@@ -54,7 +60,6 @@ export default function Carousel({
   const goLeft = () => setActiveIndex(active - 1);
   const goRight = () => setActiveIndex(active + 1);
 
-  // Only autoplay when the active item is a video.
   useEffect(() => {
     const activeItem = items[active];
     if (!activeItem || activeItem.type !== "video") return;
@@ -104,85 +109,136 @@ export default function Carousel({
 
   if (!items.length) return null;
 
+  const activeItem = items[active];
+
   return (
-    <section
-      className="mv-carousel"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "ArrowLeft") goLeft();
-        if (e.key === "ArrowRight") goRight();
-      }}
-      aria-label="Featured media"
-    >
-      <button className="mv-carousel__nav mv-carousel__nav--left" onClick={goLeft} aria-label="Previous">
-        ◀
-      </button>
+    <>
+      <section
+        className="mv-carousel"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowLeft") goLeft();
+          if (e.key === "ArrowRight") goRight();
+          if (e.key === "Enter") {
+            const item = items[active];
+            if (item?.card) setOpenCard(item.card);
+          }
+          if (e.key === "Escape") setOpenCard(null);
+        }}
+        aria-label="Featured media"
+      >
+        <button
+          className="mv-carousel__nav mv-carousel__nav--left"
+          onClick={goLeft}
+          aria-label="Previous"
+        >
+          ◀
+        </button>
 
-      <button className="mv-carousel__nav mv-carousel__nav--right" onClick={goRight} aria-label="Next">
-        ▶
-      </button>
+        <button
+          className="mv-carousel__nav mv-carousel__nav--right"
+          onClick={goRight}
+          aria-label="Next"
+        >
+          ▶
+        </button>
 
-      <div className="mv-carousel__stage">
-        {visibleIndices.map((index) => {
-          const item = items[index];
-          const offset = circularOffset(index, active, length);
-          const isActive = offset === 0;
+        <div className="mv-carousel__stage">
+          {visibleIndices.map((index) => {
+            const item = items[index];
+            const offset = circularOffset(index, active, length);
+            const isActive = offset === 0;
 
-          return (
-            <article
-              key={item.id}
-              className={`mv-carousel__card ${isActive ? "is-active" : ""}`}
-              style={getCardStyle(index)}
-              onClick={() => setActiveIndex(index)}
-              role="button"
-              aria-label={`Select ${item.title}`}
-            >
-              <div className="mv-carousel__media">
-                {/* Active: video preview if video, else photo. Non-active: thumbnail */}
-                {isActive ? (
-                  item.type === "video" ? (
-                    <video
-                      ref={activeVideoRef}
-                      className="mv-carousel__video"
-                      src={item.videoUrl}
-                      poster={item.thumbnailUrl}
-                      muted
-                      loop
-                      playsInline
-                      autoPlay
-                      preload="metadata"
-                    />
+            return (
+              <article
+                key={item.id}
+                className={`mv-carousel__card ${isActive ? "is-active" : ""}`}
+                style={getCardStyle(index)}
+                onClick={() => {
+                  if (!isActive) {
+                    setActiveIndex(index);
+                    return;
+                  }
+                  if (item.card) setOpenCard(item.card);
+                }}
+                role="button"
+                aria-label={
+                  isActive ? `Open ${item.title}` : `Select ${item.title}`
+                }
+              >
+                <div className="mv-carousel__media">
+                  {isActive ? (
+                    item.type === "video" ? (
+                      <video
+                        ref={activeVideoRef}
+                        className="mv-carousel__video"
+                        src={item.videoUrl}
+                        poster={item.thumbnailUrl}
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                        preload="metadata"
+                      />
+                    ) : (
+                      <img
+                        className="mv-carousel__thumb"
+                        src={item.photoUrl ?? item.thumbnailUrl}
+                        alt={item.title}
+                        draggable={false}
+                      />
+                    )
                   ) : (
                     <img
                       className="mv-carousel__thumb"
-                      src={item.photoUrl ?? item.thumbnailUrl}
+                      src={item.thumbnailUrl}
                       alt={item.title}
                       draggable={false}
+                      loading="lazy"
                     />
-                  )
-                ) : (
-                  <img
-                    className="mv-carousel__thumb"
-                    src={item.thumbnailUrl}
-                    alt={item.title}
-                    draggable={false}
-                    loading="lazy"
-                  />
-                )}
+                  )}
 
-                <div className="mv-carousel__gradient" />
+                  <div className="mv-carousel__gradient" />
 
-                <div className="mv-carousel__meta">
-                  <div className="mv-carousel__title">{item.title}</div>
-                  <div className="mv-carousel__sub">
-                    {item.creator ? <span>{item.creator}</span> : null}
+                  <div className="mv-carousel__meta">
+                    <div className="mv-carousel__title">{item.title}</div>
+                    <div className="mv-carousel__sub">
+                      {item.creator ? <span>{item.creator}</span> : null}
+                      {isActive && item.card ? (
+                        <span className="mv-carousel__dot">•</span>
+                      ) : null}
+                      {isActive && item.card ? (
+                        <span className="mv-carousel__hint">Click to open</span>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </section>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {openCard && (
+        <div className="mv-cardModal" role="dialog" aria-modal="true">
+          <button
+            className="mv-cardModal__backdrop"
+            onClick={() => setOpenCard(null)}
+            aria-label="Close"
+          />
+          <div className="mv-cardModal__content">
+            <button
+              className="mv-cardModal__close"
+              onClick={() => setOpenCard(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            <Card card={openCard} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

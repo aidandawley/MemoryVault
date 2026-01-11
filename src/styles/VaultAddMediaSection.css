@@ -1,0 +1,60 @@
+.vams-wrap {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.vams-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  border-radius: 18px;
+  padding: 16px 16px;
+
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+}
+
+.vams-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vams-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: #0b1220;
+  letter-spacing: 0.2px;
+}
+
+.vams-sub {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.vams-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (max-width: 860px) {
+  .vams-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vams-right {
+    justify-content: stretch;
+  }
+
+  .vams-right .avmb-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -15,21 +15,13 @@ def seed_demo_data() -> None:
         DEMO_OWNER_ID = "demo-user"  # must be non-null; later replace with real user id
 
         vaults = [
+
             Vault(
                 owner_id=DEMO_OWNER_ID,
-                title="Personal",
-                description="Personal memories and notes",
-            ),
-            Vault(
-                owner_id=DEMO_OWNER_ID,
-                title="School",
-                description="Class notes, study clips, assignments",
-            ),
-            Vault(
-                owner_id=DEMO_OWNER_ID,
-                title="Work",
-                description="Projects, meetings, references",
-            ),
+                title="Concerts",
+                description="Tickets and memorabilia from concerts I've attended",
+            )
+  
         ]
 
         db.add_all(vaults)
