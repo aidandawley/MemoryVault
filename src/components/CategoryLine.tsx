@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/CategoryLine.css";
 import type { CardPublic } from "../types/card";
 import SectionTag from "./SectionTag";
+
 export type CategoryLineItem = {
   id: string;
   title: string;
@@ -22,6 +23,108 @@ type Props = {
   onItemDeleted?: (itemId: string) => void;
   apiBaseUrl?: string;
 };
+
+function FirstFrameHoverVideoThumb({
+  videoUrl,
+  title,
+}: {
+  videoUrl?: string;
+  title: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const setToFirstFrame = () => {
+      try {
+        // Some browsers won't paint at exactly 0; a tiny seek tends to paint reliably.
+        const tiny = 0.05;
+        const target =
+          Number.isFinite(v.duration) && v.duration > 0
+            ? Math.min(tiny, Math.max(0, v.duration * 0.01))
+            : tiny;
+
+        v.currentTime = target;
+      } catch {
+        // ignore
+      }
+    };
+
+    const onLoadedMetadata = () => {
+      setToFirstFrame();
+    };
+
+    const onSeeked = () => {
+      v.pause();
+    };
+
+    v.addEventListener("loadedmetadata", onLoadedMetadata);
+    v.addEventListener("seeked", onSeeked);
+
+    try {
+      v.pause();
+      v.load();
+    } catch {
+      // ignore
+    }
+
+    return () => {
+      v.removeEventListener("loadedmetadata", onLoadedMetadata);
+      v.removeEventListener("seeked", onSeeked);
+    };
+  }, [videoUrl]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    if (!hovered) {
+      v.pause();
+      try {
+        v.currentTime = 0;
+      } catch {
+        // ignore
+      }
+      return;
+    }
+
+    const tryPlay = async () => {
+      try {
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true as any;
+        await v.play();
+      } catch {
+        // autoplay may fail; muted usually works
+      }
+    };
+
+    tryPlay();
+  }, [hovered]);
+
+  return (
+    <div
+      className="cl-thumbStack"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+    >
+      <video
+        ref={videoRef}
+        className="cl-thumb cl-thumb--vidOnly"
+        src={videoUrl || ""}
+        muted
+        playsInline
+        preload="metadata"
+        aria-label={title}
+      />
+    </div>
+  );
+}
 
 export default function CategoryLine({
   title,
@@ -112,6 +215,7 @@ export default function CategoryLine({
   return (
     <>
       {title && <SectionTag tag={title.toString()} />}
+
       <section className="cl">
         {title ? <div className="cl-title">{title}</div> : null}
 
@@ -136,9 +240,6 @@ export default function CategoryLine({
             aria-label="Media row"
           >
             {items.map((item) => {
-              const src =
-                item.type === "photo" ? item.thumbnailUrl : item.thumbnailUrl;
-
               return (
                 <button
                   key={item.id}
@@ -147,13 +248,20 @@ export default function CategoryLine({
                   aria-label={`Open ${item.title}`}
                 >
                   <div className="cl-thumbWrap">
-                    <img
-                      className="cl-thumb"
-                      src={src}
-                      alt={item.title}
-                      loading="lazy"
-                      draggable={false}
-                    />
+                    {item.type === "video" ? (
+                      <FirstFrameHoverVideoThumb
+                        videoUrl={item.videoUrl}
+                        title={item.title}
+                      />
+                    ) : (
+                      <img
+                        className="cl-thumb"
+                        src={item.thumbnailUrl}
+                        alt={item.title}
+                        loading="lazy"
+                        draggable={false}
+                      />
+                    )}
 
                     {item.type === "video" ? (
                       <div className="cl-playBadge" aria-hidden="true">
@@ -241,7 +349,7 @@ export default function CategoryLine({
                 {openItem.type === "video" ? (
                   <video
                     className="mv-cardModalCard__mediaEl"
-                    src={openItem.videoUrl ?? openItem.thumbnailUrl}
+                    src={openItem.videoUrl ?? ""}
                     poster={openItem.thumbnailUrl}
                     controls
                     preload="metadata"
