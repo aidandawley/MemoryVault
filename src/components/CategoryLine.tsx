@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/CategoryLine.css";
 import type { CardPublic } from "../types/card";
-
+import SectionTag from "./SectionTag";
 export type CategoryLineItem = {
   id: string;
   title: string;
@@ -73,6 +73,7 @@ export default function CategoryLine({ title, items }: Props) {
 
   return (
     <>
+      {title && <SectionTag tag={title.toString()} />}
       <section className="cl">
         {title ? <div className="cl-title">{title}</div> : null}
 
