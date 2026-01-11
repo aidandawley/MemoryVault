@@ -1,0 +1,190 @@
+/* VaultDetail Page Styles - Light theme with blue and purple accents */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main container with light background */
+.vault-detail-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f4ff 50%, #faf5ff 100%);
+  padding: 32px 24px;
+  color: #1e293b;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar styling */
+.vault-detail-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.vault-detail-container::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 10px;
+}
+
+.vault-detail-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed 0%, #6366f1 100%);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.vault-detail-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6d28d9 0%, #4f46e5 100%);
+  background-clip: padding-box;
+}
+
+/* Vault header section */
+.vault-detail-header {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  padding: 32px 28px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.08),
+    0 2px 4px rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vault-detail-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vault-detail-header p {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Carousel/Media container */
+.vault-detail-media {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.08),
+    0 2px 4px rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Loading and error states */
+.vault-detail-loading,
+.vault-detail {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 48px 28px;
+  background: white;
+  border-radius: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vault-detail-loading {
+  border: 2px solid rgba(99, 102, 241, 0.1);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.vault-detail-error {
+  border: 2px solid rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .vault-detail-container {
+    padding: 16px;
+  }
+
+  .vault-detail-header,
+  .vault-detail-media,
+  .vault-detail-loading,
+  .vault-detail-error {
+    padding: 20px 16px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+
+  .vault-detail-header h1 {
+    font-size: 24px;
+  }
+
+  .vault-detail-header p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vault-detail-container {
+    padding: 12px;
+  }
+
+  .vault-detail-header,
+  .vault-detail-media,
+  .vault-detail-loading,
+  .vault-detail-error {
+    padding: 16px 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .vault-detail-header h1 {
+    font-size: 20px;
+  }
+}
+
+.vault-detail-shell {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.vault-detail-main {
+  flex: 1;
+  min-width: 0;
+}
+/* add to src/styles/VaultDetail.css */
+.vault-detail-headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .vault-detail-headerTop {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

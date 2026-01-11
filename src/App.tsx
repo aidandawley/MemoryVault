@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import LandingPage from "./pages/landing-page";
+import LandingPage from "./pages/LandingPage";
 import MemoryPage from "./pages/memory-page";
 import { Card } from "./components/memorypage/Card";
-import VaultCollectionPage from "./pages/vaults-collection";
+import VaultCollectionPage from "./pages/VaultCollectionPage";
+import VaultDetailPage from "./pages/VaultDetail";
 const mockCard = {
   cardId: "1",
   media_id: "sample.mp4",
@@ -19,12 +20,13 @@ function App() {
     <BrowserRouter>
       <div className="app-root">
         <Routes>
-          <Route path="/" element={<MemoryPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route
             path="/vaults"
             element={<VaultCollectionPage userName="Omar" />}
           />
           <Route path="/landing" element={<LandingPage />} />
+          <Route path="/vaults/:vaultId" element={<VaultDetailPage />} />
         </Routes>
       </div>
     </BrowserRouter>
