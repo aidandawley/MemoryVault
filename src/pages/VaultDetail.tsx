@@ -48,58 +48,36 @@ export default function VaultDetailPage() {
         const data = (await res.json()) as VaultPublic;
         setVault(data);
 
-        const demoItems: CarouselItem[] = [
-          {
-            id: `${vaultId}-demo-photo-1`,
-            title: data.title ?? "Untitled Vault",
-            creator: "Demo User",
-            type: "photo",
-            thumbnailUrl: "/dog1.jpg",
-            photoUrl: "/dog1.jpg",
-            card: {
-              media_type: "image",
-              cardId: `${vaultId}-card-1`,
-              media_id: "demo-media-1",
-              caption: data.title ?? "Untitled Vault",
-              tags: ["memory", "photo"],
-              isActive: true,
-            } as any,
-          },
-          {
-            id: `${vaultId}-demo-photo-2`,
-            title: "Second memory",
-            creator: "Demo User",
-            type: "photo",
-            thumbnailUrl: "/dog2.jpg",
-            photoUrl: "/dog2.jpg",
-            card: {
-              media_type: "image",
-              cardId: `${vaultId}-card-2`,
-              media_id: "demo-media-2",
-              caption: "Second memory",
-              tags: ["memory", "photo"],
-              isActive: true,
-            } as any,
-          },
-          {
-            id: `${vaultId}-demo-photo-3`,
-            title: "Bob’s B-Day",
-            creator: "Group Vault",
-            type: "photo",
-            thumbnailUrl: "/dog3.jpg",
-            photoUrl: "/dog3.jpg",
-            card: {
-              media_type: "image",
-              cardId: `${vaultId}-card-3`,
-              media_id: "demo-media-3",
-              caption: "Bob's B-Day",
-              tags: ["birthday", "bob"],
-              isActive: true,
-            } as any,
-          },
-        ];
+        // Fetch actual cards from the database
+        const cardsRes = await fetch(`${API_URL}/api/vaults/${vaultId}/cards`, {
+          signal: ac.signal,
+        });
 
-        setItems(demoItems);
+        if (cardsRes.ok) {
+          const cards = (await cardsRes.json()) as CardPublic[];
+          
+          const carouselItems: CarouselItem[] = cards.map((card) => {
+            const mediaId = (card as any).media_id ?? (card as any).mediaId;
+            const mediaType = (card as any).media_type ?? (card as any).mediaType;
+            const cardId = (card as any).cardId ?? (card as any).card_id;
+            const caption = (card as any).caption ?? "Untitled";
+
+            return {
+              id: cardId,
+              title: caption,
+              creator: "",
+              type: mediaType === "video" ? "video" : "photo",
+              thumbnailUrl: `${API_URL}/media/${mediaId}`,
+              photoUrl: mediaType === "video" ? undefined : `${API_URL}/media/${mediaId}`,
+              videoUrl: mediaType === "video" ? `${API_URL}/media/${mediaId}` : undefined,
+              card: card,
+            };
+          });
+
+          setItems(carouselItems);
+        } else {
+          setItems([]);
+        }
       } catch (e: any) {
         if (e?.name !== "AbortError") {
           setErr(e?.message ?? "Failed to load vault");
@@ -178,14 +156,14 @@ export default function VaultDetailPage() {
         const mediaId = (c as any).media_id ?? (c as any).mediaId;
         const mediaType = (c as any).media_type ?? (c as any).mediaType;
 
-        // Try to find the matching CarouselItem (demo items have local URLs like /dog1.jpg)
+        // Try to find the matching CarouselItem
         const matchingItem = items.find(
           (it) =>
             it.card &&
             ((it.card as any).cardId ?? (it.card as any).card_id) === cardId
         );
 
-        // Prefer the carousel URLs if present; otherwise fall back to backend /media/:id
+        // Use the carousel URLs which should have API_URL/media/... prefix
         const fallbackSrc = `${API_URL}/media/${mediaId}`;
 
         const photoUrl =
