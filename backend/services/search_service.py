@@ -116,3 +116,29 @@ def search_vault(db: Session, vault_id: str, query: str, limit: int = 5) -> Sear
     t["score_ms"] = (time.perf_counter() - t0) * 1000
 
     return SearchResult(hits=hits, timings_ms={k: round(v, 3) for k, v in t.items()}, cards_indexed=n_indexed)
+
+
+def keyword_search_vault(db: Session, vault_id: str, query: str, limit: int = 5) -> SearchResult:
+    """Baseline without embeddings: a card matches if the normalized query equals one of its
+    normalized tags (score 1.0), or every query word appears in its caption (score 0.5)."""
+    from backend.api.tools.tag_normalizer import normalize_and_alias
+
+    t = {}
+    t0 = time.perf_counter()
+    cards = card_service.list_cards(db, vault_id)
+    t["db_ms"] = (time.perf_counter() - t0) * 1000
+
+    t0 = time.perf_counter()
+    nq = normalize_and_alias(query)
+    words = query.lower().split()
+    hits: list[SearchHit] = []
+    for c in cards:
+        tags = card_service.normalized_tags(card_service._parse_tags(c.tags))
+        if nq and nq in tags:
+            hits.append(SearchHit(c, 1.0, "tag", nq))
+        elif words and all(w in (c.caption or "").lower() for w in words):
+            hits.append(SearchHit(c, 0.5, "caption", c.caption))
+    hits.sort(key=lambda h: -h.score)  # stable: ties keep list_cards order (newest first)
+    t["match_ms"] = (time.perf_counter() - t0) * 1000
+
+    return SearchResult(hits=hits[:limit], timings_ms={k: round(v, 3) for k, v in t.items()})

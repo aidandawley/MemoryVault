@@ -1,3 +1,5 @@
+import json
+
 from sqlalchemy.orm import Session
 from backend.api.tools.tag_normalizer import normalize_and_alias
 from backend.models.card import Card
@@ -29,6 +31,7 @@ def create_card(
     caption: str,
     tags: list[str],
     is_active: bool,
+    raw_tags: list[str] | None = None,
 ) -> Card:
     c = Card(
         vault_id=vault_id,
@@ -37,6 +40,7 @@ def create_card(
         media_type=media_type,
         caption=caption,
         tags=_serialize_tags(tags),
+        raw_tags=json.dumps(raw_tags or []),
         is_active=is_active,
     )
     db.add(c)

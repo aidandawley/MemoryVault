@@ -6,6 +6,7 @@ import os
 import uuid
 from pathlib import Path
 from collections import Counter
+from typing import Literal
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
 from sqlalchemy.orm import Session
@@ -27,7 +28,8 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(tags=["cards"])
 
-MEDIA_DIR = Path("backend/media")
+# Where uploads are stored (and served from, see main.py). Overridable, e.g. for the eval vault.
+MEDIA_DIR = Path(os.getenv("MEDIA_DIR", "backend/media"))
 
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
 ALLOWED_VIDEO_TYPES = {"video/mp4", "video/webm", "video/quicktime"}
@@ -178,8 +180,16 @@ def _index_for_search(db: Session, card) -> None:
 
 
 @router.get("/vaults/{vault_id}/search")
-def search_vault(vault_id: str, response: Response, q: str, limit: int = 5, db: Session = Depends(get_db)):
-    """Semantic search: max cosine similarity between the query and each card's caption/tags."""
+def search_vault(
+    vault_id: str,
+    response: Response,
+    q: str,
+    limit: int = 5,
+    mode: Literal["semantic", "keyword"] = "semantic",
+    db: Session = Depends(get_db),
+):
+    """semantic (default): max cosine similarity between the query and each card's caption/tags.
+    keyword: exact normalized-tag or caption match, kept as a baseline for comparison."""
     vault = vault_service.get_vault(db, vault_id)
     if not vault:
         raise HTTPException(status_code=404, detail="Vault not found")
@@ -188,12 +198,16 @@ def search_vault(vault_id: str, response: Response, q: str, limit: int = 5, db: 
         raise HTTPException(status_code=400, detail="Empty query")
     limit = max(1, min(limit, 50))
 
-    result = search_service.search_vault(db, vault_id, q, limit=limit)
+    if mode == "keyword":
+        result = search_service.keyword_search_vault(db, vault_id, q, limit=limit)
+    else:
+        result = search_service.search_vault(db, vault_id, q, limit=limit)
     response.headers["Server-Timing"] = ", ".join(
         f"{k.removesuffix('_ms')};dur={v}" for k, v in result.timings_ms.items()
     )
     return {
         "query": q,
+        "mode": mode,
         "results": [
             {
                 **card_service.to_public_dict(h.card),
@@ -304,6 +318,7 @@ async def create_card(
             caption=caption,
             tags=[],
             is_active=isActive,
+            raw_tags=generated_tags,
         )
         _index_for_search(db, card)
         return card_service.to_public_dict(card)
@@ -366,6 +381,7 @@ async def create_card(
         caption=caption,
         tags=final_tags,
         is_active=isActive,
+        raw_tags=generated_tags,
     )
 
     _index_for_search(db, card)

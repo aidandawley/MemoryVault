@@ -69,4 +69,7 @@ def health():
 app.include_router(health_router, prefix="/api")
 app.include_router(api_router, prefix="/api")
 
-app.mount("/media", StaticFiles(directory="backend/media"), name="media")
+from backend.api.routers.cards import MEDIA_DIR  # noqa: E402
+
+MEDIA_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/media", StaticFiles(directory=str(MEDIA_DIR)), name="media")

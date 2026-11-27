@@ -22,6 +22,9 @@ class Card(Base):
     caption: Mapped[str] = mapped_column(Text, nullable=False)
 
     tags: Mapped[str] = mapped_column(Text, nullable=False, default="")  # comma-separated for hackathon
+    # The AI model's tags before normalization/resolution, as a JSON list. Kept so tags can be
+    # re-resolved (or the pipeline re-evaluated) later without paying for the API call again.
+    raw_tags: Mapped[str] = mapped_column(Text, nullable=False, default="[]")
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
