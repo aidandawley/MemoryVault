@@ -261,12 +261,22 @@ def _safe_singularize_word(w: str) -> str:
     return w
 
 
+# Every alias target is a canonical tag, so normalize_and_alias must return it unchanged.
+# Without this, "best friends" -> "friends" but "friends" -> "friend" (singularized), and
+# "chaos" -> "chao": one concept stored under two names.
+ALIAS_TARGETS = frozenset(ALIASES.values())
+
+
 def normalize_and_alias(tag: str) -> str:
     t = normalize_text(tag)
 
     # exact alias hit first
     if t in ALIASES:
         return ALIASES[t]
+
+    # already canonical
+    if t in ALIAS_TARGETS:
+        return t
 
     # only singularize if it's ONE word
     if " " not in t:

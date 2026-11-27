@@ -109,12 +109,16 @@ def main(out_path=None):
     OLD = {"keep_ambiguous": False, "merge_within_batch": True}  # the recorded run's behaviour
     NEW = {"keep_ambiguous": True, "merge_within_batch": False}
 
-    # 0) sanity: replaying the baseline must reproduce the recorded run exactly
+    # 0) sanity: replaying the baseline should reproduce the recorded run. It matched exactly
+    #    up to commit 8956e93; since the alias-target fix, the only expected difference is
+    #    "friend" -> "friends" on two cards. Any other difference means the harness is off.
     outputs, stored = replay(run, vault_cards, **OLD)
-    recorded = {c["card_id"]: c["final_tags"] for c in run["cards"]}
-    results["baseline_replay_matches_recorded_run"] = stored == recorded
-    if stored != recorded:
-        print("WARNING: baseline replay differs from the recorded run", file=sys.stderr)
+    diffs = [
+        {"card_id": c["card_id"], "recorded": c["final_tags"], "replayed": stored[c["card_id"]]}
+        for c in run["cards"] if stored[c["card_id"]] != c["final_tags"]
+    ]
+    results["baseline_replay_diffs_vs_recorded_run"] = diffs
+    results["baseline_replay_matches_recorded_run"] = not diffs
 
     raw_unique = {t.strip().lower() for c in run["cards"] for t in c["ai_tags"]}
     configs = {
@@ -153,6 +157,8 @@ def main(out_path=None):
 if __name__ == "__main__":
     r = main(*sys.argv[1:])
     print("baseline replay matches recorded run:", r["baseline_replay_matches_recorded_run"])
+    for d in r["baseline_replay_diffs_vs_recorded_run"]:
+        print("   diff:", d["recorded"], "->", d["replayed"])
     keys = ("tags_kept", "correct", "correct_merges", "incorrect_merges", "useful_dropped", "unique_stored_tags", "accuracy")
     print(f"{'config':45}" + "".join(f"{k[:14]:>15}" for k in keys))
     for name, s in r["configs"].items():
