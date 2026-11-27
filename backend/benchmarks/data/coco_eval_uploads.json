@@ -1,0 +1,1277 @@
+{
+  "uploads": [
+    {
+      "image_id": 139872,
+      "card_id": "4edae635-e2de-47c2-82aa-d67a3f6badca",
+      "media_id": "5381a6dd-4df9-4997-8cb2-ea3f4e622f30.jpg",
+      "created_at": "2026-11-27 08:39:32.041182",
+      "upload_s": 2.529,
+      "raw_tags": [
+        "border collie",
+        "dog",
+        "grass",
+        "red frisbee",
+        "lawn",
+        "panting dog"
+      ],
+      "stored_tags": [
+        "border collie",
+        "dog",
+        "grass",
+        "red frisbee",
+        "lawn",
+        "panting dog"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 10363,
+      "card_id": "8c33a0e3-9cfb-414b-b22c-cc09b2e202c4",
+      "media_id": "6acac257-bbac-40f8-91f8-760e45749ad1.jpg",
+      "created_at": "2026-11-27 08:39:37.571054",
+      "upload_s": 1.525,
+      "raw_tags": [
+        "cat",
+        "car",
+        "garage",
+        "tabby cat",
+        "black car",
+        "floored garage",
+        "lamps"
+      ],
+      "stored_tags": [
+        "cat",
+        "car",
+        "garage",
+        "tabby cat",
+        "black car",
+        "floored garage",
+        "lamp"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 64523,
+      "card_id": "7955a104-bb15-4e2b-b010-4a86a7e4ab7b",
+      "media_id": "c824cda7-7cca-4718-b734-92f1037b7682.jpg",
+      "created_at": "2026-11-27 08:39:43.468279",
+      "upload_s": 1.894,
+      "raw_tags": [
+        "tennis team",
+        "group portrait",
+        "tennis racquets",
+        "tennis court",
+        "women",
+        "sports uniforms",
+        "black and white"
+      ],
+      "stored_tags": [
+        "tennis team",
+        "group portrait",
+        "tennis racquets",
+        "tennis court",
+        "women",
+        "sports uniforms",
+        "black and white"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 245651,
+      "card_id": "3dd8e2a7-2ac3-4a76-943e-142a895e1d93",
+      "media_id": "550a1a24-925b-4ec6-bd30-937e9b720aba.jpg",
+      "created_at": "2026-11-27 08:39:49.371473",
+      "upload_s": 1.904,
+      "raw_tags": [
+        "cake",
+        "two tier cake",
+        "white frosting",
+        "fondant stars",
+        "blue stars",
+        "green stars",
+        "yellow star",
+        "table"
+      ],
+      "stored_tags": [
+        "cake",
+        "two tier cake",
+        "white frosting",
+        "fondant stars",
+        "blue stars",
+        "green stars",
+        "yellow star",
+        "table"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 451693,
+      "card_id": "49edfc63-0e24-4b7c-aad3-9d30a8ea7290",
+      "media_id": "240490cb-76ad-417b-98d2-fa590baf0b8c.jpg",
+      "created_at": "2026-11-27 08:39:55.121715",
+      "upload_s": 1.747,
+      "raw_tags": [
+        "pizza",
+        "melted cheese",
+        "olives",
+        "plate",
+        "wooden table",
+        "baked goods"
+      ],
+      "stored_tags": [
+        "pizza",
+        "melted cheese",
+        "olive",
+        "plate",
+        "wooden table",
+        "baked goods"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 511398,
+      "card_id": "240db7ba-d02e-4c42-a4e9-b245a81c1bfd",
+      "media_id": "aa303097-449b-4a24-a5d9-5d12c00401f9.jpg",
+      "created_at": "2026-11-27 08:40:01.279005",
+      "upload_s": 2.157,
+      "raw_tags": [
+        "dog",
+        "beagle",
+        "sand",
+        "beach",
+        "harness",
+        "hat",
+        "mat"
+      ],
+      "stored_tags": [
+        "dog",
+        "beagle",
+        "sand",
+        "beach",
+        "harness",
+        "hat",
+        "mat"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 213445,
+      "card_id": "63216f65-bc4c-498c-b7ad-acdbba19d9ee",
+      "media_id": "ff975eb3-cd46-49ca-8c07-6ca98e07a768.jpg",
+      "created_at": "2026-11-27 08:40:06.492856",
+      "upload_s": 1.208,
+      "raw_tags": [
+        "cat",
+        "wooden bowl",
+        "table",
+        "living room",
+        "armchair",
+        "bookshelf",
+        "rug"
+      ],
+      "stored_tags": [
+        "cat",
+        "wooden bowl",
+        "table",
+        "living room",
+        "armchair",
+        "bookshelf",
+        "rug"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 456015,
+      "card_id": "4b3efcfe-d7b4-49b9-a1b3-56890e920a82",
+      "media_id": "4bfe04b1-063a-42c3-b2f6-a78efdd27865.jpg",
+      "created_at": "2026-11-27 08:40:11.980959",
+      "upload_s": 1.487,
+      "raw_tags": [
+        "horses",
+        "beach",
+        "ocean",
+        "riders",
+        "sand",
+        "sea",
+        "coastline"
+      ],
+      "stored_tags": [
+        "horse",
+        "beach",
+        "ocean",
+        "rider",
+        "sand",
+        "sea",
+        "coastline"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 127263,
+      "card_id": "249a75e6-f4bf-4aaf-9645-ab81057e1ede",
+      "media_id": "d9b4d94b-1b7b-41d5-b970-0ea13af0ca27.jpg",
+      "created_at": "2026-11-27 08:40:17.787245",
+      "upload_s": 1.805,
+      "raw_tags": [
+        "ultimate frisbee",
+        "jumping players",
+        "athletic competition",
+        "frisbee disc",
+        "grass field",
+        "sportswear",
+        "outdoor game"
+      ],
+      "stored_tags": [
+        "ultimate frisbee",
+        "jumping players",
+        "athletic competition",
+        "frisbee disc",
+        "grass field",
+        "sportswear",
+        "outdoor game"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 431876,
+      "card_id": "89ecd649-f8a1-4dd0-a40e-7c56dc380c6f",
+      "media_id": "a1f77545-f7f7-493c-9a4d-8e26f8ec1a0a.jpg",
+      "created_at": "2026-11-27 08:40:23.375054",
+      "upload_s": 1.587,
+      "raw_tags": [
+        "police officers",
+        "horses",
+        "mounted police",
+        "city street",
+        "autumn trees",
+        "traffic light",
+        "street sign",
+        "bank building"
+      ],
+      "stored_tags": [
+        "police officers",
+        "horse",
+        "mounted police",
+        "city street",
+        "autumn trees",
+        "traffic light",
+        "street sign",
+        "bank building"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 165351,
+      "card_id": "89e09c19-72cf-42ca-8704-e0b9df8ed25b",
+      "media_id": "278b46c8-a629-4874-817e-39477a5d9b63.jpg",
+      "created_at": "2026-11-27 08:40:28.910963",
+      "upload_s": 1.532,
+      "raw_tags": [
+        "pancake",
+        "bananas",
+        "peanut butter",
+        "breakfast",
+        "food",
+        "plate"
+      ],
+      "stored_tags": [
+        "pancake",
+        "banana",
+        "peanut butter",
+        "breakfast",
+        "food",
+        "plate"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 309173,
+      "card_id": "9f2f836a-2ac1-4262-bce5-bcb1f99a7ed3",
+      "media_id": "9ecad9ad-f172-449d-aaaf-eeb58d039d19.jpg",
+      "created_at": "2026-11-27 08:40:35.587265",
+      "upload_s": 2.677,
+      "raw_tags": [
+        "stop sign",
+        "red sign",
+        "octagonal sign",
+        "street sign",
+        "city building",
+        "metal pole",
+        "urban scene"
+      ],
+      "stored_tags": [
+        "stop sign",
+        "red sign",
+        "octagonal sign",
+        "street sign",
+        "city building",
+        "metal pole",
+        "urban scene"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 283038,
+      "card_id": "35e37632-6f07-4b4f-a214-bb45d2f19af8",
+      "media_id": "0b0881d3-bba7-4273-9bce-685802541dce.jpg",
+      "created_at": "2026-11-27 08:40:41.130687",
+      "upload_s": 1.543,
+      "raw_tags": [
+        "stop sign",
+        "street sign",
+        "urban setting",
+        "buildings",
+        "street",
+        "sidewalk",
+        "city"
+      ],
+      "stored_tags": [
+        "stop sign",
+        "street sign",
+        "urban setting",
+        "building",
+        "sidewalk",
+        "city"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 474167,
+      "card_id": "2e6f2f1a-c99a-4389-842a-919aab958b6f",
+      "media_id": "e6f98cca-88b7-4507-a3d7-35ae2324ea8e.jpg",
+      "created_at": "2026-11-27 08:40:46.918344",
+      "upload_s": 1.785,
+      "raw_tags": [
+        "pizza",
+        "slices",
+        "basket",
+        "bottle",
+        "soda",
+        "table",
+        "person",
+        "food"
+      ],
+      "stored_tags": [
+        "pizza",
+        "slice",
+        "basket",
+        "bottle",
+        "soda",
+        "table",
+        "person",
+        "food"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 547854,
+      "card_id": "f8fcbfe1-db69-4039-a302-d06d3eac595f",
+      "media_id": "3c765620-71f6-4c6b-a557-6cc7a5e21fcb.jpg",
+      "created_at": "2026-11-27 08:40:52.376685",
+      "upload_s": 1.454,
+      "raw_tags": [
+        "little girl",
+        "pizza",
+        "plate",
+        "red polka dot dress",
+        "food",
+        "eating",
+        "restaurant"
+      ],
+      "stored_tags": [
+        "little girl",
+        "pizza",
+        "plate",
+        "red polka dot dress",
+        "food",
+        "restaurant"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 253002,
+      "card_id": "6f9fcc25-ce8e-4fc5-8147-57b0698a8562",
+      "media_id": "c7c5c0c5-d6bf-4cf9-a733-54293782e1a6.jpg",
+      "created_at": "2026-11-27 08:40:57.727172",
+      "upload_s": 1.349,
+      "raw_tags": [
+        "bus",
+        "red bus",
+        "vehicle side",
+        "bus logo",
+        "emblem",
+        "transportation",
+        "windows"
+      ],
+      "stored_tags": [
+        "bus",
+        "red bus",
+        "vehicle side",
+        "bus logo",
+        "emblem",
+        "transportation",
+        "window"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 498807,
+      "card_id": "42378d08-a660-4cf0-a149-757870254aab",
+      "media_id": "177a4baa-59a9-4107-92b8-209e0c348a7d.jpg",
+      "created_at": "2026-11-27 08:41:03.506706",
+      "upload_s": 1.777,
+      "raw_tags": [
+        "surfer",
+        "surfing",
+        "ocean waves",
+        "surfboard",
+        "wetsuit",
+        "water"
+      ],
+      "stored_tags": [
+        "surfer",
+        "surfing",
+        "ocean waves",
+        "surfboard",
+        "wetsuit",
+        "water"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 274460,
+      "card_id": "449a3db8-e278-4462-bd67-3541e4ac3496",
+      "media_id": "6d0b3577-b3da-46c0-a534-1c20896a8ad4.jpg",
+      "created_at": "2026-11-27 08:41:10.079392",
+      "upload_s": 2.571,
+      "raw_tags": [
+        "beach",
+        "people",
+        "surfboards",
+        "sand",
+        "buildings",
+        "hill",
+        "ocean"
+      ],
+      "stored_tags": [
+        "beach",
+        "crowd",
+        "surfboard",
+        "sand",
+        "building",
+        "hill",
+        "ocean"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 508917,
+      "card_id": "2bd8ec0a-e87d-4569-9dd0-6b926af6985a",
+      "media_id": "4ce9c14b-bbe5-48e6-9c80-78efdf7bdcd4.jpg",
+      "created_at": "2026-11-27 08:41:15.474794",
+      "upload_s": 1.393,
+      "raw_tags": [
+        "train station",
+        "locomotive",
+        "train",
+        "platform",
+        "passengers",
+        "railway tracks",
+        "clock"
+      ],
+      "stored_tags": [
+        "train station",
+        "locomotive",
+        "train",
+        "platform",
+        "passenger",
+        "railway tracks",
+        "clock"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 98633,
+      "card_id": "85768030-68e6-4ae8-abb1-e5290b4a2b3a",
+      "media_id": "c68b020a-fd74-4b21-869e-34a3cf4e69b9.jpg",
+      "created_at": "2026-11-27 08:41:20.637867",
+      "upload_s": 1.161,
+      "raw_tags": [
+        "square cake",
+        "white frosting",
+        "strawberry garnish",
+        "mint leaves",
+        "edible flowers",
+        "white plate",
+        "strawberries in container"
+      ],
+      "stored_tags": [
+        "cake",
+        "white frosting",
+        "strawberry garnish",
+        "mint leaves",
+        "edible flowers",
+        "plate",
+        "strawberries in container"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 3661,
+      "card_id": "82d045d7-4c73-4007-87f5-8f2812d8805d",
+      "media_id": "b102ce94-ff8e-42c6-a0e2-a4317b3aeb15.jpg",
+      "created_at": "2026-11-27 08:41:26.053953",
+      "upload_s": 1.413,
+      "raw_tags": [
+        "banana",
+        "yellow banana",
+        "fruit",
+        "bunch of bananas",
+        "wooden table",
+        "office desk"
+      ],
+      "stored_tags": [
+        "banana",
+        "yellow banana",
+        "fruit",
+        "bunch of bananas",
+        "wooden table",
+        "office desk"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 527220,
+      "card_id": "fa8db5cb-790b-482e-8a40-968e5c7fc4e3",
+      "media_id": "865fa239-cf87-40ca-b5cd-a982ad390bd5.jpg",
+      "created_at": "2026-11-27 08:41:31.660536",
+      "upload_s": 1.607,
+      "raw_tags": [
+        "red car",
+        "gas prices",
+        "hess sign",
+        "motor scooters",
+        "blue scooter",
+        "silver scooter"
+      ],
+      "stored_tags": [
+        "red car",
+        "gas prices",
+        "hess sign",
+        "motor scooters",
+        "blue scooter",
+        "silver scooter"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 393093,
+      "card_id": "ee3b8079-a5ee-48e0-8a38-209c0733faf3",
+      "media_id": "ec893cdb-7163-49ca-8d73-b7c11cc0219c.jpg",
+      "created_at": "2026-11-27 08:41:37.393601",
+      "upload_s": 1.73,
+      "raw_tags": [
+        "train",
+        "bridge",
+        "traffic",
+        "cars",
+        "building",
+        "city",
+        "road"
+      ],
+      "stored_tags": [
+        "train",
+        "bridge",
+        "traffic",
+        "car",
+        "building",
+        "city",
+        "road"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 524280,
+      "card_id": "204e1112-0763-46a9-aaed-06130efed4ef",
+      "media_id": "3a03ab3e-9c3d-414a-9d05-8be8f3b7a12c.jpg",
+      "created_at": "2026-11-27 08:41:45.997375",
+      "upload_s": 4.6,
+      "raw_tags": [
+        "orange cat",
+        "cat face",
+        "green eyes",
+        "whiskers",
+        "animal portrait",
+        "pet"
+      ],
+      "stored_tags": [
+        "orange cat",
+        "cat face",
+        "green eyes",
+        "whisker",
+        "animal portrait",
+        "pet"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 550691,
+      "card_id": "72e94325-994d-459f-bf92-cbaf96a373ab",
+      "media_id": "229f9e77-25b6-4ad5-8613-bc6268d7c7f5.jpg",
+      "created_at": "2026-11-27 08:41:51.709971",
+      "upload_s": 1.712,
+      "raw_tags": [
+        "double decker bus",
+        "red bus",
+        "street",
+        "bus stop",
+        "car",
+        "sidewalk",
+        "building"
+      ],
+      "stored_tags": [
+        "double decker bus",
+        "red bus",
+        "street",
+        "bus stop",
+        "car",
+        "sidewalk",
+        "building"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 551820,
+      "card_id": "69840897-1ed2-43da-8047-7bca9d94eb65",
+      "media_id": "a91c772a-326e-49ad-9609-c1c6bef9c70e.jpg",
+      "created_at": "2026-11-27 08:41:57.669754",
+      "upload_s": 1.956,
+      "raw_tags": [
+        "badminton",
+        "indoor court",
+        "players",
+        "racket",
+        "net",
+        "gymnasium"
+      ],
+      "stored_tags": [
+        "badminton",
+        "indoor court",
+        "player",
+        "racket",
+        "net",
+        "gymnasium"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 357748,
+      "card_id": "7d93e530-0f04-464a-9e83-27570420b72f",
+      "media_id": "ee9f7b31-174d-4590-917c-9224f1c87375.jpg",
+      "created_at": "2026-11-27 08:42:03.198748",
+      "upload_s": 1.527,
+      "raw_tags": [
+        "pink bus",
+        "advertisements",
+        "cartoon duck",
+        "vehicle",
+        "sidewalk",
+        "street",
+        "public transport"
+      ],
+      "stored_tags": [
+        "pink bus",
+        "advertisement",
+        "cartoon duck",
+        "car",
+        "sidewalk",
+        "street",
+        "public transport"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 347693,
+      "card_id": "04c90bf7-01b1-48eb-8742-c311bbaed799",
+      "media_id": "1f563949-bf5f-4983-b121-37bc717a62d1.jpg",
+      "created_at": "2026-11-27 08:42:08.615675",
+      "upload_s": 1.415,
+      "raw_tags": [
+        "hospital room",
+        "medical gloves",
+        "examination table",
+        "window",
+        "curtains",
+        "iv pole",
+        "interior"
+      ],
+      "stored_tags": [
+        "hospital room",
+        "medical gloves",
+        "examination table",
+        "window",
+        "curtain",
+        "iv pole",
+        "interior"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 329323,
+      "card_id": "40ef2502-1eb9-4370-aa25-d5540dbb80ec",
+      "media_id": "46b69c19-85b6-4fdf-a2b6-ef3af5ba04b1.jpg",
+      "created_at": "2026-11-27 08:42:14.171915",
+      "upload_s": 1.552,
+      "raw_tags": [
+        "crowd of people",
+        "man holding white cloth",
+        "people wearing hats",
+        "gathering outdoors",
+        "group of individuals"
+      ],
+      "stored_tags": [
+        "crowd",
+        "man holding white cloth",
+        "people wearing hats",
+        "gathering outdoors",
+        "group of individuals"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 117374,
+      "card_id": "09f2b5b3-baf2-47d9-b661-b817c76589da",
+      "media_id": "b8a8eb49-17ad-46f2-b910-7e8b9adc8b71.jpg",
+      "created_at": "2026-11-27 08:42:21.535903",
+      "upload_s": 3.36,
+      "raw_tags": [
+        "cats",
+        "crow",
+        "tree",
+        "park",
+        "sand",
+        "grass"
+      ],
+      "stored_tags": [
+        "cat",
+        "crow",
+        "tree",
+        "park",
+        "sand",
+        "grass"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 479912,
+      "card_id": "678a16e7-e0b4-4975-bbe5-96515a2a7a24",
+      "media_id": "c30f8567-c345-484b-851d-cd250c231d2b.jpg",
+      "created_at": "2026-11-27 08:42:27.166860",
+      "upload_s": 1.631,
+      "raw_tags": [
+        "airplane",
+        "airport",
+        "jet bridge",
+        "runway",
+        "tarmac",
+        "clear sky",
+        "engine"
+      ],
+      "stored_tags": [
+        "airplane",
+        "airport",
+        "jet bridge",
+        "runway",
+        "tarmac",
+        "clear sky",
+        "engine"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 527029,
+      "card_id": "1a9e7f47-1903-43f9-958a-08d27d231dd1",
+      "media_id": "1905ff40-bba4-4162-853e-8aa7c657de9c.jpg",
+      "created_at": "2026-11-27 08:42:32.783976",
+      "upload_s": 1.615,
+      "raw_tags": [
+        "man",
+        "bananas",
+        "wooden crates",
+        "fruit stand",
+        "grocery store",
+        "covering face",
+        "grey tshirt"
+      ],
+      "stored_tags": [
+        "man",
+        "banana",
+        "wooden crates",
+        "fruit stand",
+        "grocery store",
+        "covering face",
+        "grey tshirt"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 297830,
+      "card_id": "a0d87660-9fb6-4dc1-822f-4d53db0e277b",
+      "media_id": "9f4ea017-7644-4003-8308-be41e1b52556.jpg",
+      "created_at": "2026-11-27 08:42:38.355714",
+      "upload_s": 1.57,
+      "raw_tags": [
+        "dog",
+        "border collie",
+        "muddy dog",
+        "bottle",
+        "soda bottle",
+        "porch",
+        "door"
+      ],
+      "stored_tags": [
+        "dog",
+        "border collie",
+        "muddy dog",
+        "bottle",
+        "soda bottle",
+        "porch",
+        "door"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 571008,
+      "card_id": "4c825125-ee73-407f-9579-b111e0407636",
+      "media_id": "812668ba-231f-4ed2-9907-73b2f97d8278.jpg",
+      "created_at": "2026-11-27 08:42:43.748822",
+      "upload_s": 1.391,
+      "raw_tags": [
+        "stop sign",
+        "graffiti",
+        "street sign",
+        "red sign",
+        "white lettering",
+        "signpost",
+        "urban scene"
+      ],
+      "stored_tags": [
+        "stop sign",
+        "graffiti",
+        "street sign",
+        "red sign",
+        "white lettering",
+        "signpost",
+        "urban scene"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 321790,
+      "card_id": "bd526022-07e5-4a21-985d-b3d0ba7c1573",
+      "media_id": "a4716e56-8357-46bf-86f8-5c75b222b69e.jpg",
+      "created_at": "2026-11-27 08:42:49.182855",
+      "upload_s": 1.431,
+      "raw_tags": [
+        "tennis player",
+        "tennis racket",
+        "blue t shirt",
+        "white shorts",
+        "smiling man",
+        "tennis court",
+        "outdoor sports"
+      ],
+      "stored_tags": [
+        "tennis player",
+        "tennis racket",
+        "blue t shirt",
+        "white shorts",
+        "smiling man",
+        "tennis court",
+        "outdoor sports"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 51008,
+      "card_id": "aef03094-5e18-4ae8-abae-666b8ef66d65",
+      "media_id": "26ba3b95-0169-4795-9147-ced1638eb164.jpg",
+      "created_at": "2026-11-27 08:42:54.866934",
+      "upload_s": 1.685,
+      "raw_tags": [
+        "cat",
+        "laptop",
+        "keyboard",
+        "screen",
+        "twitter",
+        "collar",
+        "couch"
+      ],
+      "stored_tags": [
+        "cat",
+        "laptop",
+        "keyboard",
+        "screen",
+        "twitter",
+        "collar",
+        "couch"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 187243,
+      "card_id": "24695714-88ab-442f-a567-9c4e8e9261f4",
+      "media_id": "1b989ea4-caec-4046-9b4a-192204b010ea.jpg",
+      "created_at": "2026-11-27 08:43:00.379410",
+      "upload_s": 1.507,
+      "raw_tags": [
+        "woman",
+        "floor",
+        "bathroom",
+        "toilet",
+        "vanity",
+        "trash can"
+      ],
+      "stored_tags": [
+        "woman",
+        "floor",
+        "bathroom",
+        "toilet",
+        "vanity",
+        "trash can"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 452122,
+      "card_id": "916b3adb-63fd-46c4-988a-5a535ecc1864",
+      "media_id": "94076047-2f6e-49e9-b424-98992dbc2699.jpg",
+      "created_at": "2026-11-27 08:43:05.902780",
+      "upload_s": 1.521,
+      "raw_tags": [
+        "airplane",
+        "star alliance",
+        "commercial jet",
+        "landing gear",
+        "grey sky",
+        "aviation",
+        "airliner"
+      ],
+      "stored_tags": [
+        "airplane",
+        "star alliance",
+        "commercial jet",
+        "landing gear",
+        "grey sky",
+        "aviation",
+        "airliner"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 119677,
+      "card_id": "492b6d6b-f16b-4c6d-b543-219d883b92d6",
+      "media_id": "c9d0a623-8d8a-474a-a381-c51b2a372d33.jpg",
+      "created_at": "2026-11-27 08:43:11.466450",
+      "upload_s": 1.562,
+      "raw_tags": [
+        "cheesecake",
+        "dessert",
+        "stone plate",
+        "fork",
+        "square",
+        "pastry"
+      ],
+      "stored_tags": [
+        "cheesecake",
+        "dessert",
+        "plate",
+        "fork",
+        "square",
+        "pastry"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 366199,
+      "card_id": "4038f70b-647e-4b49-a3bd-119cf3ea96cd",
+      "media_id": "73c8aba3-0739-41cf-8d9f-c5e45aae8ab6.jpg",
+      "created_at": "2026-11-27 08:43:16.737759",
+      "upload_s": 1.271,
+      "raw_tags": [
+        "cat",
+        "blanket",
+        "bed",
+        "hiding",
+        "sheets",
+        "pet",
+        "under cover"
+      ],
+      "stored_tags": [
+        "cat",
+        "blanket",
+        "bed",
+        "hiding",
+        "sheet",
+        "under cover"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 66886,
+      "card_id": "beecf055-15c0-4532-8a68-c525a447cd61",
+      "media_id": "15f3d705-0aa0-4db1-9e71-5ab5f52d231e.jpg",
+      "created_at": "2026-11-27 08:43:22.361693",
+      "upload_s": 1.619,
+      "raw_tags": [
+        "little girl",
+        "messy hair",
+        "pink hairbrush",
+        "indoor setting",
+        "toddler",
+        "child"
+      ],
+      "stored_tags": [
+        "little girl",
+        "messy hair",
+        "pink hairbrush",
+        "indoor setting",
+        "toddler",
+        "child"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 193674,
+      "card_id": "b3bbda82-17f8-431f-be13-194bef761bb7",
+      "media_id": "d3f256c3-9ec1-419c-a20c-dfd70c7c9847.jpg",
+      "created_at": "2026-11-27 08:43:28.175905",
+      "upload_s": 1.811,
+      "raw_tags": [
+        "woman",
+        "dog",
+        "surfboard",
+        "ocean",
+        "beach",
+        "wetsuit",
+        "water"
+      ],
+      "stored_tags": [
+        "woman",
+        "dog",
+        "surfboard",
+        "ocean",
+        "sand",
+        "wetsuit",
+        "water"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 90108,
+      "card_id": "6a529cf2-a6ac-4251-b792-2f176397c9a0",
+      "media_id": "9d9ae874-8ed6-4207-b80c-0f98ba5d872a.jpg",
+      "created_at": "2026-11-27 08:43:33.994554",
+      "upload_s": 1.816,
+      "raw_tags": [
+        "bathroom",
+        "bathtub",
+        "sink",
+        "toilet",
+        "mirror",
+        "shower",
+        "tiles"
+      ],
+      "stored_tags": [
+        "bathroom",
+        "bathtub",
+        "sink",
+        "toilet",
+        "mirror",
+        "shower",
+        "tile"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 60449,
+      "card_id": "1eafc5be-d516-442e-a3d0-e1410d94f1da",
+      "media_id": "f6f37fc2-be82-4b0a-86a9-d435e749fdac.jpg",
+      "created_at": "2026-11-27 08:43:39.854359",
+      "upload_s": 1.857,
+      "raw_tags": [
+        "laptop",
+        "balcony",
+        "ocean view",
+        "table",
+        "glass door",
+        "palm trees",
+        "cloudy sky"
+      ],
+      "stored_tags": [
+        "laptop",
+        "balcony",
+        "ocean view",
+        "table",
+        "glass door",
+        "palm trees",
+        "cloudy sky"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 368038,
+      "card_id": "781c8908-b6dd-47c9-8383-7aa42ae76ef5",
+      "media_id": "0f0386c2-2eae-471b-8742-338a232c8d0d.jpg",
+      "created_at": "2026-11-27 08:43:45.381188",
+      "upload_s": 1.524,
+      "raw_tags": [
+        "train",
+        "caboose",
+        "railroad cars",
+        "colorful carriages",
+        "tracks",
+        "trees",
+        "power lines"
+      ],
+      "stored_tags": [
+        "train",
+        "caboose",
+        "railroad cars",
+        "colorful carriages",
+        "track",
+        "tree",
+        "power lines"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 463522,
+      "card_id": "22e8d082-a25e-4a74-b16c-9753f914a8d3",
+      "media_id": "579a5411-b8cb-4329-b378-1c6409d4e015.jpg",
+      "created_at": "2026-11-27 08:43:50.982226",
+      "upload_s": 1.598,
+      "raw_tags": [
+        "horses",
+        "street",
+        "buildings",
+        "people",
+        "sidewalk",
+        "dog",
+        "sunny day"
+      ],
+      "stored_tags": [
+        "horse",
+        "street sign",
+        "building",
+        "crowd",
+        "sidewalk",
+        "dog",
+        "sunny day"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 363840,
+      "card_id": "b60dd0a8-7646-495a-87cc-f93574da5960",
+      "media_id": "4fee0c27-4388-4444-8461-15d4adca7190.jpg",
+      "created_at": "2026-11-27 08:43:56.368445",
+      "upload_s": 1.384,
+      "raw_tags": [
+        "cluttered desk",
+        "laptop computers",
+        "computer monitor",
+        "computer keyboard",
+        "computer mouse",
+        "tangled wires",
+        "electronics"
+      ],
+      "stored_tags": [
+        "cluttered desk",
+        "laptop computers",
+        "computer monitor",
+        "computer keyboard",
+        "computer mouse",
+        "tangled wires",
+        "electronic"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 193494,
+      "card_id": "a8bf0ba6-043e-46e7-9014-3a0cb2374d2b",
+      "media_id": "5fde14ec-2ccf-46bf-b4eb-b3fab8f71e65.jpg",
+      "created_at": "2026-11-27 08:44:02.177669",
+      "upload_s": 1.807,
+      "raw_tags": [
+        "blue plastic walls",
+        "bed",
+        "quilt",
+        "pillows",
+        "clothes hangers",
+        "plastic ceiling",
+        "room installation"
+      ],
+      "stored_tags": [
+        "blue plastic walls",
+        "bed",
+        "quilt",
+        "pillow",
+        "clothes hangers",
+        "plastic ceiling",
+        "room installation"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 325114,
+      "card_id": "c34e3f96-0a6b-4815-97b8-ba13705817ab",
+      "media_id": "cd26316a-584e-49a5-976c-03c71d1461da.jpg",
+      "created_at": "2026-11-27 08:44:07.300395",
+      "upload_s": 1.119,
+      "raw_tags": [
+        "urinal",
+        "white tiles",
+        "red table",
+        "bowl of food",
+        "bathroom",
+        "floor tiles"
+      ],
+      "stored_tags": [
+        "urinal",
+        "white tiles",
+        "red table",
+        "bowl of food",
+        "bathroom",
+        "floor tiles"
+      ],
+      "status": "ok"
+    },
+    {
+      "image_id": 348881,
+      "card_id": "ff39b3c2-d7d8-4637-a7cc-addda6b3dfc9",
+      "media_id": "f43a8e26-7e56-4059-b733-1bbc66411431.jpg",
+      "created_at": "2026-11-27 08:44:12.632699",
+      "upload_s": 1.331,
+      "raw_tags": [
+        "airplane",
+        "boarding bridge",
+        "airport tarmac",
+        "person",
+        "staircase",
+        "ground crew"
+      ],
+      "stored_tags": [
+        "airplane",
+        "boarding bridge",
+        "airport tarmac",
+        "person",
+        "staircase",
+        "ground crew"
+      ],
+      "status": "ok"
+    }
+  ],
+  "gemini_calls": 50,
+  "vault_id": "4d668cfc-846d-4cda-be85-c03b2398078d"
+}
