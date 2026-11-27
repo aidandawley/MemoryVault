@@ -108,14 +108,16 @@ class CategoryIndex:
         else:
             self._embeddings = np.vstack([self._embeddings, new_vec])
 
-    def match_tag(self, tag: str, top_k: int = 3) -> MatchResult:
+    def match_tag(self, tag: str, top_k: int = 3, exclude: Optional[set] = None) -> MatchResult:
         """
         Returns similarity scores to existing categories.
         No thresholding or decisions in here. Pure signal.
+        `exclude`: categories that may not be returned as candidates.
         """
         normalized = normalize_and_alias(tag)
 
-        if not self.categories:
+        allowed = [i for i, c in enumerate(self.categories) if not exclude or c not in exclude]
+        if not allowed:
             return MatchResult(tag, normalized, None, None, [])
 
         self.ensure_built()
@@ -123,8 +125,12 @@ class CategoryIndex:
 
         q = embed_texts([normalized])[0]              # (d,)
         sims = cosine_sim_matrix(q, self._embeddings) # (n,)
+        if len(allowed) < len(self.categories):
+            masked = np.full_like(sims, -np.inf)
+            masked[allowed] = sims[allowed]
+            sims = masked
 
-        k = min(top_k, len(self.categories))
+        k = min(top_k, len(allowed))
         idxs = np.argpartition(-sims, kth=k - 1)[:k]
         idxs = idxs[np.argsort(-sims[idxs])]
 

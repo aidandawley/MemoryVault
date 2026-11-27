@@ -1,24 +1,45 @@
 {
-  "source": "app.db before the 2026-11-27 re-tag (Personal vault)",
-  "vault_tags_before_retag": [
-    "photo",
-    "sunset",
-    "clouds",
-    "ocean",
-    "sky",
-    "orange",
-    "sun",
-    "water",
-    "waves",
-    "drinks",
-    "bar",
-    "socializing",
-    "alcohol",
-    "nightout",
-    "Party",
-    "Conversation",
-    "SocialGathering",
-    "RedHair",
-    "CurlyHair"
+  "source": "app.db before the 2026-11-27 re-tag (Personal vault), in SQLite row order. Row order matters: top-7 ties are broken by first occurrence.",
+  "cards": [
+    {
+      "card_id": "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+      "tags": ""
+    },
+    {
+      "card_id": "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+      "tags": ""
+    },
+    {
+      "card_id": "39cec89c-05be-4984-abb8-3b0f236b83f4",
+      "tags": ""
+    },
+    {
+      "card_id": "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+      "tags": ""
+    },
+    {
+      "card_id": "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+      "tags": ""
+    },
+    {
+      "card_id": "ca20c172-8e9b-48f3-ac60-5ab39ef67055",
+      "tags": ""
+    },
+    {
+      "card_id": "9d25c741-1b8b-4c27-8084-6c5344577192",
+      "tags": "photo"
+    },
+    {
+      "card_id": "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4",
+      "tags": "sunset,clouds,ocean,sky,orange,sun,water,waves"
+    },
+    {
+      "card_id": "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d",
+      "tags": "drinks,bar,socializing,alcohol,nightout"
+    },
+    {
+      "card_id": "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3",
+      "tags": "Party,Conversation,SocialGathering,RedHair,CurlyHair"
+    }
   ]
 }
