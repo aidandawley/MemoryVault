@@ -1,5 +1,16 @@
 from sqlalchemy.orm import Session
+from backend.api.tools.tag_normalizer import normalize_and_alias
 from backend.models.card import Card
+
+
+def normalized_tags(tags: list[str]) -> list[str]:
+    """Same normalization /top-tags uses, so the UI can group cards by the same key."""
+    out: list[str] = []
+    for t in tags:
+        n = normalize_and_alias(t)
+        if n and n not in out:
+            out.append(n)
+    return out
 
 def _serialize_tags(tags: list[str]) -> str:
     return ",".join([t.strip() for t in tags if t.strip()])
@@ -50,5 +61,6 @@ def to_public_dict(card: Card) -> dict:
         "media_type": card.media_type,
         "caption": card.caption,
         "tags": _parse_tags(card.tags),
+        "normalized_tags": normalized_tags(_parse_tags(card.tags)),
         "isActive": card.is_active,
     }

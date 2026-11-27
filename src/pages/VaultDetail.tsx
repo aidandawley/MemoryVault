@@ -198,7 +198,14 @@ export default function VaultDetailPage() {
     const map = new Map<string, CardPublic[]>();
 
     for (const card of vaultCards) {
-      const tags = Array.isArray((card as any).tags) ? (card as any).tags : [];
+      // Group by the backend's normalize_and_alias output (the same key /top-tags
+      // uses), so stored variants like "clouds"/"Cloud" land in the "cloud" row.
+      const normalized = (card as any).normalized_tags;
+      const tags = Array.isArray(normalized)
+        ? normalized
+        : Array.isArray((card as any).tags)
+          ? (card as any).tags
+          : [];
       for (const t of tags) {
         const tag = String(t).trim().toLowerCase();
         if (!tag) continue;

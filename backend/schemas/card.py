@@ -7,6 +7,10 @@ class CardBase(BaseModel):
     media_type: Literal["image", "video"]
     caption: str
     tags: List[str] = Field(default_factory=list)
+    normalized_tags: List[str] = Field(
+        default_factory=list,
+        description="tags passed through normalize_and_alias; the key the UI groups by",
+    )
     is_active: bool = Field(default=True, alias="isActive")
 
 class CardPublic(CardBase):
