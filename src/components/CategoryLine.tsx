@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/CategoryLine.css";
 import type { CardPublic } from "../types/card";
 import SectionTag from "./SectionTag";

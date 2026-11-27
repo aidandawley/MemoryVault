@@ -1,5 +1,3 @@
-import React from "react";
-import { Card } from "../components/memorypage/Card";
 export default function LandingPage() {
   return (
     <div>

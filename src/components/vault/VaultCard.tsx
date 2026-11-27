@@ -1,4 +1,3 @@
-import React from "react";
 import type { VaultPublic } from "./VaultTypes";
 import { colorClassForVaultId } from "./VaultColors";
 

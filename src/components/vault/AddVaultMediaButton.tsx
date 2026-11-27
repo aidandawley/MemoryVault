@@ -1,6 +1,6 @@
 // src/components/vault/AddVaultMediaButton.tsx
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import "../../styles/AddVaultMediaButton.css";
 
 type CardPublic = any;

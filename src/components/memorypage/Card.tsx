@@ -1,4 +1,3 @@
-import React from "react";
 import type { CardPublic } from "../../types/card";
 import "../../styles/Card.css";
 

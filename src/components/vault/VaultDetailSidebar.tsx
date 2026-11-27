@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import type { VaultPublic } from "./VaultTypes";
@@ -32,8 +32,6 @@ export default function VaultDetailSidebar({
     (vault as any)?.members ??
     (vault as any)?.sharedWith ??
     [];
-
-  const vaultId = (vault as any)?.id ?? (vault as any)?.vaultId;
 
   async function handleDelete() {
     const id = (vault as any)?.id ?? (vault as any)?.vaultId;

@@ -1,5 +1,5 @@
 // VaultCollectionPage.tsx
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../styles/VaultCollection.css";
 import type { VaultPublic } from "../components/vault/VaultTypes";
 import { VaultTopBar } from "../components/vault/VaultTopBar";

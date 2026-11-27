@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import fourthJuly from "../assets/4thjuly.jpg";
 import beach from "../assets/beach.jpg";
