@@ -168,6 +168,29 @@ def get_top_tags(vault_id: str, limit: int = 7, db: Session = Depends(get_db)):
     return top_tags
 
 
+@router.delete("/cards/{card_id}")
+def delete_card(card_id: str, db: Session = Depends(get_db)):
+    """Deletes a card. The media file is removed only if no other card still uses it."""
+    card = card_service.delete_card(db, card_id)
+    if not card:
+        raise HTTPException(status_code=404, detail="Card not found")
+
+    removed_files: list[str] = []
+    for name in {card.media_id, card.thumbnail_id} - {None}:
+        if card_service.media_in_use(db, name):
+            continue
+        path = MEDIA_DIR / name
+        try:
+            path.unlink()
+            removed_files.append(name)
+        except FileNotFoundError:
+            pass
+        except OSError:
+            logger.exception("[cards] could not delete media file %s", path)
+
+    return {"ok": True, "cardId": card_id, "removed_files": removed_files}
+
+
 @router.post("/vaults/{vault_id}/cards", response_model=CardPublic)
 async def create_card(
     vault_id: str,

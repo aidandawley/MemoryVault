@@ -47,11 +47,21 @@ def create_card(
 def list_cards(db: Session, vault_id: str) -> list[Card]:
     return db.query(Card).filter(Card.vault_id == vault_id).order_by(Card.created_at.desc()).all()
 
-def delete_card(db: Session, card_id: str) -> None:
-    card = db.query(Card).filter(Card.id == card_id).first()
+def get_card(db: Session, card_id: str) -> Card | None:
+    return db.query(Card).filter(Card.id == card_id).first()
+
+
+def delete_card(db: Session, card_id: str) -> Card | None:
+    """Deletes the card and returns it (detached), or None if it did not exist."""
+    card = get_card(db, card_id)
     if card:
         db.delete(card)
         db.commit()
+    return card
+
+
+def media_in_use(db: Session, media_id: str) -> bool:
+    return db.query(Card.id).filter(Card.media_id == media_id).first() is not None
 
 def to_public_dict(card: Card) -> dict:
     return {
