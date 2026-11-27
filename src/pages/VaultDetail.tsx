@@ -9,6 +9,7 @@ import VaultAddMediaSection from "../components/vault/VaultAddMediaSection";
 import { Card } from "../components/memorypage/Card";
 import type { CardPublic } from "../types/card";
 import CategoryLine from "../components/CategoryLine";
+import VaultSearch from "../components/vault/VaultSearch";
 import "../styles/VaultDetail.css";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
@@ -303,6 +304,8 @@ export default function VaultDetailPage() {
             <h1>{vault.title}</h1>
             <p>{vault.description}</p>
           </div>
+
+          <VaultSearch vaultId={vaultId} apiBaseUrl={API_URL} />
 
           {items.length > 0 && (
             <div className="vault-detail-media">
