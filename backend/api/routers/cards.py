@@ -1,6 +1,7 @@
 # backend/api/routers/cards.py
 from __future__ import annotations
 
+import logging
 import os
 import uuid
 from pathlib import Path
@@ -21,6 +22,8 @@ from backend.api.tools.twelvelabs_hashtag import get_hashtags_for_video_file
 from backend.api.tools.tag_normalizer import normalize_and_alias
 from backend.api.tools.tag_similarity import CategoryIndex
 from backend.api.tools.tag_resolver import resolve_tags
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(tags=["cards"])
 
@@ -211,10 +214,16 @@ async def create_card(
             hashtags = result.get("hashtags") or []
             generated_tags = [str(h).lstrip("#").strip() for h in hashtags if str(h).strip()]
             print(f"[tagging] video hashtags for {media_id}:", generated_tags)
-    except Exception as e:
-        # Don't crash upload for demo
-        print("[tagging] failed:", repr(e))
+    except Exception:
+        # Don't crash the upload, but record the real cause with a full traceback.
+        logger.exception(
+            "[tagging] %s tagging failed for %s (file=%s); saving card without AI tags",
+            detected_kind, media_id, file.filename,
+        )
         generated_tags = []
+    else:
+        if not generated_tags:
+            logger.warning("[tagging] %s tagging returned 0 tags for %s", detected_kind, media_id)
 
     user_tags = _parse_user_tags(tags)
 

@@ -16,4 +16,3 @@ twelvelabs
 sentence-transformers 
 numpy
 google-genai
-google-generativeai

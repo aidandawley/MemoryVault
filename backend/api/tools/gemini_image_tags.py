@@ -1,37 +1,48 @@
-import os
 import json
+import logging
+import mimetypes
+import os
 from typing import List
 
 from dotenv import load_dotenv
 load_dotenv()
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
+
+logger = logging.getLogger(__name__)
+
+MODEL_NAME = "gemini-3.5-flash-lite"
 
 
 # ---------------------------
-# Lazy Gemini model loader
+# Lazy Gemini client loader
 # ---------------------------
 
-_model = None
+_client = None
 
 
-def _get_model():
+def _get_client() -> genai.Client:
     """
     Lazily initialize Gemini so uvicorn reload does not crash
     if env vars are not loaded at import time.
     """
-    global _model
+    global _client
 
-    if _model is not None:
-        return _model
+    if _client is not None:
+        return _client
 
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError("GEMINI_API_KEY not set")
 
-    genai.configure(api_key=api_key)
-    _model = genai.GenerativeModel("gemini-2.0-flash-lite")
-    return _model
+    _client = genai.Client(api_key=api_key)
+    return _client
+
+
+def _mime_type_for(path: str) -> str:
+    mime, _ = mimetypes.guess_type(path)
+    return mime if mime and mime.startswith("image/") else "image/jpeg"
 
 
 # ---------------------------
@@ -41,6 +52,7 @@ def _get_model():
 def get_tags_for_image_file(image_path: str) -> List[str]:
     """
     Given a local image file path, returns a list of simple visual tags.
+    Raises on API errors or an empty model response so callers can log the cause.
     """
 
     # Read image bytes
@@ -63,24 +75,28 @@ Rules:
 Return the result as a JSON array of strings only.
 """
 
-    model = _get_model()
+    client = _get_client()
 
-    response = model.generate_content(
-        [
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=[
             prompt,
-            {
-                "mime_type": "image/jpeg",
-                "data": image_bytes,
-            },
+            types.Part.from_bytes(data=image_bytes, mime_type=_mime_type_for(image_path)),
         ],
-        generation_config={
-            "temperature": 0.2,
-            "max_output_tokens": 200,
-        },
+        config=types.GenerateContentConfig(
+            temperature=0.2,
+            max_output_tokens=200,
+        ),
     )
 
     if not response.text:
-        return []
+        finish = None
+        if response.candidates:
+            finish = response.candidates[0].finish_reason
+        raise RuntimeError(
+            f"Gemini returned no text for {image_path} "
+            f"(finish_reason={finish}, prompt_feedback={response.prompt_feedback})"
+        )
 
     # Gemini sometimes wraps JSON in markdown
     text = response.text.strip()
@@ -89,6 +105,7 @@ Return the result as a JSON array of strings only.
     try:
         tags = json.loads(text)
     except json.JSONDecodeError:
+        logger.warning("Gemini response was not valid JSON, using line fallback: %r", text)
         # Fallback: line-based parsing
         tags = [
             t.strip().lower()
