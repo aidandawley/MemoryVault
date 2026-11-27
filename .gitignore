@@ -26,3 +26,9 @@ dist-ssr
 
 # Local database backups
 app.db.bak-*
+
+# COCO evaluation set: images are Flickr-licensed, re-download with
+# python -m backend.benchmarks.coco_eval download
+backend/media/eval_coco/
+backend/benchmarks/.cache/
+eval.db
