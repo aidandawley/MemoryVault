@@ -1,5 +1,6 @@
 # backend/main.py
 from pathlib import Path
+import logging
 import os
 from dotenv import load_dotenv
 
@@ -30,6 +31,12 @@ async def lifespan(app: FastAPI):
     init_db()
     connect_db()
     seed_demo_data()
+    # Load the local embedding model now so the first search/upload doesn't pay for it.
+    try:
+        from backend.api.tools.tag_similarity import _get_embedder
+        _get_embedder()
+    except Exception:
+        logging.getLogger(__name__).exception("[startup] embedding model failed to load")
     yield
     disconnect_db()
 

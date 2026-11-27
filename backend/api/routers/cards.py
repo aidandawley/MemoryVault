@@ -7,12 +7,12 @@ import uuid
 from pathlib import Path
 from collections import Counter
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
 from sqlalchemy.orm import Session
 
 from backend.db.deps import get_db
 from backend.schemas.card import CardPublic
-from backend.services import card_service, vault_service
+from backend.services import card_service, search_service, vault_service
 
 # Tagging tools
 from backend.api.tools.gemini_image_tags import get_tags_for_image_file
@@ -168,12 +168,52 @@ def get_top_tags(vault_id: str, limit: int = 7, db: Session = Depends(get_db)):
     return top_tags
 
 
+def _index_for_search(db: Session, card) -> None:
+    """Embed a new card for search. Failure is logged, not fatal: search re-indexes lazily."""
+    try:
+        search_service.index_card(db, card)
+    except Exception:
+        db.rollback()
+        logger.exception("[search] could not index card %s", card.id)
+
+
+@router.get("/vaults/{vault_id}/search")
+def search_vault(vault_id: str, response: Response, q: str, limit: int = 5, db: Session = Depends(get_db)):
+    """Semantic search: max cosine similarity between the query and each card's caption/tags."""
+    vault = vault_service.get_vault(db, vault_id)
+    if not vault:
+        raise HTTPException(status_code=404, detail="Vault not found")
+    q = q.strip()
+    if not q:
+        raise HTTPException(status_code=400, detail="Empty query")
+    limit = max(1, min(limit, 50))
+
+    result = search_service.search_vault(db, vault_id, q, limit=limit)
+    response.headers["Server-Timing"] = ", ".join(
+        f"{k.removesuffix('_ms')};dur={v}" for k, v in result.timings_ms.items()
+    )
+    return {
+        "query": q,
+        "results": [
+            {
+                **card_service.to_public_dict(h.card),
+                "score": round(h.score, 4),
+                "matched": {"kind": h.matched_kind, "text": h.matched_text},
+            }
+            for h in result.hits
+        ],
+        "timings_ms": result.timings_ms,
+        "cards_indexed": result.cards_indexed,
+    }
+
+
 @router.delete("/cards/{card_id}")
 def delete_card(card_id: str, db: Session = Depends(get_db)):
     """Deletes a card. The media file is removed only if no other card still uses it."""
     card = card_service.delete_card(db, card_id)
     if not card:
         raise HTTPException(status_code=404, detail="Card not found")
+    search_service.delete_card_embeddings(db, card_id)
 
     removed_files: list[str] = []
     for name in {card.media_id, card.thumbnail_id} - {None}:
@@ -265,6 +305,7 @@ async def create_card(
             tags=[],
             is_active=isActive,
         )
+        _index_for_search(db, card)
         return card_service.to_public_dict(card)
 
     # ---------------------------------------------
@@ -327,4 +368,5 @@ async def create_card(
         is_active=isActive,
     )
 
+    _index_for_search(db, card)
     return card_service.to_public_dict(card)
