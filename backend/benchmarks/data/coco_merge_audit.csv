@@ -1,0 +1,45 @@
+raw_tag,merged_into,label,reason
+lawn,grass,good,same thing
+panting dog,dog,good,specific -> general form of same object
+black car,car,good,"attribute dropped, same object"
+tennis racquets,tennis team,wrong,object merged into a different concept
+tennis court,tennis team,wrong,place merged into a group of people
+green stars,blue stars,wrong,"different colour, different objects"
+beach,sand,wrong,place merged into a material
+ocean,beach,wrong,different places
+sand,beach,wrong,material merged into a place
+frisbee disc,ultimate frisbee,shift,object became an activity
+city,urban setting,good,same meaning
+red bus,bus,good,attribute dropped
+bus logo,bus,shift,part merged into whole
+surfing,surfer,shift,activity became person
+surfboard,surfer,wrong,object merged into a person
+surfboards,surfer,wrong,object merged into a person
+people,crowd,shift,a few people is not necessarily a crowd
+square cake,cake,good,attribute dropped
+white plate,plate,good,attribute dropped
+yellow banana,banana,good,attribute dropped
+fruit,banana,shift,general term narrowed to one fruit
+bunch of bananas,banana,good,same object
+blue scooter,motor scooters,good,same object type
+silver scooter,motor scooters,good,same object type
+vehicle,car,wrong,"the vehicle is a bus (COCO: bus, person)"
+examination table,table,shift,specific furniture generalized
+crowd of people,crowd,good,same meaning
+soda bottle,bottle,good,attribute dropped
+tennis racket,tennis player,wrong,object merged into a person
+aviation,airplane,shift,topic became object
+airliner,airplane,good,same object
+stone plate,plate,good,attribute dropped
+pet,dog,wrong,the pet in this photo is a cat
+pet,cat,good,the pet in this photo is a cat
+toilet,bathroom,wrong,object merged into the room
+red table,table,good,attribute dropped
+bathroom,urinal,wrong,room merged into an object
+floor tiles,white tiles,shift,location detail swapped for colour
+street,street sign,wrong,place merged into an object
+eating,food,shift,activity became object
+tabby cat,cat,good,attribute dropped
+floored garage,garage,good,same place
+train,locomotive,shift,whole train narrowed to the engine
+beach,ocean,wrong,different places
