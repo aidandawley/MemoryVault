@@ -126,6 +126,8 @@ A tag is **matched** to a category if its best similarity is at least 0.70 and b
 
 **Problem.** Throwing ambiguous tags away loses real, useful tags. On COCO, the old pipeline dropped "cat" from cat photos. Once the vault contained "dog", "cat" scored 0.661 against it: too close to keep as new, too far to match. So it was discarded, on 4 different photos.
 
+Dropping a tag can also cause a *wrong merge* later. On one cat photo, "cat" was dropped, so "pet" then matched the vault's "dog" category: the photo was stored as a dog. With keep_ambiguous, "cat" is kept and "pet" → "cat".
+
 **How we found it.** On the demo set, hand labels showed 10 of 50 useful tags dropped. On COCO, the old pipeline lost **46** tags that human captions or categories support.
 
 **Fix.** `keep_ambiguous=True`: an ambiguous tag is stored as its own normalized tag.
@@ -156,7 +158,6 @@ A tag is **matched** to a category if its best similarity is at least 0.70 and b
 ## 6. Tag standardization: don't merge two tags from the same photo
 
 **Problem.** On the demo sunset photo, Gemini returned "sunrise" and then "sunset". "sunrise" became a category, and "sunset" (0.73 similarity) merged into it. On COCO the same pattern produced:
-- "pet" → "dog" on a **cat** photo
 - "toilet" → "bathroom"
 - "tennis racket" → "tennis player"
 - "surfboard" → "surfer"
