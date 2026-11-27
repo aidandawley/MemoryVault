@@ -1,0 +1,3457 @@
+{
+  "generated_at_utc": "2026-11-27T08:23:20.348032+00:00",
+  "machine": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.4",
+  "paid_api_calls_made_by_this_script": 0,
+  "dataset": {
+    "before_this_branch (6edd022)": {
+      "cards": 10,
+      "by_media_type": {
+        "image": 8,
+        "video": 2
+      },
+      "cards_with_tags": 4,
+      "stored_tag_strings": 19,
+      "unique_stored_tags_as_written": 19,
+      "unique_tags_after_normalize_and_alias": 18
+    },
+    "current": {
+      "cards": 10,
+      "by_media_type": {
+        "image": 8,
+        "video": 2
+      },
+      "cards_with_tags": 10,
+      "stored_tag_strings": 64,
+      "unique_stored_tags_as_written": 33,
+      "unique_tags_after_normalize_and_alias": 31
+    }
+  },
+  "photo_tagging_latency": {
+    "source": "recorded run 2026-11-27T07:19:07.984171+00:00 (gemini-3.5-flash-lite), single run on Windows-11-10.0.26200-SP0",
+    "gemini_call": {
+      "n": 7,
+      "median_s": 1.034,
+      "mean_s": 1.299,
+      "min_s": 0.89,
+      "max_s": 2.307
+    },
+    "gemini_call_excluding_first": {
+      "n": 6,
+      "median_s": 0.986,
+      "mean_s": 1.131,
+      "min_s": 0.89,
+      "max_s": 1.704
+    },
+    "local_tag_resolution": {
+      "n": 7,
+      "median_s": 0.05,
+      "mean_s": 0.054,
+      "min_s": 0.038,
+      "max_s": 0.1
+    },
+    "video_tagging": "not measured: no TWELVELABS_API_KEY available"
+  },
+  "tag_rows": {
+    "before_retag_db (git 6edd022:app.db)": {
+      "top7_from_backend": [
+        "drinks",
+        "photo",
+        "sunset",
+        "cloud",
+        "ocean",
+        "sky",
+        "orange"
+      ],
+      "old_rows_shown": {
+        "photo": 1,
+        "sunset": 1,
+        "ocean": 1,
+        "sky": 1,
+        "orange": 1,
+        "drinks": 1
+      },
+      "new_rows_shown": {
+        "photo": 1,
+        "sunset": 1,
+        "cloud": 1,
+        "ocean": 1,
+        "sky": 1,
+        "orange": 1,
+        "drinks": 1
+      },
+      "old_row_count": 6,
+      "new_row_count": 7,
+      "old_card_slots": 6,
+      "new_card_slots": 7
+    },
+    "current_db": {
+      "top7_from_backend": [
+        "concert",
+        "cheering",
+        "crowd",
+        "peace sign",
+        "young women",
+        "stage lights",
+        "sunset"
+      ],
+      "old_rows_shown": {
+        "concert": 5,
+        "young women": 3,
+        "cheering": 5,
+        "crowd": 5,
+        "peace sign": 4,
+        "stage lights": 3,
+        "sunset": 3
+      },
+      "new_rows_shown": {
+        "concert": 5,
+        "young women": 3,
+        "cheering": 5,
+        "crowd": 5,
+        "peace sign": 4,
+        "stage lights": 3,
+        "sunset": 3
+      },
+      "old_row_count": 7,
+      "new_row_count": 7,
+      "old_card_slots": 28,
+      "new_card_slots": 28
+    }
+  },
+  "tag_pipeline": {
+    "n_labels": 50,
+    "label_counts": {
+      "correct": 39,
+      "useful_dropped": 10,
+      "incorrect_merge": 1
+    },
+    "baseline_replay_diffs_vs_recorded_run": [
+      {
+        "card_id": "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "recorded": [
+          "friend",
+          "concert",
+          "cheering",
+          "peace sign",
+          "stage",
+          "crowd"
+        ],
+        "replayed": [
+          "friends",
+          "concert",
+          "cheering",
+          "peace sign",
+          "stage",
+          "crowd"
+        ]
+      },
+      {
+        "card_id": "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "recorded": [
+          "concert",
+          "friend",
+          "cheering",
+          "peace sign",
+          "crowd"
+        ],
+        "replayed": [
+          "concert",
+          "friends",
+          "cheering",
+          "peace sign",
+          "crowd"
+        ]
+      }
+    ],
+    "baseline_replay_matches_recorded_run": false,
+    "configs": {
+      "baseline": {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      "keep_ambiguous": {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": true
+        },
+        "tags_kept": 50,
+        "correct": 49,
+        "correct_merges": 7,
+        "incorrect_merges": 1,
+        "stored_tags": 45,
+        "unique_stored_tags": 19,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.98
+      },
+      "no_merge_within_batch": {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": false
+        },
+        "tags_kept": 47,
+        "correct": 47,
+        "correct_merges": 7,
+        "useful_dropped": 3,
+        "stored_tags": 43,
+        "unique_stored_tags": 18,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.94
+      },
+      "keep_ambiguous+no_merge_within_batch": {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      }
+    },
+    "threshold_sweep": [
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 36,
+        "correct": 32,
+        "correct_merges": 10,
+        "useful_dropped": 14,
+        "incorrect_merges": 4,
+        "stored_tags": 29,
+        "unique_stored_tags": 11,
+        "correctly_dropped": 0,
+        "accuracy": 0.64
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 44,
+        "correct": 42,
+        "correct_merges": 10,
+        "useful_dropped": 6,
+        "incorrect_merges": 2,
+        "stored_tags": 38,
+        "unique_stored_tags": 15,
+        "correctly_dropped": 0,
+        "accuracy": 0.84
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 48,
+        "correct_merges": 10,
+        "incorrect_merges": 2,
+        "stored_tags": 44,
+        "unique_stored_tags": 19,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.96
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 34,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 16,
+        "incorrect_merges": 4,
+        "stored_tags": 26,
+        "unique_stored_tags": 9,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 41,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 9,
+        "incorrect_merges": 2,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 34,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 16,
+        "incorrect_merges": 4,
+        "stored_tags": 26,
+        "unique_stored_tags": 9,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 41,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 9,
+        "incorrect_merges": 2,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 17,
+        "incorrect_merges": 3,
+        "stored_tags": 26,
+        "unique_stored_tags": 9,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 45,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 5,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 33,
+        "correct_merges": 11,
+        "useful_dropped": 17,
+        "stored_tags": 27,
+        "unique_stored_tags": 9,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.66
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 43,
+        "correct": 42,
+        "correct_merges": 10,
+        "useful_dropped": 7,
+        "incorrect_merges": 1,
+        "stored_tags": 38,
+        "unique_stored_tags": 15,
+        "correctly_dropped": 0,
+        "accuracy": 0.84
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 49,
+        "correct": 48,
+        "correct_merges": 10,
+        "useful_dropped": 1,
+        "incorrect_merges": 1,
+        "stored_tags": 44,
+        "unique_stored_tags": 19,
+        "correctly_dropped": 0,
+        "accuracy": 0.96
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 45,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 5,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 46,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 4,
+        "incorrect_merges": 1,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 30,
+        "correct": 30,
+        "correct_merges": 8,
+        "useful_dropped": 20,
+        "stored_tags": 24,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.6
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 40,
+        "correct": 39,
+        "correct_merges": 7,
+        "useful_dropped": 10,
+        "incorrect_merges": 1,
+        "stored_tags": 35,
+        "unique_stored_tags": 14,
+        "correctly_dropped": 0,
+        "accuracy": 0.78
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 45,
+        "correct": 45,
+        "correct_merges": 7,
+        "useful_dropped": 5,
+        "stored_tags": 41,
+        "unique_stored_tags": 18,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.9
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 23,
+        "correct": 23,
+        "useful_dropped": 27,
+        "correct_merges": 1,
+        "stored_tags": 23,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.46
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 33,
+        "useful_dropped": 17,
+        "correct_merges": 1,
+        "stored_tags": 34,
+        "unique_stored_tags": 13,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.66
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 37,
+        "correct": 37,
+        "useful_dropped": 13,
+        "correct_merges": 1,
+        "stored_tags": 38,
+        "unique_stored_tags": 16,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.74
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 23,
+        "correct": 23,
+        "useful_dropped": 27,
+        "correct_merges": 1,
+        "stored_tags": 23,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.46
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 33,
+        "useful_dropped": 17,
+        "correct_merges": 1,
+        "stored_tags": 34,
+        "unique_stored_tags": 13,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.66
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 37,
+        "correct": 37,
+        "useful_dropped": 13,
+        "correct_merges": 1,
+        "stored_tags": 38,
+        "unique_stored_tags": 16,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.74
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 23,
+        "correct": 23,
+        "useful_dropped": 27,
+        "correct_merges": 1,
+        "stored_tags": 23,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.46
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 33,
+        "useful_dropped": 17,
+        "correct_merges": 1,
+        "stored_tags": 34,
+        "unique_stored_tags": 13,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.66
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 37,
+        "correct": 37,
+        "useful_dropped": 13,
+        "correct_merges": 1,
+        "stored_tags": 38,
+        "unique_stored_tags": 16,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.74
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 23,
+        "correct": 23,
+        "useful_dropped": 27,
+        "correct_merges": 1,
+        "stored_tags": 23,
+        "unique_stored_tags": 8,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.46
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 33,
+        "correct": 33,
+        "useful_dropped": 17,
+        "correct_merges": 1,
+        "stored_tags": 34,
+        "unique_stored_tags": 13,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.66
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 37,
+        "correct": 37,
+        "useful_dropped": 13,
+        "correct_merges": 1,
+        "stored_tags": 38,
+        "unique_stored_tags": 16,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.74
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 22,
+        "correct": 22,
+        "useful_dropped": 28,
+        "stored_tags": 22,
+        "unique_stored_tags": 8,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.44
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 32,
+        "correct": 32,
+        "useful_dropped": 18,
+        "stored_tags": 33,
+        "unique_stored_tags": 13,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.64
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 36,
+        "correct": 36,
+        "useful_dropped": 14,
+        "stored_tags": 37,
+        "unique_stored_tags": 16,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.72
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 22,
+        "correct": 22,
+        "useful_dropped": 28,
+        "stored_tags": 22,
+        "unique_stored_tags": 8,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.44
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 32,
+        "correct": 32,
+        "useful_dropped": 18,
+        "stored_tags": 33,
+        "unique_stored_tags": 13,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.64
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 36,
+        "correct": 36,
+        "useful_dropped": 14,
+        "stored_tags": 37,
+        "unique_stored_tags": 16,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.72
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 22,
+        "correct": 22,
+        "useful_dropped": 28,
+        "stored_tags": 22,
+        "unique_stored_tags": 8,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.44
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 32,
+        "correct": 32,
+        "useful_dropped": 18,
+        "stored_tags": 33,
+        "unique_stored_tags": 13,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.64
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 36,
+        "correct": 36,
+        "useful_dropped": 14,
+        "stored_tags": 37,
+        "unique_stored_tags": 16,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.72
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 22,
+        "correct": 22,
+        "useful_dropped": 28,
+        "stored_tags": 22,
+        "unique_stored_tags": 8,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.44
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 32,
+        "correct": 32,
+        "useful_dropped": 18,
+        "stored_tags": 33,
+        "unique_stored_tags": 13,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.64
+      },
+      {
+        "settings": {
+          "keep_ambiguous": false,
+          "merge_within_batch": true,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 36,
+        "correct": 36,
+        "useful_dropped": 14,
+        "stored_tags": 37,
+        "unique_stored_tags": 16,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "correctly_dropped": 0,
+        "accuracy": 0.72
+      }
+    ],
+    "threshold_sweep_on_new_flags": [
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.6,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 10,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.65,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.7,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 7,
+        "stored_tags": 46,
+        "unique_stored_tags": 19,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.75,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "correct_merges": 1,
+        "stored_tags": 51,
+        "unique_stored_tags": 21,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.0,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.04,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.08,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.4,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.5,
+          "ambiguous_threshold": 0.55
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      },
+      {
+        "settings": {
+          "keep_ambiguous": true,
+          "merge_within_batch": false,
+          "match_threshold": 0.8,
+          "margin_threshold": 0.12,
+          "new_threshold": 0.6,
+          "ambiguous_threshold": 0.6
+        },
+        "tags_kept": 50,
+        "correct": 50,
+        "stored_tags": 51,
+        "unique_stored_tags": 22,
+        "correct_merges": 0,
+        "incorrect_merges": 0,
+        "useful_dropped": 0,
+        "correctly_dropped": 0,
+        "accuracy": 1.0
+      }
+    ],
+    "unique_raw_gemini_tags": 21,
+    "alias_idempotence_failures": []
+  },
+  "search": {
+    "k": 5,
+    "n_queries": 15,
+    "summary": {
+      "semantic_maxsim": {
+        "precision_at_5": 0.5333,
+        "precision_at_5_ceiling": 0.6,
+        "recall_at_5": 0.9133,
+        "hit_at_1": 1.0
+      },
+      "semantic_concat": {
+        "precision_at_5": 0.5467,
+        "precision_at_5_ceiling": 0.6,
+        "recall_at_5": 0.9378,
+        "hit_at_1": 0.8667
+      },
+      "keyword": {
+        "precision_at_5": 0.16,
+        "precision_at_5_ceiling": 0.6,
+        "recall_at_5": 0.28,
+        "hit_at_1": 0.3333
+      }
+    },
+    "latency": {
+      "n_requests": 150,
+      "server_startup_incl_model_load_s": 6.911,
+      "first_search_cold_index": {
+        "total_ms": 109.187,
+        "server": {
+          "db_ms": 4.517,
+          "index_ms": 93.052,
+          "embed_ms": 4.325,
+          "score_ms": 3.365
+        },
+        "cards_indexed": 10
+      },
+      "total_ms": {
+        "p50": 6.712,
+        "p95": 7.372,
+        "mean": 6.564
+      },
+      "db_ms": {
+        "p50": 0.929,
+        "p95": 1.051,
+        "mean": 0.895
+      },
+      "index_ms": {
+        "p50": 0.094,
+        "p95": 0.103,
+        "mean": 0.086
+      },
+      "embed_ms": {
+        "p50": 3.964,
+        "p95": 4.426,
+        "mean": 3.832
+      },
+      "score_ms": {
+        "p50": 0.108,
+        "p95": 0.117,
+        "mean": 0.103
+      },
+      "other_ms (http, routing, serialization)": {
+        "p50": 1.616,
+        "p95": 1.866,
+        "mean": 1.647
+      }
+    },
+    "per_query": [
+      {
+        "query": "beer",
+        "relevant_captions": [
+          "Jules' Party"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party",
+            "score": 0.719,
+            "matched": "drinks",
+            "relevant": true
+          },
+          {
+            "caption": "sunset",
+            "score": 0.599,
+            "matched": "water",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.599,
+            "matched": "water",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.599,
+            "matched": "water",
+            "relevant": false
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.482,
+            "matched": "friends",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        }
+      },
+      {
+        "query": "cocktails",
+        "relevant_captions": [
+          "Jules' Party"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party",
+            "score": 0.771,
+            "matched": "drinks",
+            "relevant": true
+          },
+          {
+            "caption": "Jules' Party 2",
+            "score": 0.515,
+            "matched": "party",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.422,
+            "matched": "water",
+            "relevant": false
+          },
+          {
+            "caption": "sunset",
+            "score": 0.422,
+            "matched": "water",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.422,
+            "matched": "water",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "night out",
+        "relevant_captions": [
+          "Jules' Party",
+          "Jules' Party 2"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party",
+            "score": 0.879,
+            "matched": "nightout",
+            "relevant": true
+          },
+          {
+            "caption": "Concert",
+            "score": 0.758,
+            "matched": "nightlife",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.455,
+            "matched": "Sunset",
+            "relevant": false
+          },
+          {
+            "caption": "sunset",
+            "score": 0.455,
+            "matched": "sunset",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.455,
+            "matched": "Sunset",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 0.5,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "party",
+        "relevant_captions": [
+          "Jules' Party",
+          "Jules' Party 2"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party 2",
+            "score": 1.0,
+            "matched": "party",
+            "relevant": true
+          },
+          {
+            "caption": "Jules' Party",
+            "score": 0.536,
+            "matched": "drinks",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.525,
+            "matched": "friends",
+            "relevant": false
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.525,
+            "matched": "friends",
+            "relevant": false
+          },
+          {
+            "caption": "Concert",
+            "score": 0.447,
+            "matched": "crowd",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 0.4,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        }
+      },
+      {
+        "query": "people chatting",
+        "relevant_captions": [
+          "Jules' Party 2"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party 2",
+            "score": 0.628,
+            "matched": "conversation",
+            "relevant": true
+          },
+          {
+            "caption": "Jules' Party",
+            "score": 0.479,
+            "matched": "socializing",
+            "relevant": false
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.395,
+            "matched": "friends",
+            "relevant": false
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.395,
+            "matched": "friends",
+            "relevant": false
+          },
+          {
+            "caption": "concert",
+            "score": 0.382,
+            "matched": "crowd",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 0.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "redhead",
+        "relevant_captions": [
+          "Jules' Party 2"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Jules' Party 2",
+            "score": 0.771,
+            "matched": "red hair",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.518,
+            "matched": "orange",
+            "relevant": false
+          },
+          {
+            "caption": "sunset",
+            "score": 0.371,
+            "matched": "sunset",
+            "relevant": false
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.371,
+            "matched": "Sunset",
+            "relevant": false
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.299,
+            "matched": "friends",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.2,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.2,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "sunset",
+        "relevant_captions": [
+          "Sunset",
+          "sunset",
+          "Sunset"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Sunset",
+            "score": 1.0,
+            "matched": "Sunset",
+            "relevant": true
+          },
+          {
+            "caption": "sunset",
+            "score": 1.0,
+            "matched": "sunset",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 1.0,
+            "matched": "Sunset",
+            "relevant": true
+          },
+          {
+            "caption": "Concert",
+            "score": 0.492,
+            "matched": "nightlife",
+            "relevant": false
+          },
+          {
+            "caption": "Jules' Party",
+            "score": 0.431,
+            "matched": "nightout",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        }
+      },
+      {
+        "query": "golden hour",
+        "relevant_captions": [
+          "Sunset",
+          "sunset",
+          "Sunset"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "Sunset",
+            "score": 0.412,
+            "matched": "Sunset",
+            "relevant": true
+          },
+          {
+            "caption": "sunset",
+            "score": 0.412,
+            "matched": "sunset",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.412,
+            "matched": "Sunset",
+            "relevant": true
+          },
+          {
+            "caption": "Jules' Party",
+            "score": 0.327,
+            "matched": "nightout",
+            "relevant": false
+          },
+          {
+            "caption": "Concert",
+            "score": 0.272,
+            "matched": "nightlife",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 0.6666666666666666,
+          "hit_at_1": 0.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "the sea",
+        "relevant_captions": [
+          "Sunset",
+          "sunset",
+          "Sunset"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "sunset",
+            "score": 0.841,
+            "matched": "ocean",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.841,
+            "matched": "ocean",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.841,
+            "matched": "ocean",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.313,
+            "matched": "friends",
+            "relevant": false
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.313,
+            "matched": "friends",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "cloudy sky",
+        "relevant_captions": [
+          "Sunset",
+          "sunset",
+          "Sunset"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "sunset",
+            "score": 0.715,
+            "matched": "sky",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.715,
+            "matched": "sky",
+            "relevant": true
+          },
+          {
+            "caption": "Sunset",
+            "score": 0.715,
+            "matched": "sky",
+            "relevant": true
+          },
+          {
+            "caption": "concert",
+            "score": 0.293,
+            "matched": "peace sign",
+            "relevant": false
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.293,
+            "matched": "peace sign",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 0.6,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "music festival",
+        "relevant_captions": [
+          "Concert",
+          "Concert with friends",
+          "Sillying It",
+          "With my friends!",
+          "concert"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "concert",
+            "score": 0.723,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.723,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Sillying It",
+            "score": 0.723,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.723,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Concert",
+            "score": 0.723,
+            "matched": "Concert",
+            "relevant": true
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "gig",
+        "relevant_captions": [
+          "Concert",
+          "Concert with friends",
+          "Sillying It",
+          "With my friends!",
+          "concert"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "concert",
+            "score": 0.431,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.431,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Sillying It",
+            "score": 0.431,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.431,
+            "matched": "concert",
+            "relevant": true
+          },
+          {
+            "caption": "Concert",
+            "score": 0.431,
+            "matched": "Concert",
+            "relevant": true
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "best friends",
+        "relevant_captions": [
+          "Concert",
+          "Concert with friends",
+          "Sillying It",
+          "With my friends!",
+          "concert"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "With my friends!",
+            "score": 0.773,
+            "matched": "friends",
+            "relevant": true
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.773,
+            "matched": "friends",
+            "relevant": true
+          },
+          {
+            "caption": "Jules' Party 2",
+            "score": 0.421,
+            "matched": "party",
+            "relevant": false
+          },
+          {
+            "caption": "Jules' Party",
+            "score": 0.416,
+            "matched": "socializing",
+            "relevant": false
+          },
+          {
+            "caption": "sunset",
+            "score": 0.329,
+            "matched": "photo",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.4,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.6,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.6,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.4,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.4,
+          "hit_at_1": 1.0
+        }
+      },
+      {
+        "query": "girls cheering",
+        "relevant_captions": [
+          "Concert",
+          "Concert with friends",
+          "Sillying It",
+          "With my friends!",
+          "concert"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "concert",
+            "score": 0.732,
+            "matched": "cheering",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 0.732,
+            "matched": "cheering",
+            "relevant": true
+          },
+          {
+            "caption": "Sillying It",
+            "score": 0.732,
+            "matched": "cheering",
+            "relevant": true
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 0.732,
+            "matched": "cheering",
+            "relevant": true
+          },
+          {
+            "caption": "Concert",
+            "score": 0.732,
+            "matched": "cheering",
+            "relevant": true
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 1.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 1.0,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.0,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.0,
+          "hit_at_1": 0.0
+        }
+      },
+      {
+        "query": "peace sign",
+        "relevant_captions": [
+          "Concert",
+          "Concert with friends",
+          "Sillying It",
+          "With my friends!",
+          "concert"
+        ],
+        "maxsim_top5": [
+          {
+            "caption": "concert",
+            "score": 1.0,
+            "matched": "peace sign",
+            "relevant": true
+          },
+          {
+            "caption": "With my friends!",
+            "score": 1.0,
+            "matched": "peace sign",
+            "relevant": true
+          },
+          {
+            "caption": "Sillying It",
+            "score": 1.0,
+            "matched": "peace sign",
+            "relevant": true
+          },
+          {
+            "caption": "Concert with friends",
+            "score": 1.0,
+            "matched": "peace sign",
+            "relevant": true
+          },
+          {
+            "caption": "sunset",
+            "score": 0.34,
+            "matched": "sunset",
+            "relevant": false
+          }
+        ],
+        "semantic_maxsim": {
+          "precision_at_5": 0.8,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.8,
+          "hit_at_1": 1.0
+        },
+        "semantic_concat": {
+          "precision_at_5": 0.8,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.8,
+          "hit_at_1": 1.0
+        },
+        "keyword": {
+          "precision_at_5": 0.8,
+          "precision_at_5_ceiling": 1.0,
+          "recall_at_5": 0.8,
+          "hit_at_1": 1.0
+        }
+      }
+    ]
+  }
+}
