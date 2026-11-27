@@ -91,3 +91,18 @@
     padding: 18px 16px;
   }
 }
+
+/* Each result fills its grid cell so the "matched" lines line up across a row. */
+.vault-search__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.vault-search__item > .card {
+  flex: 1;
+}
+
+/* Card shows tags twice (over the photo and below it); in results keep the photo visible. */
+.vault-search__item .card-tagOverlay {
+  display: none;
+}
