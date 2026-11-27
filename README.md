@@ -18,16 +18,39 @@
 - **Photos and videos together.** Both media types appear in the same carousel, tag rows and search results.
 - **React frontend.** Drag-and-drop uploads, a carousel, tag rows and a media modal with delete.
 
-## 📊 Measured results
+## 📊 Evaluation
 
-All numbers come from `python -m backend.benchmarks.run_all` (no paid API calls) and are saved in [`benchmark_results.json`](benchmark_results.json). [`LEARNING.md`](LEARNING.md) explains each one. The demo dataset is small (10 cards, of which the 8 photos are 2 distinct images), so these show the method works on this data, not how it performs at scale.
+Quality is measured on **50 COCO val2017 photos with human annotations as ground truth**, uploaded through the real pipeline into a separate eval vault. The demo vault is excluded: its 8 photos are only 2 distinct images. Full method and caveats: [`LEARNING.md`](LEARNING.md) §10. Raw numbers: [`benchmark_results.json`](benchmark_results.json).
 
-| Metric | Result |
-|---|---|
-| Tag standardization, on 50 hand-labeled Gemini tags | 39 → **50** correct; incorrect merges 1 → **0**; useful tags dropped 10 → **0** |
-| Semantic search, 15 queries | Precision@5 **0.53** (best possible on this data: 0.60), recall@5 **0.91**, top result relevant in **15/15** queries; keyword baseline: P@5 0.16, recall@5 0.28 |
-| Search latency, 150 local HTTP requests | p50 **6.7 ms**, p95 **7.4 ms** (embedding the query is about 60% of that) |
-| Photo tagging, 7 Gemini calls | median **1.03 s** per photo, plus 0.05 s of local tag resolution |
+**Search** (50 queries: 30 COCO category names + 20 synonyms; relevant = COCO labels the image with that category)
+
+| | Keyword | Semantic |
+|---|---|---|
+| Precision@5 (max possible 0.648) | 0.208 | **0.492** |
+| Recall@5 (max possible 0.947) | 0.292 | **0.677** |
+| Top-1 accuracy | 0.40 | **0.72** |
+| Synonym queries ("pup", "automobile", "loo"): top-1 | 0.05 | **0.70** |
+| Latency p50 / p95 (150 local HTTP requests) | **2.6 / 2.8 ms** | 9.4 / 10.1 ms |
+
+**Tag pipeline** (stored tags vs COCO categories and captions)
+
+| | Old pipeline | New pipeline |
+|---|---|---|
+| Category recall (prominent ≥5% of image) | 0.631 (0.839) | **0.739 (0.931)**, same as raw Gemini |
+| Supported tags lost by the pipeline | 46 | **3** |
+| Merges audited wrong | 14 of 39 | **4 of 12** |
+| Tag precision | **0.740** | 0.722 |
+| Unique tags in the vault (lower = more standardized) | **173** | 255 (raw Gemini: 268) |
+
+The new pipeline stops losing and corrupting tags, but it standardizes much less, and a few wrong merges remain (e.g. "street" → "street sign"). See LEARNING.md §6.
+
+**Upload latency per photo** (Gemini tagging, tag resolution, DB writes and search indexing; n=50): median **1.59 s**, p95 2.68 s.
+
+**Reproduce** (no paid API calls; re-downloads the 50 images and rebuilds the eval DB from recorded Gemini output):
+
+```bash
+python -m backend.benchmarks.run_all
+```
 
 ## 🚀 Usage
 
@@ -69,10 +92,15 @@ npm run dev                  # set VITE_API_URL if the API is not at http://127.
 ### Benchmarks
 
 ```bash
-python -m backend.benchmarks.run_all             # all free metrics -> benchmark_results.json
-python -m backend.benchmarks.tag_pipeline_eval   # tag standardization vs tag_labels.csv
-python -m backend.benchmarks.search_eval         # search quality + latency (runs on a temp copy of app.db)
+python -m backend.benchmarks.run_all                    # everything -> benchmark_results.json (free)
+python -m backend.benchmarks.coco_eval download         # the 50 COCO eval images (gitignored, sha256-checked)
+python -m backend.benchmarks.coco_eval rebuild          # eval.db from recorded uploads (free)
+python -m backend.benchmarks.coco_search_eval           # search: semantic vs keyword
+python -m backend.benchmarks.coco_tag_eval              # tag pipeline: old vs new vs raw
+python -m backend.benchmarks.coco_eval upload --max-calls 50   # PAID: re-tag the eval set with Gemini
 ```
+
+To browse the eval vault in the UI, run the API with `DATABASE_URL=sqlite:///./eval.db MEDIA_DIR=backend/media/eval_coco/uploads`.
 
 ## 🔌 API
 
@@ -83,7 +111,7 @@ python -m backend.benchmarks.search_eval         # search quality + latency (run
 | GET | `/api/vaults/{vault_id}/cards` | List cards, with `tags` and `normalized_tags` |
 | POST | `/api/vaults/{vault_id}/cards` | Upload media (multipart); tags, standardizes and indexes it |
 | GET | `/api/vaults/{vault_id}/top-tags?limit=7` | Most common normalized tags |
-| GET | `/api/vaults/{vault_id}/search?q=&limit=5` | Semantic search; includes per-stage timings and a `Server-Timing` header |
+| GET | `/api/vaults/{vault_id}/search?q=&limit=5&mode=semantic` | Semantic search (`mode=keyword` for the exact-match baseline); includes per-stage timings and a `Server-Timing` header |
 | DELETE | `/api/cards/{card_id}` | Delete a card (and its media file if no other card uses it) |
 | POST | `/api/media/upload-photo-tags`, `/api/media/upload-video-hashtags` | Tag a file without saving it |
 | POST / GET | `/api/vaults/{vault_id}/share-link`, `/api/share/{token}` | Read-only share token (kept in memory) |
@@ -113,7 +141,9 @@ Search embeds the query with the same local model and ranks the vault's cards by
 
 - **No authentication.** Every vault belongs to a hardcoded demo user. The `vault_access` table exists but isn't used, and share links are lost when the server restarts. Multi-user shared vaults are not built yet.
 - **Search loads all of a vault's vectors on every request.** That's fine for small vaults; large ones would need a vector index.
-- **`npm run build` fails** because of TypeScript errors that predate this branch (unused imports). `npx vite build` bundles successfully.
+- **Tags don't cover small background objects.** Gemini returns 6–8 tags, so items like a backpack or a cup are rarely findable (COCO search recall is 0 for these).
+- **Standardization is weak.** Near-duplicates like "banana" / "yellow banana" are both stored (LEARNING.md §6).
+- **Video tagging is untested** in the evaluation (it needs a Twelve Labs key).
 
 ## 📁 Project Structure
 
@@ -130,7 +160,7 @@ memoryvault/
 ├── src/              # React app (components, pages, styles, types)
 ├── public/
 ├── app.db            # SQLite database (demo data)
-├── tag_labels.csv    # hand labels for the tag-pipeline benchmark
+├── tag_labels.csv    # demo-set hand labels (discovery history)
 ├── benchmark_results.json
 ├── LEARNING.md       # what changed, why, and the numbers
 └── README.md
