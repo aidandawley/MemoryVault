@@ -1,0 +1,228 @@
+{
+  "note": "Written before search was implemented. Relevance judged from the photos themselves; videos judged from caption + Twelve Labs tags (no frame viewer was available). The 8 photo cards are 2 distinct images: a concert photo (5 cards) and a sunset photo (3 cards).",
+  "design_decision_before_measuring": "Production scoring = max cosine similarity over a card's caption and each normalized tag (one vector per field). A single concatenated caption+tags vector is measured only as a comparison.",
+  "cards": {
+    "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe": "Concert",
+    "99e5be69-c722-492d-ac1c-e83f9678e0dc": "Concert with friends",
+    "39cec89c-05be-4984-abb8-3b0f236b83f4": "Sillying It",
+    "ad8feecb-d18b-47c3-bed6-799e6ce72205": "With my friends!",
+    "fcf93cb7-4e97-4e56-b614-40ee5b8dea33": "Sunset",
+    "ca20c172-8e9b-48f3-ac60-5ab39ef67055": "concert",
+    "9d25c741-1b8b-4c27-8084-6c5344577192": "sunset",
+    "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4": "Sunset",
+    "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d": "Jules' Party",
+    "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3": "Jules' Party 2"
+  },
+  "queries": [
+    {
+      "query": "beer",
+      "relevant": [
+        "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d"
+      ],
+      "relevant_captions": [
+        "Jules' Party"
+      ],
+      "why": "synonym: video 1 is tagged drinks/alcohol/bar, never 'beer'"
+    },
+    {
+      "query": "cocktails",
+      "relevant": [
+        "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d"
+      ],
+      "relevant_captions": [
+        "Jules' Party"
+      ],
+      "why": "synonym for drinks/alcohol/bar"
+    },
+    {
+      "query": "night out",
+      "relevant": [
+        "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d",
+        "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3"
+      ],
+      "relevant_captions": [
+        "Jules' Party",
+        "Jules' Party 2"
+      ],
+      "why": "video 1 tagged nightout; both videos are a party"
+    },
+    {
+      "query": "party",
+      "relevant": [
+        "8b8d4fce-fb8f-45cf-b027-bb044ba94c4d",
+        "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3"
+      ],
+      "relevant_captions": [
+        "Jules' Party",
+        "Jules' Party 2"
+      ],
+      "why": "both videos are 'Jules' Party'"
+    },
+    {
+      "query": "people chatting",
+      "relevant": [
+        "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3"
+      ],
+      "relevant_captions": [
+        "Jules' Party 2"
+      ],
+      "why": "synonym: video 2 tagged Conversation/SocialGathering"
+    },
+    {
+      "query": "redhead",
+      "relevant": [
+        "935f37d9-21ff-43fe-a5fc-3dc1fe02dff3"
+      ],
+      "relevant_captions": [
+        "Jules' Party 2"
+      ],
+      "why": "synonym: video 2 tagged RedHair"
+    },
+    {
+      "query": "sunset",
+      "relevant": [
+        "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+        "9d25c741-1b8b-4c27-8084-6c5344577192",
+        "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4"
+      ],
+      "relevant_captions": [
+        "Sunset",
+        "sunset",
+        "Sunset"
+      ],
+      "why": "the three sunset-photo cards"
+    },
+    {
+      "query": "golden hour",
+      "relevant": [
+        "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+        "9d25c741-1b8b-4c27-8084-6c5344577192",
+        "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4"
+      ],
+      "relevant_captions": [
+        "Sunset",
+        "sunset",
+        "Sunset"
+      ],
+      "why": "synonym/paraphrase for sunset light"
+    },
+    {
+      "query": "the sea",
+      "relevant": [
+        "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+        "9d25c741-1b8b-4c27-8084-6c5344577192",
+        "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4"
+      ],
+      "relevant_captions": [
+        "Sunset",
+        "sunset",
+        "Sunset"
+      ],
+      "why": "synonym: open ocean fills the sunset photo"
+    },
+    {
+      "query": "cloudy sky",
+      "relevant": [
+        "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+        "9d25c741-1b8b-4c27-8084-6c5344577192",
+        "b42e835e-eb1c-4571-9ba0-a8eb1edf79e4"
+      ],
+      "relevant_captions": [
+        "Sunset",
+        "sunset",
+        "Sunset"
+      ],
+      "why": "orange clouds dominate the sunset photo"
+    },
+    {
+      "query": "music festival",
+      "relevant": [
+        "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+        "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "39cec89c-05be-4984-abb8-3b0f236b83f4",
+        "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "ca20c172-8e9b-48f3-ac60-5ab39ef67055"
+      ],
+      "relevant_captions": [
+        "Concert",
+        "Concert with friends",
+        "Sillying It",
+        "With my friends!",
+        "concert"
+      ],
+      "why": "the five concert-photo cards (outdoor festival stage)"
+    },
+    {
+      "query": "gig",
+      "relevant": [
+        "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+        "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "39cec89c-05be-4984-abb8-3b0f236b83f4",
+        "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "ca20c172-8e9b-48f3-ac60-5ab39ef67055"
+      ],
+      "relevant_captions": [
+        "Concert",
+        "Concert with friends",
+        "Sillying It",
+        "With my friends!",
+        "concert"
+      ],
+      "why": "synonym for concert"
+    },
+    {
+      "query": "best friends",
+      "relevant": [
+        "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+        "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "39cec89c-05be-4984-abb8-3b0f236b83f4",
+        "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "ca20c172-8e9b-48f3-ac60-5ab39ef67055"
+      ],
+      "relevant_captions": [
+        "Concert",
+        "Concert with friends",
+        "Sillying It",
+        "With my friends!",
+        "concert"
+      ],
+      "why": "two friends together in the concert photo"
+    },
+    {
+      "query": "girls cheering",
+      "relevant": [
+        "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+        "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "39cec89c-05be-4984-abb8-3b0f236b83f4",
+        "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "ca20c172-8e9b-48f3-ac60-5ab39ef67055"
+      ],
+      "relevant_captions": [
+        "Concert",
+        "Concert with friends",
+        "Sillying It",
+        "With my friends!",
+        "concert"
+      ],
+      "why": "two young women cheering in the concert photo"
+    },
+    {
+      "query": "peace sign",
+      "relevant": [
+        "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+        "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+        "39cec89c-05be-4984-abb8-3b0f236b83f4",
+        "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+        "ca20c172-8e9b-48f3-ac60-5ab39ef67055"
+      ],
+      "relevant_captions": [
+        "Concert",
+        "Concert with friends",
+        "Sillying It",
+        "With my friends!",
+        "concert"
+      ],
+      "why": "both women flash peace signs; one card's tags lack 'peace sign', so it is a content-vs-tag test"
+    }
+  ]
+}
