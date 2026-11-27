@@ -279,10 +279,16 @@ async def create_card(
     # ---------------------------------------------
     # 3) Resolve tags (normalize + match/new/ambig)
     # ---------------------------------------------
-    resolved = resolve_tags(raw_tags, index, top_k=3, learn_new=True)
+    # keep_ambiguous / merge_within_batch=False were chosen by
+    # backend/benchmarks/tag_pipeline_eval.py (see LEARNING.md): dropping ambiguous
+    # tags lost 10/50 useful tags, and merging into a tag learned from the same
+    # image produced the one bad merge (sunset -> sunrise).
+    resolved = resolve_tags(
+        raw_tags, index, top_k=3, learn_new=True,
+        keep_ambiguous=True, merge_within_batch=False,
+    )
 
-    # Store ONLY match/new.
-    # Ambiguous are NOT stored, but we log them so you can see what's being skipped.
+    # Store match/new (with keep_ambiguous, nothing is left ambiguous).
     final_tags: list[str] = []
     ambiguous_skipped: list[str] = []
 

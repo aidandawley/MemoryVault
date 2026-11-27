@@ -105,17 +105,18 @@ def main(out_path=None):
     run, vault_cards, labels = load()
     results = {"n_labels": len(labels), "label_counts": dict(Counter(r["label"] for r in labels))}
 
+    # Settings are explicit so the results don't change when production defaults do.
+    OLD = {"keep_ambiguous": False, "merge_within_batch": True}  # the recorded run's behaviour
+    NEW = {"keep_ambiguous": True, "merge_within_batch": False}
+
     # 0) sanity: replaying the baseline must reproduce the recorded run exactly
-    outputs, stored = replay(run, vault_cards)
+    outputs, stored = replay(run, vault_cards, **OLD)
     recorded = {c["card_id"]: c["final_tags"] for c in run["cards"]}
     results["baseline_replay_matches_recorded_run"] = stored == recorded
     if stored != recorded:
         print("WARNING: baseline replay differs from the recorded run", file=sys.stderr)
 
     raw_unique = {t.strip().lower() for c in run["cards"] for t in c["ai_tags"]}
-    # Settings are explicit so the results don't change when production defaults do.
-    OLD = {"keep_ambiguous": False, "merge_within_batch": True}
-    NEW = {"keep_ambiguous": True, "merge_within_batch": False}
     configs = {
         "baseline": dict(OLD),
         "keep_ambiguous": {**OLD, "keep_ambiguous": True},

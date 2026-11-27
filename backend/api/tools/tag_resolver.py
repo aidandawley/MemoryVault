@@ -24,8 +24,8 @@ def resolve_tags(
     top_k: int = 3,
     learn_new: bool = True,
     *,
-    keep_ambiguous: bool = False,
-    merge_within_batch: bool = True,
+    keep_ambiguous: bool = True,
+    merge_within_batch: bool = False,
     **decision_kwargs,
 ) -> List[ResolvedTag]:
     """
