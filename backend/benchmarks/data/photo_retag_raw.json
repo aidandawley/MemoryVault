@@ -1,0 +1,1515 @@
+{
+  "run_at_utc": "2026-11-27T07:19:07.984171+00:00",
+  "machine": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.4",
+  "gemini_model": "gemini-3.5-flash-lite",
+  "gemini_calls_made": 7,
+  "cards": [
+    {
+      "card_id": "65b3295f-4df3-4bd1-8bcc-e4a4eac995fe",
+      "media_id": "e5305acd-1d12-4285-aef2-e861bc8e6bc1.jpg",
+      "caption": "Concert",
+      "bytes": 41097,
+      "old_tags": "",
+      "gemini_s": 2.3071718999999575,
+      "ai_tags": [
+        "concert",
+        "music festival",
+        "young women",
+        "raising hands",
+        "cheering",
+        "stage",
+        "nightlife",
+        "crowd"
+      ],
+      "resolve_s": 0.1002030000090599,
+      "db_write_s": 0.004737899987958372,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "drinks",
+        "photo",
+        "sunset",
+        "cloud",
+        "ocean",
+        "sky",
+        "orange"
+      ],
+      "resolved": [
+        {
+          "raw": "concert",
+          "norm": "concert",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "concert",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.6024916172027588
+            ],
+            [
+              "stage",
+              0.5869507789611816
+            ]
+          ]
+        },
+        {
+          "raw": "music festival",
+          "norm": "music festival",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 0.723,
+          "margin": 0.1395,
+          "topk": [
+            [
+              "concert",
+              0.722964882850647
+            ],
+            [
+              "music",
+              0.5834543704986572
+            ],
+            [
+              "band",
+              0.4795922040939331
+            ]
+          ]
+        },
+        {
+          "raw": "young women",
+          "norm": "young women",
+          "action": "new",
+          "chosen": "young women",
+          "conf": 0.2844,
+          "margin": 0.0046,
+          "topk": [
+            [
+              "lights",
+              0.2844257950782776
+            ],
+            [
+              "band",
+              0.27982819080352783
+            ],
+            [
+              "crowd",
+              0.26523837447166443
+            ]
+          ]
+        },
+        {
+          "raw": "raising hands",
+          "norm": "raising hands",
+          "action": "new",
+          "chosen": "raising hands",
+          "conf": 0.3128,
+          "margin": 0.0266,
+          "topk": [
+            [
+              "ceremony",
+              0.3127594590187073
+            ],
+            [
+              "dance",
+              0.2861921191215515
+            ],
+            [
+              "stage",
+              0.27466830611228943
+            ]
+          ]
+        },
+        {
+          "raw": "cheering",
+          "norm": "cheering",
+          "action": "new",
+          "chosen": "cheering",
+          "conf": 0.4931,
+          "margin": 0.0602,
+          "topk": [
+            [
+              "dance",
+              0.4930671453475952
+            ],
+            [
+              "crowd",
+              0.43287718296051025
+            ],
+            [
+              "lights",
+              0.4030159115791321
+            ]
+          ]
+        },
+        {
+          "raw": "stage",
+          "norm": "stage",
+          "action": "match",
+          "chosen": "stage",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "stage",
+              1.0
+            ],
+            [
+              "concert",
+              0.5869508981704712
+            ],
+            [
+              "band",
+              0.4541371464729309
+            ]
+          ]
+        },
+        {
+          "raw": "nightlife",
+          "norm": "nightlife",
+          "action": "new",
+          "chosen": "nightlife",
+          "conf": 0.4915,
+          "margin": 0.0309,
+          "topk": [
+            [
+              "sunset",
+              0.4915255904197693
+            ],
+            [
+              "sky",
+              0.4605921804904938
+            ],
+            [
+              "lights",
+              0.446797251701355
+            ]
+          ]
+        },
+        {
+          "raw": "crowd",
+          "norm": "crowd",
+          "action": "match",
+          "chosen": "crowd",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "crowd",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.48063570261001587
+            ],
+            [
+              "cheering",
+              0.43287721276283264
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "concert",
+        "young women",
+        "raising hands",
+        "cheering",
+        "stage",
+        "nightlife",
+        "crowd"
+      ]
+    },
+    {
+      "card_id": "99e5be69-c722-492d-ac1c-e83f9678e0dc",
+      "media_id": "4bbd55e6-1c72-4396-ada9-83cd6ef84bbe.jpg",
+      "caption": "Concert with friends",
+      "bytes": 41097,
+      "old_tags": "",
+      "gemini_s": 0.9388042000064161,
+      "ai_tags": [
+        "friends",
+        "concert",
+        "music festival",
+        "cheering",
+        "peace sign",
+        "outdoor stage",
+        "crowd"
+      ],
+      "resolve_s": 0.0507971000042744,
+      "db_write_s": 0.003675999992992729,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "drinks",
+        "young women",
+        "raising hands",
+        "cheering",
+        "nightlife"
+      ],
+      "resolved": [
+        {
+          "raw": "friends",
+          "norm": "friend",
+          "action": "new",
+          "chosen": "friend",
+          "conf": 0.3122,
+          "margin": 0.0194,
+          "topk": [
+            [
+              "cheering",
+              0.31216779351234436
+            ],
+            [
+              "band",
+              0.2927849292755127
+            ],
+            [
+              "dance",
+              0.22884909808635712
+            ]
+          ]
+        },
+        {
+          "raw": "concert",
+          "norm": "concert",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "concert",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.6024916172027588
+            ],
+            [
+              "stage",
+              0.5869507789611816
+            ]
+          ]
+        },
+        {
+          "raw": "music festival",
+          "norm": "music festival",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 0.723,
+          "margin": 0.1395,
+          "topk": [
+            [
+              "concert",
+              0.722964882850647
+            ],
+            [
+              "music",
+              0.5834543704986572
+            ],
+            [
+              "band",
+              0.47959211468696594
+            ]
+          ]
+        },
+        {
+          "raw": "cheering",
+          "norm": "cheering",
+          "action": "match",
+          "chosen": "cheering",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "cheering",
+              1.0000001192092896
+            ],
+            [
+              "dance",
+              0.4930671155452728
+            ],
+            [
+              "crowd",
+              0.4328770637512207
+            ]
+          ]
+        },
+        {
+          "raw": "peace sign",
+          "norm": "peace sign",
+          "action": "new",
+          "chosen": "peace sign",
+          "conf": 0.333,
+          "margin": 0.0206,
+          "topk": [
+            [
+              "ceremony",
+              0.33299896121025085
+            ],
+            [
+              "cheering",
+              0.3124160170555115
+            ],
+            [
+              "reception",
+              0.28029102087020874
+            ]
+          ]
+        },
+        {
+          "raw": "outdoor stage",
+          "norm": "outdoor stage",
+          "action": "match",
+          "chosen": "stage",
+          "conf": 0.7231,
+          "margin": 0.2405,
+          "topk": [
+            [
+              "stage",
+              0.7231433391571045
+            ],
+            [
+              "concert",
+              0.48269277811050415
+            ],
+            [
+              "band",
+              0.26757875084877014
+            ]
+          ]
+        },
+        {
+          "raw": "crowd",
+          "norm": "crowd",
+          "action": "match",
+          "chosen": "crowd",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "crowd",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.4806356728076935
+            ],
+            [
+              "cheering",
+              0.43287721276283264
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "friend",
+        "concert",
+        "cheering",
+        "peace sign",
+        "stage",
+        "crowd"
+      ]
+    },
+    {
+      "card_id": "39cec89c-05be-4984-abb8-3b0f236b83f4",
+      "media_id": "93b46c5d-7e89-46ea-96ff-19916a3f454c.jpg",
+      "caption": "Sillying It",
+      "bytes": 41097,
+      "old_tags": "",
+      "gemini_s": 1.0338067000266165,
+      "ai_tags": [
+        "concert",
+        "music festival",
+        "young women",
+        "cheering",
+        "peace sign",
+        "stage lights",
+        "outdoor crowd"
+      ],
+      "resolve_s": 0.0425779000215698,
+      "db_write_s": 0.0037529999972321093,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "cheering",
+        "drinks",
+        "young women",
+        "raising hands"
+      ],
+      "resolved": [
+        {
+          "raw": "concert",
+          "norm": "concert",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "concert",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.6024916172027588
+            ],
+            [
+              "stage",
+              0.5869507789611816
+            ]
+          ]
+        },
+        {
+          "raw": "music festival",
+          "norm": "music festival",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 0.723,
+          "margin": 0.1395,
+          "topk": [
+            [
+              "concert",
+              0.722964882850647
+            ],
+            [
+              "music",
+              0.5834543704986572
+            ],
+            [
+              "band",
+              0.47959211468696594
+            ]
+          ]
+        },
+        {
+          "raw": "young women",
+          "norm": "young women",
+          "action": "match",
+          "chosen": "young women",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "young women",
+              0.9999999403953552
+            ],
+            [
+              "lights",
+              0.2844257950782776
+            ],
+            [
+              "band",
+              0.27982813119888306
+            ]
+          ]
+        },
+        {
+          "raw": "cheering",
+          "norm": "cheering",
+          "action": "match",
+          "chosen": "cheering",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "cheering",
+              1.0000001192092896
+            ],
+            [
+              "dance",
+              0.4930671155452728
+            ],
+            [
+              "crowd",
+              0.4328770637512207
+            ]
+          ]
+        },
+        {
+          "raw": "peace sign",
+          "norm": "peace sign",
+          "action": "new",
+          "chosen": "peace sign",
+          "conf": 0.333,
+          "margin": 0.0206,
+          "topk": [
+            [
+              "ceremony",
+              0.33299896121025085
+            ],
+            [
+              "cheering",
+              0.3124160170555115
+            ],
+            [
+              "reception",
+              0.28029102087020874
+            ]
+          ]
+        },
+        {
+          "raw": "stage lights",
+          "norm": "stage lights",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.6667,
+          "margin": 0.0123,
+          "topk": [
+            [
+              "lights",
+              0.6666696667671204
+            ],
+            [
+              "stage",
+              0.6543691158294678
+            ],
+            [
+              "concert",
+              0.44894927740097046
+            ]
+          ]
+        },
+        {
+          "raw": "outdoor crowd",
+          "norm": "outdoor crowd",
+          "action": "match",
+          "chosen": "crowd",
+          "conf": 0.7681,
+          "margin": 0.3999,
+          "topk": [
+            [
+              "crowd",
+              0.768051266670227
+            ],
+            [
+              "band",
+              0.3681981563568115
+            ],
+            [
+              "concert",
+              0.32253628969192505
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "concert",
+        "young women",
+        "cheering",
+        "peace sign",
+        "crowd"
+      ]
+    },
+    {
+      "card_id": "ad8feecb-d18b-47c3-bed6-799e6ce72205",
+      "media_id": "9a5f00dd-b6d7-4676-bcb2-bcdeee2c62e2.jpg",
+      "caption": "With my friends!",
+      "bytes": 41097,
+      "old_tags": "",
+      "gemini_s": 0.8897171000135131,
+      "ai_tags": [
+        "concert",
+        "music festival",
+        "friends",
+        "cheering",
+        "peace sign",
+        "stage lights",
+        "crowd"
+      ],
+      "resolve_s": 0.04189409999526106,
+      "db_write_s": 0.003793100011534989,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "cheering",
+        "young women",
+        "peace sign",
+        "drinks"
+      ],
+      "resolved": [
+        {
+          "raw": "concert",
+          "norm": "concert",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "concert",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.6024916172027588
+            ],
+            [
+              "stage",
+              0.5869507789611816
+            ]
+          ]
+        },
+        {
+          "raw": "music festival",
+          "norm": "music festival",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 0.723,
+          "margin": 0.1395,
+          "topk": [
+            [
+              "concert",
+              0.722964882850647
+            ],
+            [
+              "music",
+              0.5834543704986572
+            ],
+            [
+              "band",
+              0.47959211468696594
+            ]
+          ]
+        },
+        {
+          "raw": "friends",
+          "norm": "friend",
+          "action": "new",
+          "chosen": "friend",
+          "conf": 0.3122,
+          "margin": 0.0194,
+          "topk": [
+            [
+              "cheering",
+              0.31216779351234436
+            ],
+            [
+              "band",
+              0.2927849292755127
+            ],
+            [
+              "dance",
+              0.22884909808635712
+            ]
+          ]
+        },
+        {
+          "raw": "cheering",
+          "norm": "cheering",
+          "action": "match",
+          "chosen": "cheering",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "cheering",
+              1.0000001192092896
+            ],
+            [
+              "dance",
+              0.4930671155452728
+            ],
+            [
+              "crowd",
+              0.4328770637512207
+            ]
+          ]
+        },
+        {
+          "raw": "peace sign",
+          "norm": "peace sign",
+          "action": "match",
+          "chosen": "peace sign",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "peace sign",
+              1.0000001192092896
+            ],
+            [
+              "ceremony",
+              0.33299896121025085
+            ],
+            [
+              "cheering",
+              0.3124160170555115
+            ]
+          ]
+        },
+        {
+          "raw": "stage lights",
+          "norm": "stage lights",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.6667,
+          "margin": 0.0123,
+          "topk": [
+            [
+              "lights",
+              0.6666696667671204
+            ],
+            [
+              "stage",
+              0.6543691158294678
+            ],
+            [
+              "concert",
+              0.44894927740097046
+            ]
+          ]
+        },
+        {
+          "raw": "crowd",
+          "norm": "crowd",
+          "action": "match",
+          "chosen": "crowd",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "crowd",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.4806356728076935
+            ],
+            [
+              "cheering",
+              0.43287721276283264
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "concert",
+        "friend",
+        "cheering",
+        "peace sign",
+        "crowd"
+      ]
+    },
+    {
+      "card_id": "fcf93cb7-4e97-4e56-b614-40ee5b8dea33",
+      "media_id": "497fb962-e389-467d-a0f8-d1456c519719.jpg",
+      "caption": "Sunset",
+      "bytes": 46223,
+      "old_tags": "",
+      "gemini_s": 1.3242588000139222,
+      "ai_tags": [
+        "sunset",
+        "ocean",
+        "clouds",
+        "horizon",
+        "sunrays",
+        "sky",
+        "water"
+      ],
+      "resolve_s": 0.04960450000362471,
+      "db_write_s": 0.0036222000198904425,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "cheering",
+        "peace sign",
+        "young women",
+        "friend"
+      ],
+      "resolved": [
+        {
+          "raw": "sunset",
+          "norm": "sunset",
+          "action": "new",
+          "chosen": "sunset",
+          "conf": 0.3975,
+          "margin": 0.0011,
+          "topk": [
+            [
+              "lights",
+              0.39750587940216064
+            ],
+            [
+              "reception",
+              0.39642810821533203
+            ],
+            [
+              "peace sign",
+              0.3397727608680725
+            ]
+          ]
+        },
+        {
+          "raw": "ocean",
+          "norm": "ocean",
+          "action": "new",
+          "chosen": "ocean",
+          "conf": 0.4169,
+          "margin": 0.0125,
+          "topk": [
+            [
+              "sunset",
+              0.4169161915779114
+            ],
+            [
+              "music",
+              0.4043791890144348
+            ],
+            [
+              "guitar",
+              0.3878580927848816
+            ]
+          ]
+        },
+        {
+          "raw": "clouds",
+          "norm": "cloud",
+          "action": "new",
+          "chosen": "cloud",
+          "conf": 0.4409,
+          "margin": 0.0542,
+          "topk": [
+            [
+              "ocean",
+              0.44087544083595276
+            ],
+            [
+              "cake",
+              0.386698842048645
+            ],
+            [
+              "music",
+              0.37384286522865295
+            ]
+          ]
+        },
+        {
+          "raw": "horizon",
+          "norm": "horizon",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5341,
+          "margin": 0.1454,
+          "topk": [
+            [
+              "sunset",
+              0.5341015458106995
+            ],
+            [
+              "ocean",
+              0.3887249231338501
+            ],
+            [
+              "cloud",
+              0.37874937057495117
+            ]
+          ]
+        },
+        {
+          "raw": "sunrays",
+          "norm": "sunray",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5534,
+          "margin": 0.2027,
+          "topk": [
+            [
+              "sunset",
+              0.5534121990203857
+            ],
+            [
+              "cloud",
+              0.3506701588630676
+            ],
+            [
+              "ocean",
+              0.31432878971099854
+            ]
+          ]
+        },
+        {
+          "raw": "sky",
+          "norm": "sky",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.6227,
+          "margin": 0.1164,
+          "topk": [
+            [
+              "sunset",
+              0.6227148175239563
+            ],
+            [
+              "cloud",
+              0.5063216686248779
+            ],
+            [
+              "ocean",
+              0.4730653762817383
+            ]
+          ]
+        },
+        {
+          "raw": "water",
+          "norm": "water",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5582,
+          "margin": 0.1263,
+          "topk": [
+            [
+              "ocean",
+              0.5581738352775574
+            ],
+            [
+              "music",
+              0.4319126009941101
+            ],
+            [
+              "lights",
+              0.4044027328491211
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "sunset",
+        "ocean",
+        "cloud"
+      ]
+    },
+    {
+      "card_id": "ca20c172-8e9b-48f3-ac60-5ab39ef67055",
+      "media_id": "311ea5ef-9865-49fa-bc90-d8239576c607.jpg",
+      "caption": "concert",
+      "bytes": 41097,
+      "old_tags": "",
+      "gemini_s": 1.7039347999962047,
+      "ai_tags": [
+        "concert",
+        "music festival",
+        "young women",
+        "cheering",
+        "peace sign",
+        "stage lights",
+        "crowd"
+      ],
+      "resolve_s": 0.038193699991097674,
+      "db_write_s": 0.005741500004660338,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "cheering",
+        "peace sign",
+        "young women",
+        "friend"
+      ],
+      "resolved": [
+        {
+          "raw": "concert",
+          "norm": "concert",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "concert",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.6024916172027588
+            ],
+            [
+              "stage",
+              0.5869507789611816
+            ]
+          ]
+        },
+        {
+          "raw": "music festival",
+          "norm": "music festival",
+          "action": "match",
+          "chosen": "concert",
+          "conf": 0.723,
+          "margin": 0.1395,
+          "topk": [
+            [
+              "concert",
+              0.722964882850647
+            ],
+            [
+              "music",
+              0.5834543704986572
+            ],
+            [
+              "band",
+              0.47959211468696594
+            ]
+          ]
+        },
+        {
+          "raw": "young women",
+          "norm": "young women",
+          "action": "match",
+          "chosen": "young women",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "young women",
+              0.9999999403953552
+            ],
+            [
+              "lights",
+              0.2844257950782776
+            ],
+            [
+              "band",
+              0.27982813119888306
+            ]
+          ]
+        },
+        {
+          "raw": "cheering",
+          "norm": "cheering",
+          "action": "match",
+          "chosen": "cheering",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "cheering",
+              1.0000001192092896
+            ],
+            [
+              "dance",
+              0.4930671155452728
+            ],
+            [
+              "crowd",
+              0.4328770637512207
+            ]
+          ]
+        },
+        {
+          "raw": "peace sign",
+          "norm": "peace sign",
+          "action": "match",
+          "chosen": "peace sign",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "peace sign",
+              1.0000001192092896
+            ],
+            [
+              "ceremony",
+              0.33299896121025085
+            ],
+            [
+              "cheering",
+              0.3124160170555115
+            ]
+          ]
+        },
+        {
+          "raw": "stage lights",
+          "norm": "stage lights",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.6667,
+          "margin": 0.0123,
+          "topk": [
+            [
+              "lights",
+              0.6666696667671204
+            ],
+            [
+              "stage",
+              0.6543691158294678
+            ],
+            [
+              "concert",
+              0.44894927740097046
+            ]
+          ]
+        },
+        {
+          "raw": "crowd",
+          "norm": "crowd",
+          "action": "match",
+          "chosen": "crowd",
+          "conf": 1.0,
+          "margin": 1.0,
+          "topk": [
+            [
+              "crowd",
+              1.0000001192092896
+            ],
+            [
+              "band",
+              0.4806356728076935
+            ],
+            [
+              "cheering",
+              0.43287721276283264
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "concert",
+        "young women",
+        "cheering",
+        "peace sign",
+        "crowd"
+      ]
+    },
+    {
+      "card_id": "9d25c741-1b8b-4c27-8084-6c5344577192",
+      "media_id": "f4fa8cf7-8dbf-46d0-8104-1d64730a394c.jpg",
+      "caption": "sunset",
+      "bytes": 46223,
+      "old_tags": "photo",
+      "gemini_s": 0.8982898000103887,
+      "ai_tags": [
+        "sunrise",
+        "ocean",
+        "sky",
+        "clouds",
+        "sunset",
+        "sunrays",
+        "water"
+      ],
+      "resolve_s": 0.05760359999840148,
+      "db_write_s": 0.003802499995799735,
+      "categories_used": [
+        "wedding",
+        "ceremony",
+        "reception",
+        "bride",
+        "groom",
+        "vows",
+        "bouquet",
+        "cake",
+        "dance",
+        "speeches",
+        "concert",
+        "stage",
+        "crowd",
+        "music",
+        "singer",
+        "band",
+        "guitar",
+        "drums",
+        "lights",
+        "performance",
+        "cheering",
+        "peace sign",
+        "young women",
+        "friend"
+      ],
+      "resolved": [
+        {
+          "raw": "sunrise",
+          "norm": "sunrise",
+          "action": "new",
+          "chosen": "sunrise",
+          "conf": 0.3474,
+          "margin": 0.0192,
+          "topk": [
+            [
+              "lights",
+              0.347368061542511
+            ],
+            [
+              "cheering",
+              0.32816898822784424
+            ],
+            [
+              "reception",
+              0.31673818826675415
+            ]
+          ]
+        },
+        {
+          "raw": "ocean",
+          "norm": "ocean",
+          "action": "new",
+          "chosen": "ocean",
+          "conf": 0.4187,
+          "margin": 0.0143,
+          "topk": [
+            [
+              "sunrise",
+              0.41865938901901245
+            ],
+            [
+              "music",
+              0.4043791890144348
+            ],
+            [
+              "guitar",
+              0.3878580927848816
+            ]
+          ]
+        },
+        {
+          "raw": "sky",
+          "norm": "sky",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5528,
+          "margin": 0.0797,
+          "topk": [
+            [
+              "sunrise",
+              0.5528119206428528
+            ],
+            [
+              "ocean",
+              0.4730653762817383
+            ],
+            [
+              "lights",
+              0.37335094809532166
+            ]
+          ]
+        },
+        {
+          "raw": "clouds",
+          "norm": "cloud",
+          "action": "new",
+          "chosen": "cloud",
+          "conf": 0.4409,
+          "margin": 0.0542,
+          "topk": [
+            [
+              "ocean",
+              0.44087544083595276
+            ],
+            [
+              "cake",
+              0.386698842048645
+            ],
+            [
+              "music",
+              0.37384286522865295
+            ]
+          ]
+        },
+        {
+          "raw": "sunset",
+          "norm": "sunset",
+          "action": "match",
+          "chosen": "sunrise",
+          "conf": 0.7345,
+          "margin": 0.3176,
+          "topk": [
+            [
+              "sunrise",
+              0.7344791293144226
+            ],
+            [
+              "ocean",
+              0.41691622138023376
+            ],
+            [
+              "lights",
+              0.39750587940216064
+            ]
+          ]
+        },
+        {
+          "raw": "sunrays",
+          "norm": "sunray",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5809,
+          "margin": 0.2303,
+          "topk": [
+            [
+              "sunrise",
+              0.5809252262115479
+            ],
+            [
+              "cloud",
+              0.3506701588630676
+            ],
+            [
+              "ocean",
+              0.31432878971099854
+            ]
+          ]
+        },
+        {
+          "raw": "water",
+          "norm": "water",
+          "action": "ambiguous",
+          "chosen": null,
+          "conf": 0.5582,
+          "margin": 0.1263,
+          "topk": [
+            [
+              "ocean",
+              0.5581738352775574
+            ],
+            [
+              "music",
+              0.4319126009941101
+            ],
+            [
+              "lights",
+              0.4044027328491211
+            ]
+          ]
+        },
+        {
+          "raw": "photo",
+          "norm": "photo",
+          "action": "new",
+          "chosen": "photo",
+          "conf": 0.4608,
+          "margin": 0.006,
+          "topk": [
+            [
+              "lights",
+              0.46079856157302856
+            ],
+            [
+              "singer",
+              0.45483890175819397
+            ],
+            [
+              "band",
+              0.40093564987182617
+            ]
+          ]
+        }
+      ],
+      "final_tags": [
+        "sunrise",
+        "ocean",
+        "cloud",
+        "photo"
+      ]
+    }
+  ],
+  "embedder_load_s": 6.632412300008582
+}

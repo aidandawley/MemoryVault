@@ -1,0 +1,51 @@
+row_id,card_id,caption,position,raw_tag,baseline_normalized,baseline_action,baseline_output,label,acceptable_outputs,reason
+1,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,0,concert,concert,match,concert,correct,concert,festival stage and crowd are visible; exact canonical tag
+2,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,1,music festival,music festival,match,concert,correct,concert|festival|music festival,outdoor music event; merging into concert is a reasonable synonym merge
+3,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,2,young women,young women,new,young women,correct,women|young women,two young women are the subject
+4,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,3,raising hands,raising hands,new,raising hands,correct,hands up|raising hands,both women have raised arms
+5,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,4,cheering,cheering,new,cheering,correct,cheering,both women are mid-cheer
+6,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,5,stage,stage,match,stage,correct,stage,lit stage visible on the left
+7,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,6,nightlife,nightlife,new,nightlife,correct,nightlife,dusk event with stage lights; vague but a fair vibe tag
+8,65b3295f-4df3-4bd1-8bcc-e4a4eac995fe,Concert,7,crowd,crowd,match,crowd,correct,crowd,crowd visible behind them
+9,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,0,friends,friend,new,friend,correct,friend|friends,two friends together; singular or plural both acceptable
+10,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,1,concert,concert,match,concert,correct,concert,festival stage and crowd are visible; exact canonical tag
+11,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,2,music festival,music festival,match,concert,correct,concert|festival|music festival,outdoor music event; merging into concert is a reasonable synonym merge
+12,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,3,cheering,cheering,match,cheering,correct,cheering,both women are mid-cheer
+13,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,4,peace sign,peace sign,new,peace sign,correct,peace sign,both women are making peace signs
+14,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,5,outdoor stage,outdoor stage,match,stage,correct,outdoor stage|stage,outdoor stage visible; merging into stage is correct
+15,99e5be69-c722-492d-ac1c-e83f9678e0dc,Concert with friends,6,crowd,crowd,match,crowd,correct,crowd,crowd visible behind them
+16,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,0,concert,concert,match,concert,correct,concert,festival stage and crowd are visible; exact canonical tag
+17,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,1,music festival,music festival,match,concert,correct,concert|festival|music festival,outdoor music event; merging into concert is a reasonable synonym merge
+18,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,2,young women,young women,match,young women,correct,women|young women,two young women are the subject
+19,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,3,cheering,cheering,match,cheering,correct,cheering,both women are mid-cheer
+20,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,4,peace sign,peace sign,new,peace sign,correct,peace sign,both women are making peace signs
+21,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,5,stage lights,stage lights,ambiguous,,useful_dropped,lights|stage|stage lights,stage lighting clearly visible; a useful tag
+22,39cec89c-05be-4984-abb8-3b0f236b83f4,Sillying It,6,outdoor crowd,outdoor crowd,match,crowd,correct,crowd|outdoor crowd,outdoor crowd visible; merging into crowd is correct
+23,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,0,concert,concert,match,concert,correct,concert,festival stage and crowd are visible; exact canonical tag
+24,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,1,music festival,music festival,match,concert,correct,concert|festival|music festival,outdoor music event; merging into concert is a reasonable synonym merge
+25,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,2,friends,friend,new,friend,correct,friend|friends,two friends together; singular or plural both acceptable
+26,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,3,cheering,cheering,match,cheering,correct,cheering,both women are mid-cheer
+27,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,4,peace sign,peace sign,match,peace sign,correct,peace sign,both women are making peace signs
+28,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,5,stage lights,stage lights,ambiguous,,useful_dropped,lights|stage|stage lights,stage lighting clearly visible; a useful tag
+29,ad8feecb-d18b-47c3-bed6-799e6ce72205,With my friends!,6,crowd,crowd,match,crowd,correct,crowd,crowd visible behind them
+30,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,0,sunset,sunset,new,sunset,correct,sunset,sun on the horizon over the ocean; the caption also says sunset
+31,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,1,ocean,ocean,new,ocean,correct,ocean|sea,open ocean fills the lower third
+32,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,2,clouds,cloud,new,cloud,correct,cloud|clouds,orange clouds dominate the sky
+33,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,3,horizon,horizon,ambiguous,,useful_dropped,horizon,a sharp ocean horizon is a main element
+34,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,4,sunrays,sunray,ambiguous,,useful_dropped,sun rays|sunbeam|sunray|sunrays,visible rays fan out from the sun
+35,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,5,sky,sky,ambiguous,,useful_dropped,sky,sky is most of the frame; a common search term
+36,fcf93cb7-4e97-4e56-b614-40ee5b8dea33,Sunset,6,water,water,ambiguous,,useful_dropped,ocean|water,water fills the foreground; merging into ocean is also fine
+37,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,0,concert,concert,match,concert,correct,concert,festival stage and crowd are visible; exact canonical tag
+38,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,1,music festival,music festival,match,concert,correct,concert|festival|music festival,outdoor music event; merging into concert is a reasonable synonym merge
+39,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,2,young women,young women,match,young women,correct,women|young women,two young women are the subject
+40,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,3,cheering,cheering,match,cheering,correct,cheering,both women are mid-cheer
+41,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,4,peace sign,peace sign,match,peace sign,correct,peace sign,both women are making peace signs
+42,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,5,stage lights,stage lights,ambiguous,,useful_dropped,lights|stage|stage lights,stage lighting clearly visible; a useful tag
+43,ca20c172-8e9b-48f3-ac60-5ab39ef67055,concert,6,crowd,crowd,match,crowd,correct,crowd,crowd visible behind them
+44,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,0,sunrise,sunrise,new,sunrise,correct,sunrise|sunset,"same image Gemini elsewhere calls sunset; the photo can't tell them apart, so keeping it is a faithful standardization"
+45,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,1,ocean,ocean,new,ocean,correct,ocean|sea,open ocean fills the lower third
+46,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,2,sky,sky,ambiguous,,useful_dropped,sky,sky is most of the frame; a common search term
+47,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,3,clouds,cloud,new,cloud,correct,cloud|clouds,orange clouds dominate the sky
+48,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,4,sunset,sunset,match,sunrise,incorrect_merge,sunset,sunset and sunrise are different concepts; merged only because 'sunrise' was learned earlier in the same photo
+49,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,5,sunrays,sunray,ambiguous,,useful_dropped,sun rays|sunbeam|sunray|sunrays,visible rays fan out from the sun
+50,9d25c741-1b8b-4c27-8084-6c5344577192,sunset,6,water,water,ambiguous,,useful_dropped,ocean|water,water fills the foreground; merging into ocean is also fine
