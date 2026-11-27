@@ -1,0 +1,256 @@
+{
+  "note": "Written before any eval image was tagged. A result is relevant iff COCO's instance annotations label that image with the query's category (any instance, any size). No human judgment from us is involved in relevance; we only chose which synonyms to test.",
+  "rule": "category queries = every COCO category present in >= 2 of the 50 eval images",
+  "queries": [
+    {
+      "query": "airplane",
+      "category": "airplane",
+      "type": "category_name"
+    },
+    {
+      "query": "backpack",
+      "category": "backpack",
+      "type": "category_name"
+    },
+    {
+      "query": "banana",
+      "category": "banana",
+      "type": "category_name"
+    },
+    {
+      "query": "bed",
+      "category": "bed",
+      "type": "category_name"
+    },
+    {
+      "query": "bicycle",
+      "category": "bicycle",
+      "type": "category_name"
+    },
+    {
+      "query": "bottle",
+      "category": "bottle",
+      "type": "category_name"
+    },
+    {
+      "query": "bus",
+      "category": "bus",
+      "type": "category_name"
+    },
+    {
+      "query": "cake",
+      "category": "cake",
+      "type": "category_name"
+    },
+    {
+      "query": "car",
+      "category": "car",
+      "type": "category_name"
+    },
+    {
+      "query": "cat",
+      "category": "cat",
+      "type": "category_name"
+    },
+    {
+      "query": "chair",
+      "category": "chair",
+      "type": "category_name"
+    },
+    {
+      "query": "couch",
+      "category": "couch",
+      "type": "category_name"
+    },
+    {
+      "query": "cup",
+      "category": "cup",
+      "type": "category_name"
+    },
+    {
+      "query": "dining table",
+      "category": "dining table",
+      "type": "category_name"
+    },
+    {
+      "query": "dog",
+      "category": "dog",
+      "type": "category_name"
+    },
+    {
+      "query": "frisbee",
+      "category": "frisbee",
+      "type": "category_name"
+    },
+    {
+      "query": "handbag",
+      "category": "handbag",
+      "type": "category_name"
+    },
+    {
+      "query": "horse",
+      "category": "horse",
+      "type": "category_name"
+    },
+    {
+      "query": "keyboard",
+      "category": "keyboard",
+      "type": "category_name"
+    },
+    {
+      "query": "laptop",
+      "category": "laptop",
+      "type": "category_name"
+    },
+    {
+      "query": "person",
+      "category": "person",
+      "type": "category_name"
+    },
+    {
+      "query": "pizza",
+      "category": "pizza",
+      "type": "category_name"
+    },
+    {
+      "query": "sink",
+      "category": "sink",
+      "type": "category_name"
+    },
+    {
+      "query": "stop sign",
+      "category": "stop sign",
+      "type": "category_name"
+    },
+    {
+      "query": "surfboard",
+      "category": "surfboard",
+      "type": "category_name"
+    },
+    {
+      "query": "tennis racket",
+      "category": "tennis racket",
+      "type": "category_name"
+    },
+    {
+      "query": "toilet",
+      "category": "toilet",
+      "type": "category_name"
+    },
+    {
+      "query": "traffic light",
+      "category": "traffic light",
+      "type": "category_name"
+    },
+    {
+      "query": "train",
+      "category": "train",
+      "type": "category_name"
+    },
+    {
+      "query": "truck",
+      "category": "truck",
+      "type": "category_name"
+    },
+    {
+      "query": "plane",
+      "category": "airplane",
+      "type": "synonym"
+    },
+    {
+      "query": "aircraft",
+      "category": "airplane",
+      "type": "synonym"
+    },
+    {
+      "query": "rucksack",
+      "category": "backpack",
+      "type": "synonym"
+    },
+    {
+      "query": "bike",
+      "category": "bicycle",
+      "type": "synonym"
+    },
+    {
+      "query": "automobile",
+      "category": "car",
+      "type": "synonym"
+    },
+    {
+      "query": "kitty",
+      "category": "cat",
+      "type": "synonym"
+    },
+    {
+      "query": "kitten",
+      "category": "cat",
+      "type": "synonym"
+    },
+    {
+      "query": "sofa",
+      "category": "couch",
+      "type": "synonym"
+    },
+    {
+      "query": "table",
+      "category": "dining table",
+      "type": "synonym"
+    },
+    {
+      "query": "pup",
+      "category": "dog",
+      "type": "synonym"
+    },
+    {
+      "query": "puppy",
+      "category": "dog",
+      "type": "synonym"
+    },
+    {
+      "query": "flying disc",
+      "category": "frisbee",
+      "type": "synonym"
+    },
+    {
+      "query": "purse",
+      "category": "handbag",
+      "type": "synonym"
+    },
+    {
+      "query": "notebook computer",
+      "category": "laptop",
+      "type": "synonym"
+    },
+    {
+      "query": "people",
+      "category": "person",
+      "type": "synonym"
+    },
+    {
+      "query": "washbasin",
+      "category": "sink",
+      "type": "synonym"
+    },
+    {
+      "query": "tennis racquet",
+      "category": "tennis racket",
+      "type": "synonym"
+    },
+    {
+      "query": "loo",
+      "category": "toilet",
+      "type": "synonym"
+    },
+    {
+      "query": "stoplight",
+      "category": "traffic light",
+      "type": "synonym"
+    },
+    {
+      "query": "lorry",
+      "category": "truck",
+      "type": "synonym"
+    }
+  ]
+}
