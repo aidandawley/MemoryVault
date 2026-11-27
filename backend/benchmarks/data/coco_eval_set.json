@@ -1,0 +1,1706 @@
+{
+  "source": "COCO 2017 val (instances_val2017.json, captions_val2017.json); annotations CC BY 4.0",
+  "selection": {
+    "seed": 2026,
+    "targets": [
+      "dog",
+      "cat",
+      "horse",
+      "pizza",
+      "banana",
+      "cake",
+      "car",
+      "bus",
+      "airplane",
+      "train",
+      "laptop",
+      "bed",
+      "toilet",
+      "stop sign",
+      "tennis racket",
+      "surfboard"
+    ],
+    "per_target": 3,
+    "person_only": 2,
+    "rule": "target = largest non-person category by summed mask area, covering >= 2% of the image; person-only images contain only 'person' covering >= 20%"
+  },
+  "supercategory": {
+    "dog": "animal",
+    "frisbee": "sports",
+    "person": "person",
+    "bicycle": "vehicle",
+    "bottle": "kitchen",
+    "car": "vehicle",
+    "cat": "animal",
+    "tennis racket": "sports",
+    "cake": "food",
+    "pizza": "food",
+    "book": "indoor",
+    "bowl": "kitchen",
+    "chair": "furniture",
+    "couch": "furniture",
+    "horse": "animal",
+    "backpack": "accessory",
+    "traffic light": "outdoor",
+    "banana": "food",
+    "dining table": "furniture",
+    "stop sign": "outdoor",
+    "truck": "vehicle",
+    "handbag": "accessory",
+    "bus": "vehicle",
+    "surfboard": "sports",
+    "bench": "outdoor",
+    "clock": "indoor",
+    "train": "vehicle",
+    "cup": "kitchen",
+    "keyboard": "electronic",
+    "motorcycle": "vehicle",
+    "tie": "accessory",
+    "bed": "furniture",
+    "bird": "animal",
+    "airplane": "vehicle",
+    "laptop": "electronic",
+    "sink": "appliance",
+    "toilet": "furniture",
+    "fork": "kitchen",
+    "mouse": "electronic",
+    "tv": "electronic",
+    "suitcase": "accessory"
+  },
+  "images": [
+    {
+      "image_id": 139872,
+      "file_name": "000000139872.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000139872.jpg",
+      "flickr_url": "http://farm1.staticflickr.com/92/260183330_494bd996d8_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "dog",
+      "categories": [
+        "dog",
+        "frisbee",
+        "person"
+      ],
+      "category_instances": {
+        "dog": 1,
+        "frisbee": 1,
+        "person": 2
+      },
+      "category_area_fraction": {
+        "dog": 0.1482,
+        "frisbee": 0.0458,
+        "person": 0.0775
+      },
+      "captions": [
+        "A dog laying on grass near a flying disc.",
+        "A dog laying in the grass with a frisbee near his arms.",
+        "A happy black and white dog next to a frisbee",
+        "a black and white dog laying in the grass with a frisbee",
+        "A happy dog sitting on the grass next to a frisbee."
+      ],
+      "sha256": "1004f177853f43360869c733685f0994ded85ad297d92a3b82809d2cd70a6669"
+    },
+    {
+      "image_id": 10363,
+      "file_name": "000000010363.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000010363.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3027/2477308902_443e5baf08_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 361,
+      "selected_for": "car",
+      "categories": [
+        "bicycle",
+        "bottle",
+        "car",
+        "cat"
+      ],
+      "category_instances": {
+        "bicycle": 1,
+        "bottle": 1,
+        "car": 1,
+        "cat": 1
+      },
+      "category_area_fraction": {
+        "bicycle": 0.0194,
+        "bottle": 0.0017,
+        "car": 0.5243,
+        "cat": 0.0731
+      },
+      "captions": [
+        "A gray cat standing on top of a black car.",
+        "A cat standing on the hood of a car.",
+        "Grey color cat standing on hood of car in garage",
+        "A gray cat on the hood of a black car",
+        "A cat sitting on the hood of a parked black car in a garage."
+      ],
+      "sha256": "2fd23c4c491520182a703d0df9c604f6b7ee8a592ad8743897870cf0260f47b2"
+    },
+    {
+      "image_id": 64523,
+      "file_name": "000000064523.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000064523.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7164/6841199359_a073ef21d7_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 444,
+      "selected_for": "tennis racket",
+      "categories": [
+        "car",
+        "person",
+        "tennis racket"
+      ],
+      "category_instances": {
+        "car": 1,
+        "person": 11,
+        "tennis racket": 11
+      },
+      "category_area_fraction": {
+        "car": 0.0013,
+        "person": 0.3598,
+        "tennis racket": 0.0697
+      },
+      "captions": [
+        "A black and white photograph of a female tennis club.",
+        "An all female tennis team taking a group photo on a tennis court",
+        "A group of pretty young ladies standing on a tennis court.",
+        "A team of girl tennis players gather together at the net for a group picture.",
+        "Eleven girls in tennis outfits pose for a picture with their racquets on a tennis court."
+      ],
+      "sha256": "298290da37182362fe71559d459a7781f08575563e731c6be7b04ef7bbc3226a"
+    },
+    {
+      "image_id": 245651,
+      "file_name": "000000245651.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000245651.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2437/3956562901_0f6fdbb0a7_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 375,
+      "height": 500,
+      "selected_for": "cake",
+      "categories": [
+        "cake"
+      ],
+      "category_instances": {
+        "cake": 1
+      },
+      "category_area_fraction": {
+        "cake": 0.4921
+      },
+      "captions": [
+        "A large white multi layered cake sitting on top of a table.",
+        "A double layer fondant cake decorated with stars",
+        "A cake with fondant stars cut out on white fondant",
+        "A cake with blue, yellow and green fondant stars on it.",
+        "2 tier cake with multicolored stars attached to it."
+      ],
+      "sha256": "475dea5ebf7371dc9c00e7465da425f8e9cf9df79aae8978d56148897d2e7009"
+    },
+    {
+      "image_id": 451693,
+      "file_name": "000000451693.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000451693.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2649/3755516017_7c445ce851_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "pizza",
+      "categories": [
+        "pizza"
+      ],
+      "category_instances": {
+        "pizza": 1
+      },
+      "category_area_fraction": {
+        "pizza": 0.3909
+      },
+      "captions": [
+        "pizza sitting on stack of plates on wood background",
+        "a pizza on a white plate on a wooden table",
+        "A small pizza with olives is place on a stack of plates.",
+        "A pizza placed on a white plate on a wooden table.",
+        "A pizza that is on a stack of plates."
+      ],
+      "sha256": "acab76f198db510eea270251006fe44c7da0f3263bd99f80d325e5a0b3cac011"
+    },
+    {
+      "image_id": 511398,
+      "file_name": "000000511398.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000511398.jpg",
+      "flickr_url": "http://farm7.staticflickr.com/6160/6158490165_2aa30e639d_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "dog",
+      "categories": [
+        "dog"
+      ],
+      "category_instances": {
+        "dog": 1
+      },
+      "category_area_fraction": {
+        "dog": 0.3636
+      },
+      "captions": [
+        "A small dog on a harness laying on top of a sandy beach.",
+        "A dog with a harness is laying on a rug on the floor.",
+        "A dog sleeping in the sand next to a beach mat.",
+        "a close up of a dog laying in sand near a mat",
+        "A multi-colored black dog laying on top of the sand."
+      ],
+      "sha256": "7948bc967ac3b7526ce99e970eae3e87832cace645299565ef5da3d8b20d96b4"
+    },
+    {
+      "image_id": 213445,
+      "file_name": "000000213445.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000213445.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4007/4463515326_b08b55025f_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 408,
+      "height": 500,
+      "selected_for": "cat",
+      "categories": [
+        "book",
+        "bowl",
+        "cat",
+        "chair",
+        "couch"
+      ],
+      "category_instances": {
+        "book": 9,
+        "bowl": 1,
+        "cat": 1,
+        "chair": 2,
+        "couch": 1
+      },
+      "category_area_fraction": {
+        "book": 0.0379,
+        "bowl": 0.0654,
+        "cat": 0.2189,
+        "chair": 0.2184,
+        "couch": 0.1731
+      },
+      "captions": [
+        "a big cat sitting in a little bowl",
+        "A cat is sitting in a small bowl on the table.",
+        "A cat sitting in a bowl on a table.",
+        "The cat is sitting inside of a bowl on a table.",
+        "A cutting sitting upright in a pottery bowl on a coffee table"
+      ],
+      "sha256": "a7802e7951f5b2721320e32cab9b4146ed7ea6e5091468c7543937fdcfd59383"
+    },
+    {
+      "image_id": 456015,
+      "file_name": "000000456015.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000456015.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7085/7361354062_d71c557b4a_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "horse",
+      "categories": [
+        "horse",
+        "person"
+      ],
+      "category_instances": {
+        "horse": 4,
+        "person": 4
+      },
+      "category_area_fraction": {
+        "horse": 0.0894,
+        "person": 0.0312
+      },
+      "captions": [
+        "People are riding horses down a beach next to the water.",
+        "A group of men riding horses on a beach.",
+        "People wearing jackets are riding horses on the beach.",
+        "Men on horse back riding on the beach",
+        "The group of friends is riding down the beach."
+      ],
+      "sha256": "fd3dfae9a14c36f43036487f509e9440b9b73e2bfb830c8b3da3f600a2753059"
+    },
+    {
+      "image_id": 127263,
+      "file_name": "000000127263.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000127263.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4139/4872005505_8f7d0ec538_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "car",
+      "categories": [
+        "car",
+        "frisbee",
+        "person"
+      ],
+      "category_instances": {
+        "car": 3,
+        "frisbee": 1,
+        "person": 2
+      },
+      "category_area_fraction": {
+        "car": 0.0378,
+        "frisbee": 0.0028,
+        "person": 0.1304
+      },
+      "captions": [
+        "A couple of men playing a game of frisbee.",
+        "Two men on opposite teams jumping for a Frisbee.",
+        "Two men are reaching to catch a frisbee.",
+        "Two men playing a game of Frisbee in a field.",
+        "The men are playing a game of Frisbee on the grassy field,"
+      ],
+      "sha256": "aacdd27c1d31c7007fafd83676e6bb66953e8c0de02080671c811093e6058b40"
+    },
+    {
+      "image_id": 431876,
+      "file_name": "000000431876.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000431876.jpg",
+      "flickr_url": "http://farm7.staticflickr.com/6106/6358519017_b422879c9d_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 425,
+      "height": 640,
+      "selected_for": "horse",
+      "categories": [
+        "backpack",
+        "horse",
+        "person",
+        "traffic light"
+      ],
+      "category_instances": {
+        "backpack": 1,
+        "horse": 2,
+        "person": 7,
+        "traffic light": 1
+      },
+      "category_area_fraction": {
+        "backpack": 0.0034,
+        "horse": 0.1362,
+        "person": 0.0288,
+        "traffic light": 0.0039
+      },
+      "captions": [
+        "The cops in the city are riding horses threw the streets.",
+        "an image of horses that are standing on the sidewalk",
+        "a group of people on some horses that are standing on a road.",
+        "Four cops on the back of horses stand in the street.",
+        "Several mounted police officers and their horses line up on the street."
+      ],
+      "sha256": "c0ccf45be5aba5cd9ff122f97bff3ad8377442c83fc265530902f9f7f8b5d444"
+    },
+    {
+      "image_id": 165351,
+      "file_name": "000000165351.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000165351.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2469/5847066665_a3a723b346_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 612,
+      "height": 612,
+      "selected_for": "banana",
+      "categories": [
+        "banana",
+        "dining table"
+      ],
+      "category_instances": {
+        "banana": 5,
+        "dining table": 1
+      },
+      "category_area_fraction": {
+        "banana": 0.1836,
+        "dining table": 0.0111
+      },
+      "captions": [
+        "Sliced bananas sit on top of a pastry dish on a plate.",
+        "A food that is topped with bananas and a brown sauce.",
+        "odd meal on a plate with bananas and gravy",
+        "The desert is made and ready to be eaten.",
+        "Blueberry pancakes with slices bananas and glaze on top."
+      ],
+      "sha256": "b5b74b91c82fee7c5e4f9824d6453072365b3a822bf72cb6e0cf8e03f8f0fe75"
+    },
+    {
+      "image_id": 309173,
+      "file_name": "000000309173.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000309173.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3121/2718413687_abbbf4987e_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 335,
+      "height": 500,
+      "selected_for": "stop sign",
+      "categories": [
+        "person",
+        "stop sign"
+      ],
+      "category_instances": {
+        "person": 1,
+        "stop sign": 1
+      },
+      "category_area_fraction": {
+        "person": 0.005,
+        "stop sign": 0.3763
+      },
+      "captions": [
+        "there is a red stop sign on this street",
+        "A stop sign in the middle of a city.",
+        "A stop sign on a pole on a street corner.",
+        "Red stop sign sitting on a pole in the middle of city street.",
+        "A red and white traffic sign attached to a pole in a city."
+      ],
+      "sha256": "80967e2d599426ebdeac2df026d901e750e89c7233bdb333d1a82ee58a5d181e"
+    },
+    {
+      "image_id": 283038,
+      "file_name": "000000283038.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000283038.jpg",
+      "flickr_url": "http://farm1.staticflickr.com/68/218713640_05adea9bc3_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 500,
+      "height": 281,
+      "selected_for": "stop sign",
+      "categories": [
+        "car",
+        "stop sign",
+        "traffic light",
+        "truck"
+      ],
+      "category_instances": {
+        "car": 1,
+        "stop sign": 1,
+        "traffic light": 3,
+        "truck": 1
+      },
+      "category_area_fraction": {
+        "car": 0.0069,
+        "stop sign": 0.3091,
+        "traffic light": 0.0018,
+        "truck": 0.0118
+      },
+      "captions": [
+        "A red stop sign sitting on top of a green planter.",
+        "A stop sign with dirty edges at a cross walk of a street.",
+        "A large stop sign is set against city buildings.",
+        "A large red stop sign on a street.",
+        "a old rusty stop sign out sign some buildings."
+      ],
+      "sha256": "d2bd4dd1e335f37cb7765906adf646e8eb24b1fee3a61e1868e17e7bb2746a84"
+    },
+    {
+      "image_id": 474167,
+      "file_name": "000000474167.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000474167.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2676/3983126748_dee4ecb24b_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 427,
+      "height": 640,
+      "selected_for": "pizza",
+      "categories": [
+        "bottle",
+        "dining table",
+        "handbag",
+        "person",
+        "pizza"
+      ],
+      "category_instances": {
+        "bottle": 1,
+        "dining table": 2,
+        "handbag": 1,
+        "person": 3,
+        "pizza": 2
+      },
+      "category_area_fraction": {
+        "bottle": 0.0493,
+        "dining table": 0.065,
+        "handbag": 0.0012,
+        "person": 0.0894,
+        "pizza": 0.2025
+      },
+      "captions": [
+        "A woven basket with slices of pizza in it",
+        "People are eating pizza and drinking soda at a table.",
+        "SLICES OF PIZZA IN BASKETS ON A TABLE OUTSIDE",
+        "two plates of pizza and a drink on a wooden table",
+        "A couple of slices of pizza sitting on white paper."
+      ],
+      "sha256": "65075350e613b5f3e23f9c07ba58b213522f2e3af42f3f593377e320efec868c"
+    },
+    {
+      "image_id": 547854,
+      "file_name": "000000547854.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000547854.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3692/10233886394_8bd0fb2a5b_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 640,
+      "selected_for": "pizza",
+      "categories": [
+        "dining table",
+        "person",
+        "pizza"
+      ],
+      "category_instances": {
+        "dining table": 1,
+        "person": 2,
+        "pizza": 2
+      },
+      "category_area_fraction": {
+        "dining table": 0.0295,
+        "person": 0.3757,
+        "pizza": 0.1166
+      },
+      "captions": [
+        "a half eaten pizza is sitting on a plate",
+        "A little girl sitting in front of a white plate with pizza.",
+        "a child at a table with a plate of pizza",
+        "The little girl is busy eating her pizza at the table.",
+        "Girl holding up two fingers while sitting in front of plate with pizza slide on it"
+      ],
+      "sha256": "a092c556a3e1bf35af64b0cac956f3d4fe2612ac294e186acbe747e05360fb97"
+    },
+    {
+      "image_id": 253002,
+      "file_name": "000000253002.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000253002.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7213/7360136074_1320db41dc_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "bus",
+      "categories": [
+        "bus"
+      ],
+      "category_instances": {
+        "bus": 1
+      },
+      "category_area_fraction": {
+        "bus": 0.9795
+      },
+      "captions": [
+        "Closeup of a logo on a blue and red bus.",
+        "an image of a side symbol on a bus",
+        "The side view of a red vehicle with a logo sign on the side of it.",
+        "A logo on a double decker bus with a lion and a sword.",
+        "The side of a buss with a sign on it."
+      ],
+      "sha256": "a8fa4e0fa0d88819f851e0f4252248312cc932b93bf7124ef213a661ea5355b0"
+    },
+    {
+      "image_id": 498807,
+      "file_name": "000000498807.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000498807.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4079/4805125064_37721dd070_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 426,
+      "selected_for": "surfboard",
+      "categories": [
+        "person",
+        "surfboard"
+      ],
+      "category_instances": {
+        "person": 1,
+        "surfboard": 1
+      },
+      "category_area_fraction": {
+        "person": 0.1112,
+        "surfboard": 0.0361
+      },
+      "captions": [
+        "A young girl tries to keep her balance on a surfboard.",
+        "Young girl in black balances on a pink surfboard.",
+        "A girl in black wet suit riding on a surfboard.",
+        "A young girl riding a surfboard in the ocean",
+        "A person on a surfboard on the water."
+      ],
+      "sha256": "5178a90bdbd6a38bb29e9ad7c0f7051280a520eac5425d516d778a5871af776c"
+    },
+    {
+      "image_id": 274460,
+      "file_name": "000000274460.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000274460.jpg",
+      "flickr_url": "http://farm7.staticflickr.com/6236/6267475434_0c28897158_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 454,
+      "selected_for": "surfboard",
+      "categories": [
+        "backpack",
+        "bicycle",
+        "person",
+        "surfboard"
+      ],
+      "category_instances": {
+        "backpack": 1,
+        "bicycle": 2,
+        "person": 13,
+        "surfboard": 4
+      },
+      "category_area_fraction": {
+        "backpack": 0.0026,
+        "bicycle": 0.0016,
+        "person": 0.1511,
+        "surfboard": 0.0299
+      },
+      "captions": [
+        "A group of people on a beach with surf boards.",
+        "a bunch of people sitting on a beach",
+        "Groups of competitive surfers sitting with their surfboards on the beach.",
+        "a group of people on a beach with buildings in the background and surfboards in the  foreground",
+        "A group of young people gather with surfboards on a tropical beach."
+      ],
+      "sha256": "e8328d1efa9ab49d921fb9eb37723f20e93140cc1391119e4121325de347d2d0"
+    },
+    {
+      "image_id": 508917,
+      "file_name": "000000508917.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000508917.jpg",
+      "flickr_url": "http://farm6.staticflickr.com/5349/9288654526_33344f470e_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 370,
+      "selected_for": "train",
+      "categories": [
+        "bench",
+        "clock",
+        "handbag",
+        "person",
+        "train"
+      ],
+      "category_instances": {
+        "bench": 1,
+        "clock": 1,
+        "handbag": 3,
+        "person": 12,
+        "train": 1
+      },
+      "category_area_fraction": {
+        "bench": 0.002,
+        "clock": 0.0194,
+        "handbag": 0.0013,
+        "person": 0.03,
+        "train": 0.1005
+      },
+      "captions": [
+        "A train in its full span gives the illusion of a neverending adventure.",
+        "Many people are gathered on the platforms of a train station.",
+        "a train sitting on the tracks at a station",
+        "The passenger train is pulling has arrived at the station.",
+        "a train on a track pulling into a station"
+      ],
+      "sha256": "e3e8873c89118ccc02f51861856cad60cbaf7347682f58cec8b4d499b6f7cc1d"
+    },
+    {
+      "image_id": 98633,
+      "file_name": "000000098633.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000098633.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3643/3604833749_f2b1bf6dbf_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 428,
+      "height": 640,
+      "selected_for": "cake",
+      "categories": [
+        "cake"
+      ],
+      "category_instances": {
+        "cake": 1
+      },
+      "category_area_fraction": {
+        "cake": 0.4246
+      },
+      "captions": [
+        "A white piece of cake sitting on top of a plate.",
+        "A cake with white icing, mint leaves and strawberries.",
+        "a white square cake with five strawberries on the top",
+        "The cake is topped with five whole strawberries.",
+        "A square, white cake sits on a round plate and is decorated with strawberries."
+      ],
+      "sha256": "89319e6fb6942c0f6723878746c4d27c93e457c2dc84184a9004b442cdd0d245"
+    },
+    {
+      "image_id": 3661,
+      "file_name": "000000003661.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000003661.jpg",
+      "flickr_url": "http://farm6.staticflickr.com/5176/5515966919_7a8ab56d94_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 384,
+      "selected_for": "banana",
+      "categories": [
+        "banana",
+        "cup",
+        "keyboard"
+      ],
+      "category_instances": {
+        "banana": 1,
+        "cup": 1,
+        "keyboard": 1
+      },
+      "category_area_fraction": {
+        "banana": 0.5409,
+        "cup": 0.0507,
+        "keyboard": 0.0145
+      },
+      "captions": [
+        "A bunch of bananas sitting on top of a wooden table.",
+        "A closeup of a group of bananas on a table",
+        "The four huge bananas are still connected together.",
+        "Close up of a bunch of bananas on a wooden counter.",
+        "A bunch of bananas very close up on a table."
+      ],
+      "sha256": "8746b068c166782f4b4fb7e6be9d16e5311e9c15bc867e21409b7f5d2eddefb4"
+    },
+    {
+      "image_id": 527220,
+      "file_name": "000000527220.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000527220.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4025/4337157345_574610f058_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 500,
+      "height": 169,
+      "selected_for": "car",
+      "categories": [
+        "car",
+        "motorcycle"
+      ],
+      "category_instances": {
+        "car": 1,
+        "motorcycle": 3
+      },
+      "category_area_fraction": {
+        "car": 0.2903,
+        "motorcycle": 0.236
+      },
+      "captions": [
+        "A red car next to a gas station sign and parked blue and silver motorcycles.",
+        "A red Ferrari at a gas station showing the gas prices and three mopeds",
+        "A car with some gas prices and motorcycle lined up.",
+        "A collage shows a car, a gas station sign, and motor scooters.",
+        "A bunch of vespas , a car and gas signs"
+      ],
+      "sha256": "4924216bbf86e812d729c8c9cde904d4a9827020c7cfc22787af0fa67dd6c6c7"
+    },
+    {
+      "image_id": 393093,
+      "file_name": "000000393093.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000393093.jpg",
+      "flickr_url": "http://farm6.staticflickr.com/5454/9427417851_b15176a325_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 424,
+      "selected_for": "train",
+      "categories": [
+        "car",
+        "person",
+        "train"
+      ],
+      "category_instances": {
+        "car": 7,
+        "person": 1,
+        "train": 1
+      },
+      "category_area_fraction": {
+        "car": 0.022,
+        "person": 0.0085,
+        "train": 0.1426
+      },
+      "captions": [
+        "A silver and green train crossing over the tracks",
+        "A train passes on a bridge atop a street.",
+        "A large long train on a steel track.",
+        "The train is going over the busy urban bridge.",
+        "a green orange and silver train and some cars"
+      ],
+      "sha256": "624c5f297bf60acc8e87553772a60cdd580b108560d8e0a02eaba8cdc8bdbb33"
+    },
+    {
+      "image_id": 524280,
+      "file_name": "000000524280.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000524280.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3308/3496817102_dcd4dae73a_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 640,
+      "selected_for": "cat",
+      "categories": [
+        "cat"
+      ],
+      "category_instances": {
+        "cat": 1
+      },
+      "category_area_fraction": {
+        "cat": 0.6469
+      },
+      "captions": [
+        "A cat outside looking straight ahead with a tree behind it.",
+        "A very close shot of a cat's face in front of the camera.",
+        "A brown cat stares at something in the field",
+        "A tawny cat stares wide-eyed into the distance.",
+        "A orange cat with green eyes and long whiskers."
+      ],
+      "sha256": "3b83ffd2d2ce4c28a05b1dcd486edf8a06542584a05c9a66cf208df9ed6e2c7d"
+    },
+    {
+      "image_id": 550691,
+      "file_name": "000000550691.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000550691.jpg",
+      "flickr_url": "http://farm6.staticflickr.com/5544/10112477424_03333e9845_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "bus",
+      "categories": [
+        "bus",
+        "car",
+        "person",
+        "tie"
+      ],
+      "category_instances": {
+        "bus": 2,
+        "car": 3,
+        "person": 2,
+        "tie": 1
+      },
+      "category_area_fraction": {
+        "bus": 0.3039,
+        "car": 0.0154,
+        "person": 0.0027,
+        "tie": 0.0001
+      },
+      "captions": [
+        "A red double decker bus on a street.",
+        "A double decker bus is going down a street.",
+        "a passangers bus moving on the opposite side with the car",
+        "double-decker buses in the street in residential area",
+        "A red double decker bus headed to Victoria is parked on the side of the street."
+      ],
+      "sha256": "168105cac7f4cc2c85faa655e68dc817c2178ea23f7fd1edb9d50843efdf1aab"
+    },
+    {
+      "image_id": 551820,
+      "file_name": "000000551820.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000551820.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3690/9305297287_053faa44ee_z.jpg",
+      "license": "Attribution-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nd/2.0/",
+      "width": 640,
+      "height": 425,
+      "selected_for": "tennis racket",
+      "categories": [
+        "person",
+        "tennis racket"
+      ],
+      "category_instances": {
+        "person": 14,
+        "tennis racket": 3
+      },
+      "category_area_fraction": {
+        "person": 0.2107,
+        "tennis racket": 0.0247
+      },
+      "captions": [
+        "Several people playing tennis in a school gymnasium.",
+        "Men and women playing tennis vehemently on tennis court",
+        "A group of people on a court playing tennis.",
+        "A tennis plare takes a swing very close to the net.",
+        "The man is intently involved in the badminton match."
+      ],
+      "sha256": "71889e85b7eb1b68477a719f055d42f106589a4fa2f4ca630573add24b71ce74"
+    },
+    {
+      "image_id": 357748,
+      "file_name": "000000357748.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000357748.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7330/8728802899_1024d4ed4b_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "bus",
+      "categories": [
+        "bus",
+        "person"
+      ],
+      "category_instances": {
+        "bus": 1,
+        "person": 4
+      },
+      "category_area_fraction": {
+        "bus": 0.5929,
+        "person": 0.0028
+      },
+      "captions": [
+        "A pink city bus at a bus stop.",
+        "A pink bus with a duck advertisement on the side",
+        "A pink bus is driving down the street",
+        "A pink bus is parked next to the curb.",
+        "A pink and white bus parked next to sidewalk and people."
+      ],
+      "sha256": "1dd50c5845ec4c97b94d799626e324fc2f1a8f66f93039c65189863593c524b9"
+    },
+    {
+      "image_id": 347693,
+      "file_name": "000000347693.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000347693.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3317/3427794620_9db24fe462_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "bed",
+      "categories": [
+        "bed"
+      ],
+      "category_instances": {
+        "bed": 2
+      },
+      "category_area_fraction": {
+        "bed": 0.0494
+      },
+      "captions": [
+        "A couple of windows sitting inside of a room.",
+        "a room with some big window on the side of it",
+        "The older hospital room looks like it could be remodeled.",
+        "An old doctors office with two windows with curatins.",
+        "An assortment of rags hang on a metal rack."
+      ],
+      "sha256": "2f3bf48e66d0f5ec0b9494f04a34a32441e9ca025ca1db177e3a49606b47f161"
+    },
+    {
+      "image_id": 329323,
+      "file_name": "000000329323.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000329323.jpg",
+      "flickr_url": "http://farm7.staticflickr.com/6183/6100180267_cecedd78ba_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 425,
+      "height": 640,
+      "selected_for": "person",
+      "categories": [
+        "person"
+      ],
+      "category_instances": {
+        "person": 14
+      },
+      "category_area_fraction": {
+        "person": 0.7152
+      },
+      "captions": [
+        "A group of people who are standing together.",
+        "a group of people that are standing up outside",
+        "a group of people are all gathered together outside",
+        "A crowd of people gather around the unwrapping of an item.",
+        "The crowd is looking at something covered in white cloth."
+      ],
+      "sha256": "fc1d988944570a6cb43dd7c90cbc40a72ba2437559a849a759db932d4473d74f"
+    },
+    {
+      "image_id": 117374,
+      "file_name": "000000117374.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000117374.jpg",
+      "flickr_url": "http://farm9.staticflickr.com/8468/8144608869_655919484a_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 640,
+      "height": 428,
+      "selected_for": "cat",
+      "categories": [
+        "bird",
+        "cat"
+      ],
+      "category_instances": {
+        "bird": 1,
+        "cat": 2
+      },
+      "category_area_fraction": {
+        "bird": 0.003,
+        "cat": 0.0395
+      },
+      "captions": [
+        "Two cats sitting in the dirt under a tree.",
+        "A couple of cats are by a tree",
+        "an image of two cats in a sand lot",
+        "Two cats by a tree in the dirt",
+        "Several cats sitting near a tree and a bird on a fence post."
+      ],
+      "sha256": "d5af6e66ee264eae5e041c5894be1ff7d78141b1aeccc13b7115cf4bd96ebfcb"
+    },
+    {
+      "image_id": 479912,
+      "file_name": "000000479912.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000479912.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7164/6754205289_c601f79a44_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 478,
+      "height": 640,
+      "selected_for": "airplane",
+      "categories": [
+        "airplane",
+        "person",
+        "truck"
+      ],
+      "category_instances": {
+        "airplane": 2,
+        "person": 3,
+        "truck": 2
+      },
+      "category_area_fraction": {
+        "airplane": 0.0629,
+        "person": 0.0004,
+        "truck": 0.0164
+      },
+      "captions": [
+        "A white airplane parked on a runway under a blue sky.",
+        "The loading dock is attached to the side of a four engine airliner.",
+        "A AIRPLANE THAT HAS LANDED ON A RUNWAY YELLOW LINE",
+        "A large passenger jumbo jet takes passengers on the runway",
+        "An airplane with one wing stands motionless on the tarmac."
+      ],
+      "sha256": "8a7876a0b0369040842be51c1fcab027deaeec0183add371d752760232cd2300"
+    },
+    {
+      "image_id": 527029,
+      "file_name": "000000527029.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000527029.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4024/4267639339_907ed42b03_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 640,
+      "selected_for": "banana",
+      "categories": [
+        "banana",
+        "cup",
+        "person"
+      ],
+      "category_instances": {
+        "banana": 14,
+        "cup": 1,
+        "person": 1
+      },
+      "category_area_fraction": {
+        "banana": 0.1185,
+        "cup": 0.0016,
+        "person": 0.168
+      },
+      "captions": [
+        "A man covering his eyes next to cases of bananas",
+        "a person covering his face next to many boxes of bananas",
+        "A man standing beside a display of bananas in boxes.",
+        "A man standing with his hands over his eyes by a fruit stand.",
+        "A man covering his eyes while standing next to multiple boxes filled with bananas."
+      ],
+      "sha256": "1f58ca1edded47efc20bcaa13638e92fdb78551d3984a428be4af267c16a85a9"
+    },
+    {
+      "image_id": 297830,
+      "file_name": "000000297830.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000297830.jpg",
+      "flickr_url": "http://farm8.staticflickr.com/7313/8728276717_165532d936_z.jpg",
+      "license": "Attribution-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nd/2.0/",
+      "width": 512,
+      "height": 640,
+      "selected_for": "dog",
+      "categories": [
+        "bottle",
+        "dog"
+      ],
+      "category_instances": {
+        "bottle": 1,
+        "dog": 1
+      },
+      "category_area_fraction": {
+        "bottle": 0.0158,
+        "dog": 0.2991
+      },
+      "captions": [
+        "A dirty dog sits on the front patio of a home.",
+        "A black and white dog sits next to a bottle on the ground.",
+        "a dog sitting near a door with a bottle next to it",
+        "A dirty white and black dog next to a bottle of soda.",
+        "happy dog poses outside a door with root beer bottle"
+      ],
+      "sha256": "9ffed0dd2b422514ab7482d95273cbe5b993e2c032538702b631267204627b9b"
+    },
+    {
+      "image_id": 571008,
+      "file_name": "000000571008.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000571008.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2118/2191889756_821d8713f4_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 425,
+      "selected_for": "stop sign",
+      "categories": [
+        "stop sign"
+      ],
+      "category_instances": {
+        "stop sign": 1
+      },
+      "category_area_fraction": {
+        "stop sign": 0.3438
+      },
+      "captions": [
+        "The stop sign has stenciled spray paint on it.",
+        "A red stop sign with the word \" Hammer Time \". written on it.",
+        "A stop sign that is displaying a different meaning than the original one.",
+        "some road signs showing the instructions on the road",
+        "a stop sign with hammertime written on it"
+      ],
+      "sha256": "331d53040108d187e891656fb85ec6fbc4d8dbbc53b45cee7f45cc21074ea0a5"
+    },
+    {
+      "image_id": 321790,
+      "file_name": "000000321790.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000321790.jpg",
+      "flickr_url": "http://farm9.staticflickr.com/8393/8622095370_9cfc3d3bb7_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "tennis racket",
+      "categories": [
+        "person",
+        "tennis racket"
+      ],
+      "category_instances": {
+        "person": 1,
+        "tennis racket": 1
+      },
+      "category_area_fraction": {
+        "person": 0.1957,
+        "tennis racket": 0.0398
+      },
+      "captions": [
+        "A young man holds up a tennis racket.",
+        "a man that is holding a tennis racket",
+        "A man in a Lacoste shirt playing tennis outside.",
+        "A tennis player getting ready to play a game.",
+        "A man holding a tennis racket at the tennis courts."
+      ],
+      "sha256": "ac0a290bfbd735b423b11d3395a16cada83b76fe3c013e8e5439d778fde93930"
+    },
+    {
+      "image_id": 51008,
+      "file_name": "000000051008.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000051008.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3553/3457510870_8791f8bf2b_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "laptop",
+      "categories": [
+        "cat",
+        "laptop"
+      ],
+      "category_instances": {
+        "cat": 1,
+        "laptop": 1
+      },
+      "category_area_fraction": {
+        "cat": 0.343,
+        "laptop": 0.4326
+      },
+      "captions": [
+        "A cat looking like it is using a laptop",
+        "A cat that is sitting on a laptop.",
+        "A large cat is sitting on a laptop computer.",
+        "A cat that is checking into its Twitter account to post a tweet.",
+        "A cat sitting in front of a laptop computer."
+      ],
+      "sha256": "cd615d2609c7ea6fa5c9c132fa8efd924477a05f0333470cf496117b7513fc3e"
+    },
+    {
+      "image_id": 187243,
+      "file_name": "000000187243.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000187243.jpg",
+      "flickr_url": "http://farm1.staticflickr.com/133/318627329_a0d8465c84_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 480,
+      "height": 640,
+      "selected_for": "toilet",
+      "categories": [
+        "person",
+        "sink",
+        "toilet"
+      ],
+      "category_instances": {
+        "person": 1,
+        "sink": 1,
+        "toilet": 1
+      },
+      "category_area_fraction": {
+        "person": 0.1994,
+        "sink": 0.0054,
+        "toilet": 0.0976
+      },
+      "captions": [
+        "A woman laying on a bathroom floor next to a toilet.",
+        "A person is laying on their back on the floor of a bathroom.",
+        "A woman laying down on a bathroom floor by a trash can.",
+        "a person laying on the ground in a bath room near a toilet",
+        "A person is laying on the bathroom floor in front of toilet."
+      ],
+      "sha256": "48829dbed343327f51da7555ae926765ba1b951bf6cced116a64934478bab8a5"
+    },
+    {
+      "image_id": 452122,
+      "file_name": "000000452122.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000452122.jpg",
+      "flickr_url": "http://farm7.staticflickr.com/6145/6038379198_be6e12c379_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "airplane",
+      "categories": [
+        "airplane"
+      ],
+      "category_instances": {
+        "airplane": 1
+      },
+      "category_area_fraction": {
+        "airplane": 0.0919
+      },
+      "captions": [
+        "An airplane flying in the air during the day.",
+        "A large aircraft is shown in the air.",
+        "The large jumbo jet has it's landing gear lowered.",
+        "A large white airplane flies in the gray sky.",
+        "An airplane in route with a cloudy sky behind it."
+      ],
+      "sha256": "28641b8180746005ada298f382067afdc96e88ee7ed83353b1ccdedd24bf1b03"
+    },
+    {
+      "image_id": 119677,
+      "file_name": "000000119677.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000119677.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3799/9667702619_8da6fe0e9c_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "cake",
+      "categories": [
+        "cake",
+        "fork"
+      ],
+      "category_instances": {
+        "cake": 1,
+        "fork": 1
+      },
+      "category_area_fraction": {
+        "cake": 0.0913,
+        "fork": 0.033
+      },
+      "captions": [
+        "A square of cheesecake on a marble cutting board with a two-pronged fork.",
+        "A piece of cake sitting on a square plate.",
+        "A small piece of dessert sitting on a gray plate.",
+        "A tiny square of cake beside a two tonged fork",
+        "a fork and a piece of cheese cake on a gray platter"
+      ],
+      "sha256": "3916fc42936471ef0cc962c4585e309991e5a8ee02d8725e9e655addc53d00bb"
+    },
+    {
+      "image_id": 366199,
+      "file_name": "000000366199.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000366199.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4101/4794594634_08a6586cc0_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "bed",
+      "categories": [
+        "bed",
+        "cat"
+      ],
+      "category_instances": {
+        "bed": 1,
+        "cat": 1
+      },
+      "category_area_fraction": {
+        "bed": 0.3773,
+        "cat": 0.0368
+      },
+      "captions": [
+        "A cat hides underneath the cover of blankets.",
+        "Small cat under the blankets on a bed.",
+        "That looks like it may be hiding under something.",
+        "I am not sure what this image is.",
+        "A very cute cat hiding under a blanket."
+      ],
+      "sha256": "c72cd72547cde741effa8e956631e74b25fa6200944ffb9649866a1335a7ba8b"
+    },
+    {
+      "image_id": 66886,
+      "file_name": "000000066886.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000066886.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3691/8886915346_ab6a794fa0_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 427,
+      "selected_for": "person",
+      "categories": [
+        "person"
+      ],
+      "category_instances": {
+        "person": 1
+      },
+      "category_area_fraction": {
+        "person": 0.5316
+      },
+      "captions": [
+        "A baby girl is holding a pink brush as she scratches her head.",
+        "The young girl is brushing her hair.",
+        "A young girl combing her hair with a pink comb.",
+        "a little girl is holding on to a hair brush",
+        "A girl grabs her hair and holds onto her hairbrush."
+      ],
+      "sha256": "989effc1225564c0ef215e6c57960842997c4e95607deb80133e99ff40ffd11e"
+    },
+    {
+      "image_id": 193674,
+      "file_name": "000000193674.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000193674.jpg",
+      "flickr_url": "http://farm6.staticflickr.com/5170/5240208640_839ede4a38_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "surfboard",
+      "categories": [
+        "dog",
+        "person",
+        "surfboard"
+      ],
+      "category_instances": {
+        "dog": 1,
+        "person": 1,
+        "surfboard": 1
+      },
+      "category_area_fraction": {
+        "dog": 0.0156,
+        "person": 0.0417,
+        "surfboard": 0.0265
+      },
+      "captions": [
+        "A person on a surfboard in the water.",
+        "Person prepares surfboard while dog stands on it with face in person's",
+        "A woman that is next to a surfboard with a dog.",
+        "Woman with surfboard getting kisses from dog at waters edge.",
+        "A woman bending over to kiss a dog on a surfboard."
+      ],
+      "sha256": "fe94d775b39e9a7ad325404842bdc5ce2758e5cb3edaeb66d9be772ac5448020"
+    },
+    {
+      "image_id": 90108,
+      "file_name": "000000090108.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000090108.jpg",
+      "flickr_url": "http://farm4.staticflickr.com/3511/5818186852_061520ff7a_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "toilet",
+      "categories": [
+        "bottle",
+        "sink",
+        "toilet"
+      ],
+      "category_instances": {
+        "bottle": 1,
+        "sink": 1,
+        "toilet": 1
+      },
+      "category_area_fraction": {
+        "bottle": 0.0011,
+        "sink": 0.0168,
+        "toilet": 0.0386
+      },
+      "captions": [
+        "A white bathroom sink sitting under a bathroom window.",
+        "An empty bathroom with blue walls on the lights on.",
+        "A small bathroom with an open design concept",
+        "a bathroom with blue and white walls",
+        "A bathroom with blue walls and white tiles."
+      ],
+      "sha256": "3a9a862c237d03ab32d8b455de68ffcd4fd094f2ddd4355b95048243f59a781a"
+    },
+    {
+      "image_id": 60449,
+      "file_name": "000000060449.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000060449.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2664/4150090398_6a7d30fb0a_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 480,
+      "height": 640,
+      "selected_for": "laptop",
+      "categories": [
+        "chair",
+        "couch",
+        "dining table",
+        "laptop"
+      ],
+      "category_instances": {
+        "chair": 2,
+        "couch": 1,
+        "dining table": 1,
+        "laptop": 1
+      },
+      "category_area_fraction": {
+        "chair": 0.0496,
+        "couch": 0.0224,
+        "dining table": 0.0247,
+        "laptop": 0.0514
+      },
+      "captions": [
+        "A very nice looking deck area with a small table and a laptop.",
+        "A laptop on a table outside a balcony overlooking the ocean.",
+        "Balcony overlooking beautiful site next to a tropical beach.",
+        "A laptop computer is on a glass table on a balcony.",
+        "a laptop on a table on balcony, blue sky."
+      ],
+      "sha256": "df8750575b6d080eff58ab42be4ac1790e6555722a06d7354d45ab5aff2cd469"
+    },
+    {
+      "image_id": 368038,
+      "file_name": "000000368038.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000368038.jpg",
+      "flickr_url": "http://farm9.staticflickr.com/8261/8664019372_6159bf2535_z.jpg",
+      "license": "Attribution-NonCommercial-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "width": 640,
+      "height": 317,
+      "selected_for": "train",
+      "categories": [
+        "train"
+      ],
+      "category_instances": {
+        "train": 1
+      },
+      "category_area_fraction": {
+        "train": 0.4699
+      },
+      "captions": [
+        "A colorful train sits on the tracks in the sunshine.",
+        "Colorful train cars are on the track next to some grass.",
+        "A long train filled with nothing but cabooses.",
+        "A large long train on a steel track.",
+        "A row of train colors of various colors next to trees."
+      ],
+      "sha256": "85c263242862fad8952482f70cc64326d067c62e06f5a2aca1300126ba8bd234"
+    },
+    {
+      "image_id": 463522,
+      "file_name": "000000463522.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000463522.jpg",
+      "flickr_url": "http://farm1.staticflickr.com/56/156111943_f36e0ca0ac_z.jpg",
+      "license": "Attribution-NonCommercial License",
+      "license_url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "horse",
+      "categories": [
+        "backpack",
+        "bicycle",
+        "dog",
+        "horse",
+        "person"
+      ],
+      "category_instances": {
+        "backpack": 2,
+        "bicycle": 3,
+        "dog": 1,
+        "horse": 2,
+        "person": 14
+      },
+      "category_area_fraction": {
+        "backpack": 0.0011,
+        "bicycle": 0.0008,
+        "dog": 0.0027,
+        "horse": 0.228,
+        "person": 0.0169
+      },
+      "captions": [
+        "A horse pulling  carriage travels through a busy area in a city",
+        "A horse is pulling something down a residential street.",
+        "A large set of horses carrying a carriage down a street.",
+        "A couple of brown horses walking down a street next to buildings.",
+        "A horse stands on the side of the road with a harness on."
+      ],
+      "sha256": "0a438982195807a57f6989644982e3974b00fa52101c99f99a31e3dfe578937c"
+    },
+    {
+      "image_id": 363840,
+      "file_name": "000000363840.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000363840.jpg",
+      "flickr_url": "http://farm3.staticflickr.com/2797/4256603007_6fbbea22de_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "laptop",
+      "categories": [
+        "bottle",
+        "chair",
+        "handbag",
+        "keyboard",
+        "laptop",
+        "mouse",
+        "person",
+        "tv"
+      ],
+      "category_instances": {
+        "bottle": 1,
+        "chair": 1,
+        "handbag": 1,
+        "keyboard": 1,
+        "laptop": 2,
+        "mouse": 2,
+        "person": 1,
+        "tv": 3
+      },
+      "category_area_fraction": {
+        "bottle": 0.0023,
+        "chair": 0.0686,
+        "handbag": 0.0132,
+        "keyboard": 0.046,
+        "laptop": 0.229,
+        "mouse": 0.0065,
+        "person": 0.0027,
+        "tv": 0.1924
+      },
+      "captions": [
+        "Several different pieces of electronic equipment and computers on a desk.",
+        "A desk with two laptops and a monitor.",
+        "Two laptops,computer,keyboard and other electrical gadgets are on the table.",
+        "two laptops a mouse cords wires and a monitor",
+        "Several laptop computers and electronic devices on a desk."
+      ],
+      "sha256": "231e12c229c2f84c186085b320a6a8dcaa3d4763bbd09940204121379a5b3e11"
+    },
+    {
+      "image_id": 193494,
+      "file_name": "000000193494.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000193494.jpg",
+      "flickr_url": "http://farm1.staticflickr.com/84/241570001_7d3c78b644_z.jpg",
+      "license": "Attribution-ShareAlike License",
+      "license_url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "width": 426,
+      "height": 640,
+      "selected_for": "bed",
+      "categories": [
+        "bed"
+      ],
+      "category_instances": {
+        "bed": 1
+      },
+      "category_area_fraction": {
+        "bed": 0.167
+      },
+      "captions": [
+        "A bed in a ten with a colorful ceiling.",
+        "a black shirt on a hanger blue curtains a bed and pillow",
+        "Child's bed and colorful quilt surrounded by blue plastic walls.",
+        "A makeshift bedroom is decorated in plastic and cardboard.",
+        "a bed surrounded with plastic for walls and ceiling"
+      ],
+      "sha256": "637ebcafdf7016bd3c5d279a62717d1141b5c13f5dc5bdbf04b05adc661fb745"
+    },
+    {
+      "image_id": 325114,
+      "file_name": "000000325114.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000325114.jpg",
+      "flickr_url": "http://farm9.staticflickr.com/8486/8175779785_5f987c1562_z.jpg",
+      "license": "Attribution License",
+      "license_url": "http://creativecommons.org/licenses/by/2.0/",
+      "width": 640,
+      "height": 480,
+      "selected_for": "toilet",
+      "categories": [
+        "toilet"
+      ],
+      "category_instances": {
+        "toilet": 1
+      },
+      "category_area_fraction": {
+        "toilet": 0.0587
+      },
+      "captions": [
+        "A table with a plate of food and a urinal basin",
+        "A urinal next to a red table with a plate sitting on the table.",
+        "a white urinal white tiles a red table with a dish",
+        "A urinal in a public restroom near a wooden table.",
+        "a little red tabke with a plate on it in the bathroom"
+      ],
+      "sha256": "4242e8e18d2b706a9bb182d540d6f6e93df599740067584f25fa7accaf319cc4"
+    },
+    {
+      "image_id": 348881,
+      "file_name": "000000348881.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000348881.jpg",
+      "flickr_url": "http://farm5.staticflickr.com/4127/5172389204_31214fdc50_z.jpg",
+      "license": "Attribution-NonCommercial-NoDerivs License",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "width": 640,
+      "height": 462,
+      "selected_for": "airplane",
+      "categories": [
+        "airplane",
+        "person",
+        "suitcase"
+      ],
+      "category_instances": {
+        "airplane": 2,
+        "person": 2,
+        "suitcase": 1
+      },
+      "category_area_fraction": {
+        "airplane": 0.0662,
+        "person": 0.0067,
+        "suitcase": 0.0006
+      },
+      "captions": [
+        "A large jetliner sitting on top of an airport runway.",
+        "Airline employees by an aircraft parked at the gate",
+        "The plane is parked at the gate at the airport terminal.",
+        "View from gate of jet connected to jet way for passengers to board or deplane",
+        "A large white airplane and a person on a lot."
+      ],
+      "sha256": "dfe178b6e9a2bf5d1d98893371f41256f51852c2f8c147f2cf0d6b7f63880c1d"
+    }
+  ]
+}
